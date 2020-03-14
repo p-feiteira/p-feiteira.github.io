@@ -5,7 +5,7 @@ body {
 }
 
 .bgimg {
-    height: 1080px;
+    height: 1000px;
     background-image: url('../img/images/home.jpg');
       /* Center and scale the image nicely */
   background-position: center;
