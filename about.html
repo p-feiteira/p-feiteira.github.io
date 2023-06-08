@@ -27,6 +27,9 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <!-- Javacript Files-->
+  <script type="text/javascript" src="assets/js/age.js"></script>
+
   <!-- =======================================================
   * Template Name: Kelly - v4.9.0
   * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
@@ -35,7 +38,7 @@
   ======================================================== -->
 </head>
 
-<body>
+<body onload="calculateAge()">
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
@@ -96,9 +99,9 @@
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-rounded-right"></i> <strong>Age:</strong> 25</li>
+                  <li><i class="bi bi-rounded-right"></i> <strong>Age:</strong> <span id="my-age"></span></li>
                   <li><i class="bi bi-rounded-right"></i> <strong>Degree:</strong> Master Degree in Computer Science</li>
-                  <li><i class="bi bi-rounded-right"></i> <strong>PhEmailone:</strong> pedrofeiteira97@gmail.com</li>
+                  <li><i class="bi bi-rounded-right"></i> <strong>Email:</strong> pedrofeiteira97@gmail.com</li>
                 </ul>
               </div>
             </div>
