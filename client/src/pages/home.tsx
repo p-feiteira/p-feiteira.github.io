@@ -26,7 +26,7 @@ export default function Home() {
       <footer className="bg-background border-t py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-muted-foreground mb-4">
-            &copy; 2024 Pedro Feiteira. All rights reserved.
+            &copy; 2025 Pedro Feiteira. All rights reserved.
           </p>
           <div className="flex justify-center space-x-6">
             <a 

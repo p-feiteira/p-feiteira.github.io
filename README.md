@@ -1,1 +1,3 @@
-# personal-page-react
+# My personal page
+
+Written in React using ReplitAI
