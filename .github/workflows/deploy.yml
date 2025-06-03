@@ -29,7 +29,7 @@ jobs:
       run: npm run build
 
     - name: List build directory
-      run: ls -al build
+      run: ls -al ./dist
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
