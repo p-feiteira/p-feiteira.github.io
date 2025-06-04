@@ -5,38 +5,34 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Linkedin, Github, Twitter, Instagram } from "lucide-react";
+import { Mail } from "lucide-react";
+import { SiLinkedin, SiGithub, SiX } from "react-icons/si";
+import { Resend } from "resend";
 
 const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "pedro.feiteira@example.com",
-    href: "mailto:pedro.feiteira@example.com"
+    value: "pedrofeiteira.dev@gmail.com",
+    href: "mailto:pedrofeiteira.dev@gmail.com"
   },
   {
-    icon: Linkedin,
+    icon: SiLinkedin,
     label: "LinkedIn",
-    value: "linkedin.com/in/pedro-feiteira",
-    href: "https://linkedin.com/in/pedro-feiteira"
+    value: "linkedin.com/in/p-feiteira",
+    href: "https://www.linkedin.com/in/p-feiteira"
   },
   {
-    icon: Github,
+    icon: SiGithub,
     label: "GitHub",
     value: "github.com/p-feiteira",
     href: "https://github.com/p-feiteira"
   },
   {
-    icon: Twitter,
-    label: "Twitter",
-    value: "@pedrofeiteira",
-    href: "https://twitter.com/pedrofeiteira"
-  },
-  {
-    icon: Instagram,
-    label: "Instagram",
-    value: "@pedro.feiteira",
-    href: "https://instagram.com/pedro.feiteira"
+    icon: SiX,
+    label: "X",
+    value: "@feiteira_dev",
+    href: "https://x.com/feiteira_dev"
   }
 ];
 
@@ -58,16 +54,39 @@ export function ContactSection() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    toast({
-      title: "Message sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
-    });
+      const data = await response.json();
 
-    setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
+      if (response.ok) {
+        toast({
+          title: "Message sent!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast({
+          title: "Error",
+          description: data.error || "Failed to send message. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please check your connection and try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
