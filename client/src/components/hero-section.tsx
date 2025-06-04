@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Download, Mail } from "lucide-react";
 import profileImage from "@assets/profile.jpeg";
+import resume from "@assets/CV_2025.pdf"; // Placeholder for resume file
 
 export function HeroSection() {
   const handleContactClick = () => {
@@ -13,16 +14,16 @@ export function HeroSection() {
   const handleDownloadResume = () => {
     // Create a dummy resume download
     const link = document.createElement('a');
-    link.href = '/resume.pdf'; // In production, this would be a real resume file
+    link.href = resume; // In production, this would be a real resume file
     link.download = 'Pedro_Feiteira_Resume.pdf';
     
     // For demo purposes since we don't have an actual PDF
-    alert('Resume download would start here. In production, this would download an actual PDF file.');
+    //alert('Resume download would start here. In production, this would download an actual PDF file.');
     
     // Uncomment for actual download:
-    // document.body.appendChild(link);
-    // link.click();
-    // document.body.removeChild(link);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
