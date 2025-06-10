@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import Hero from "@/hero";
 import About from "@/about";
@@ -6,17 +7,49 @@ import Projects from "@/projects";
 import Contact from "@/contact";
 import Header from "@/header";
 import Footer from "@/footer";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { AnimatedItem } from "@/components/common/AnimatedItem";
+
+const sections = [Skills, Projects, Contact]
+
 
 export default function Page() {
-  return <div>
-    <Header/>
-    <Hero/>
-    <About/>
-    <Skills/>
-    <Projects/>
-    <Contact/>
-    <Footer/>
-  </div>
+
+  const [showHeroSection, setShowHeroSection] = useState(true);
+  const [showRemainingSections, setShowRemainingSections] = useState(false);
+
+  return (
+    <div>
+      <Header />
+      {showHeroSection && (
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          onAnimationComplete={() => { setShowRemainingSections(true); }}
+        >
+          <Hero />
+        </motion.div>
+      )}
+
+      <About/>
+      
+
+      <div className="space-y-10">
+        {showRemainingSections && (
+        <><>
+          {sections.map((Section, index) => (
+            <AnimatedItem key={index}>
+              <Section />
+            </AnimatedItem>
+          ))}
+        </><Footer /></>
+      )}
+      </div>
+
+    </div>
+  );
 }
 
 export function _Page() {
