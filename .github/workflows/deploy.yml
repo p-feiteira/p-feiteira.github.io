@@ -26,12 +26,12 @@ jobs:
       run: npm ci
 
     - name: Build
-      run: npm run build
+      run: npm run deploy
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist/public
+        publish_dir: ./out
       env:
         EMAIL_USERNAME: 'pedrofeiteira.dev@gmail.com'
