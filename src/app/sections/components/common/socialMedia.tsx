@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 const socialMedia = [
   {"icon": "linkedin", "href": "https://www.linkedin.com/in/p-feiteira/"},
@@ -20,10 +21,12 @@ export default function SocialMediaSection() {
           asChild
         >
           <Link href={media.href} className="flex items-center" target="_blank" rel="noopener noreferrer">
-            <img
+            <Image
               src={`/icons/${media.icon.toLowerCase()}.svg`}
               alt={`${media.icon} icon`}
               className="h-5 w-5 dark:invert"
+              width={50}
+              height={50}
             />
           </Link>
         </Button>
