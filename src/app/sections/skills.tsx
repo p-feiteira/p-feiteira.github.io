@@ -3,6 +3,7 @@ import React from 'react'
 import ReactCountryFlag from 'react-country-flag'
 import {Card, CardContent} from '@/components/ui/card'
 import { Speech , Puzzle, UsersRound, HeartHandshake, Brush, Trophy, MessageCircleCode, Layers, Database, ShieldCheck} from 'lucide-react'
+import Image from 'next/image'
 
 const hard_skills = [
     { name: 'Python', Icon: "python" },
@@ -85,9 +86,9 @@ function SoftSection(){
 }
 
 type SkillComponentProps = {
-  Icon: any,
-  children: any
-} 
+  Icon: React.ElementType | string,
+  children: React.ReactNode
+}
 
 function SkillComponent({Icon, children}: SkillComponentProps){
   return <div className='my-4'>
@@ -96,8 +97,8 @@ function SkillComponent({Icon, children}: SkillComponentProps){
           <div className='flex justify-start items-center gap-4'>
                 {Icon &&
                 (typeof Icon === 'string'
-                  ? <img src={`/icons/${Icon}.svg`} alt={Icon} className="w-6 h-6" />
-                  : <Icon className='dark:invert'/>)
+                  ? <Image src={`/icons/${Icon}.svg`} alt={Icon} width={20} height={20} className='dark:invert' />
+                  : React.createElement(Icon, { className: 'text-primary' }))
                 }
               {children}
           </div>

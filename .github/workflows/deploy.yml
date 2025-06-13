@@ -33,3 +33,5 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist/public
+      env:
+        EMAIL_USERNAME: 'pedrofeiteira.dev@gmail.com'

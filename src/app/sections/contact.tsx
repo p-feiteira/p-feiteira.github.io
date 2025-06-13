@@ -2,6 +2,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useState } from "react"
+import Image from "next/image";
 
 
 export default function Contact() {
@@ -73,10 +74,12 @@ function ContactInfo() {
             <h2 className="text-3xl font-semibold">Get in touch</h2>
             {contacts.map((contact, index) => (
                 <div key={index} className="flex items-center gap-4">
-                    <img
+                    <Image
                         src={`/icons/${contact.icon.toLowerCase()}.svg`}
                         alt={`${contact.icon} icon`}
-                        className="h-8 w-8 dark:invert"
+                        width={35}
+                        height={35}
+                        className="dark:invert"
                     />
                     <span className="text-md">{contact.href}</span>
                 </div>))}
