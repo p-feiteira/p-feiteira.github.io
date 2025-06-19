@@ -6,15 +6,19 @@ import Image from "next/image";
 
 
 export default function Contact() {
-    return <div id="contact">
+    return (
+      <div id="contact" className="section-spacing">
         <h1 className="text-5xl font-bold text-center my-8">Contact Me</h1>
-        <div className="grid grid-cols-2 gap-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto py-8">
-            <div>
-                <ContactInfo />
-            </div>
+        <div className="flex flex-col gap-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto py-8 md:grid md:grid-cols-2 md:gap-8">
+          <div className="order-1 md:order-none">
+            <ContactInfo />
+          </div>
+          <div className="order-2 md:order-none">
             <ContactForm />
+          </div>
         </div>
-    </div>
+      </div>
+    );
 }
 
 function ContactForm() {
@@ -48,7 +52,7 @@ function ContactForm() {
 
     return (
         <div>
-           <span className="text-3xl font-semibold">Send a Message</span> 
+           <span className="text-3xl font-semibold block text-center md:text-left">Send a Message</span> 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 my-5">
             <Input name="name" placeholder="Your name" className="w-xs" value={form.name} onChange={handleChange} required />
             <Input name="email" type="email" placeholder="Your email" className="w-xs" value={form.email} onChange={handleChange} required />
@@ -71,7 +75,7 @@ const contacts = [
 function ContactInfo() {
     return (
         <div className="flex flex-col gap-2 space-y-4">
-            <h2 className="text-3xl font-semibold">Get in touch</h2>
+            <h2 className="text-3xl font-semibold text-center md:text-left">Get in touch</h2>
             {contacts.map((contact, index) => (
                 <div key={index} className="flex items-center gap-4">
                     <Image

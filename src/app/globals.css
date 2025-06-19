@@ -135,3 +135,7 @@ html {
   @apply opacity-100 translate-y-0;
 }
 
+.section-spacing {
+  @apply my-16 sm:my-24 md:my-32;
+}
+
