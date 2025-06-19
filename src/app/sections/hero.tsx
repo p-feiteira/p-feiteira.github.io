@@ -4,22 +4,24 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
-    return <div className="flex items-center justify-center flex-col gap-6 text-center my-40">
+    return (
+      <div className="section-spacing flex items-center justify-center flex-col gap-6 text-center my-20 sm:my-32 md:my-40 px-2">
         <Image
-            src="/profile.jpeg"
-            alt="Profile Picture"
-            width={350}
-            height={350}
-            className="rounded-full"
-            loading="eager"
-            priority
+          src="/profile.jpeg"
+          alt="Profile Picture"
+          width={200}
+          height={200}
+          className="rounded-full w-32 h-32 sm:w-56 sm:h-56 md:w-[350px] md:h-[350px] object-cover mx-auto"
+          loading="eager"
+          priority
         />
         <HeroName />
-        <div className="flex flex-col sm:flex-row gap-4">
-            <ContactButton />
-            <ResumeButton />
+        <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xs sm:max-w-md mx-auto justify-center">
+          <ContactButton />
+          <ResumeButton />
         </div>
-    </div>
+      </div>
+    );
 }
 
 function HeroName() {
@@ -46,7 +48,7 @@ function HeroName() {
     }, [started, displayed, fullName]);
 
     return (
-        <h1 className="text-7xl font-bold font-mono">
+        <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold font-mono break-words">
             {displayed}
             <span
                 className={`ml-1 ${done ? "inline animate-blink" : "invisible"}`}
@@ -55,7 +57,7 @@ function HeroName() {
                 <span className="terminal-underscore">_</span>
             </span>
             <p>
-                <span style={{ visibility: done ? "visible" : "hidden" }} className="text-3xl font-normal text-gray-500">
+                <span style={{ visibility: done ? "visible" : "hidden" }} className="text-lg sm:text-2xl md:text-3xl font-normal text-gray-500">
                     <span key={done ? "spawned": "hidden"} className="spawn-animation">Software Developer</span>
                 </span>
             </p>
@@ -64,18 +66,22 @@ function HeroName() {
 }
 
 function ContactButton() {
-    return <Button
-        onClick={() => window.location.href = "#contact"}
-    >
-    Contact Me
-    </Button>;
+    return (
+      <Button
+        onClick={() => (window.location.href = "#contact")}
+        className="w-full sm:w-auto"
+      >
+        Contact Me
+      </Button>
+    );
 }
 
 function ResumeButton() {
-    return <a href="/CV_2025.pdf" download>
-  <Button variant="outline" className="text-green-500 hover:text-white">
-    Download Resume
-  </Button>
-</a>
-;
+    return (
+      <a href="/CV_2025.pdf" download className="w-full sm:w-auto">
+        <Button variant="outline" className="w-full sm:w-auto text-green-500 hover:text-white">
+          Download Resume
+        </Button>
+      </a>
+    );
 }

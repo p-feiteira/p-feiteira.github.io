@@ -10,7 +10,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
-import { Moon, Sun } from "lucide-react"
+import { Moon, Sun, Menu } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
@@ -18,20 +18,50 @@ import { Button } from "@/components/ui/button"
 import SocialMediaSection from "@/components/common/socialMedia"
 
 export default function Header() {
-  return <header id="home" className="grid grid-cols-3 w-full px-6 py-4 bg-background border-b">
-    <Home />
-    <div className="flex items-center justify-center">
+  const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
+  return (
+    <header
+      id="home"
+      className="w-full px-4 py-4 bg-background border-b md:grid md:grid-cols-3 md:gap-0 md:px-6"
+    >
+      {/* Mobile Top Bar */}
+      <div className="flex items-center justify-between md:hidden w-full">
+        <Home />
+        <button
+          aria-label="Open navigation menu"
+          onClick={() => setMobileNavOpen((v) => !v)}
+          className="p-2 rounded focus:outline-none focus:ring"
+        >
+          <Menu className="h-7 w-7" />
+        </button>
+      </div>
+      {/* Desktop Layout */}
+      <Home className="hidden md:block" />
+      <div className="hidden md:flex items-center justify-center">
         <Navigation />
-    </div>
-    <div className="flex gap-4 justify-end">
-      <SocialMediaSection />
-      <DarkModeToggle />
-    </div>
-  </header>
+      </div>
+      <div className="hidden md:flex gap-4 justify-end">
+        <SocialMediaSection />
+        <DarkModeToggle />
+      </div>
+      {/* Mobile Dropdown */}
+      {mobileNavOpen && (
+        <div className="absolute top-20 left-0 w-full bg-background border-b z-50 flex flex-col items-center gap-2 py-4 shadow-lg animate-fade-in-up md:hidden">
+          <Navigation mobile={true} />
+          <div className="mt-4">
+            <SocialMediaSection />
+          </div>
+          <div className="mt-2">
+            <DarkModeToggle />
+          </div>
+        </div>
+      )}
+    </header>
+  )
 }
 
-function Home(){
-  return <div className="text-2xl font-bold">&lt; Pedro Feiteira /&gt; </div>   
+function Home({ className = "" }: { className?: string }){
+  return <div className={`text-2xl font-bold ${className}`}>&lt; Pedro Feiteira /&gt; </div>   
 }
 
 
@@ -54,8 +84,9 @@ const components: { title: string; href: string;}[] = [
   },
 ]
 
-function Navigation(){
-  return (<NavigationMenu className="items-center" viewport={false}>
+function Navigation({ mobile = false }: { mobile?: boolean }){
+  return (
+    <NavigationMenu className={`items-center ${mobile ? 'flex flex-col gap-2' : ''}`} viewport={false}>
       <NavigationMenuList>
         <NavigationMenuItem>
           {components.map((component) => (
@@ -70,7 +101,7 @@ function Navigation(){
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
-    )
+  )
 }
 
 function DarkModeToggle() {
