@@ -1,10 +1,9 @@
 'use client'
 import React from 'react'
 import ReactCountryFlag from 'react-country-flag'
-import {Card, CardContent} from '@/components/ui/card'
 import { Speech , Puzzle, UsersRound, HeartHandshake, Brush, Trophy, MessageCircleCode, Layers, Database, ShieldCheck} from 'lucide-react'
-import Image from 'next/image'
 import InfoCard from './components/common/infoCard'
+import Image from 'next/image'
 
 const hard_skills = [
     { name: 'Python', Icon: "python" },
@@ -104,13 +103,13 @@ type SkillComponentProps = {
 function SkillComponent({ Icon, children, compact, alignLeft }: SkillComponentProps) {
   let iconProp: React.ReactNode = undefined;
   if (typeof Icon === 'string') {
-    iconProp = <img src={`/icons/${Icon}.svg`} alt={Icon} width={24} height={24} className="dark:invert" />;
+    iconProp = <Image src={`/icons/${Icon}.svg`} alt={Icon} width={24} height={24} className="dark:invert" />;
   } else if (Icon) {
     iconProp = <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />;
   }
   return (
     <div className="my-2">
-      <InfoCard Icon={iconProp} title={children as string} compact={compact ?? false} alignLeft={alignLeft ?? false} children={compact ? '' : String(children)} />
+      <InfoCard Icon={iconProp} title={children as string} compact={compact ?? false} alignLeft={alignLeft ?? false}>{compact ? '' : String(children)}</InfoCard>
     </div>
   );
 }

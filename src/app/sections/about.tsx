@@ -98,12 +98,12 @@ export default function About() {
           {hobbies.map((hobby, index) => {
             let iconProp = undefined;
             if (typeof hobby.icon === 'string') {
-              iconProp = <img src={`/icons/${hobby.icon}.svg`} alt={hobby.icon} width={24} height={24} className="dark:invert" />;
+              iconProp = <Image src={`/icons/${hobby.icon}.svg`} alt={hobby.icon} width={24} height={24} className="dark:invert" />;
             } else if (hobby.icon) {
               iconProp = React.createElement(hobby.icon, { className: 'h-5 w-5 sm:h-6 sm:w-6 text-primary' });
             }
             return (
-              <InfoCard key={index} Icon={iconProp} title={hobby.title} children={hobby.description} />
+              <InfoCard key={index} Icon={iconProp} title={hobby.title}>{hobby.description}</InfoCard>
             );
           })}
         </div>
