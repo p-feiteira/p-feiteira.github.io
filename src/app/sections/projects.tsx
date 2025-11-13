@@ -6,6 +6,7 @@ import { Github } from "lucide-react";
 import { fetchGitHubRepos, type GitHubRepo } from "@/lib/github";
 import RepoCard from "@/components/common/repoCard";
 import Link from "next/link";
+import { GITHUB, SITE_CONFIG } from "@/lib/constants";
 
 
 function LoadingSkeleton() {
@@ -33,32 +34,39 @@ function LoadingSkeleton() {
   );
 }
 
-function ErrorState() {
+function ErrorState({ onRetry, isRetrying }: { onRetry: () => void; isRetrying: boolean }) {
   return (
-    <div className="text-center py-8">
+    <div className="text-center py-8" role="alert">
       <p className="text-muted-foreground mb-4">
-        Unable to load repositories. Please visit my GitHub profile directly.
+        Unable to load repositories. Please try again or visit my GitHub profile directly.
       </p>
-      <Button variant="outline" asChild>
-        <a 
-          href="https://github.com/p-feiteira" 
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
-          <Github className="mr-2 h-4 w-4" />
-          View on GitHub
-        </a>
-      </Button>
+      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button variant="outline" onClick={onRetry} disabled={isRetrying}>
+          {isRetrying ? "Retrying..." : "Try Again"}
+        </Button>
+        <Button variant="outline" asChild>
+          <a 
+            href={SITE_CONFIG.github} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            aria-label="Visit Pedro Feiteira's GitHub profile"
+          >
+            <Github className="mr-2 h-4 w-4" />
+            View on GitHub
+          </a>
+        </Button>
+      </div>
     </div>
   );
 }
 
 export default function Projects() {
-  const { data: repos, isLoading, error } = useQuery({
+  const { data: repos, isLoading, error, refetch, isRefetching } = useQuery({
     queryKey: ['/api/github/repos'],
     queryFn: fetchGitHubRepos,
-    staleTime: 5 * 60 * 1000, // 5 minutes
-    retry: 1,
+    staleTime: GITHUB.staleTime,
+    retry: GITHUB.retryAttempts,
+    retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
   });
 
   return (
@@ -68,27 +76,46 @@ export default function Projects() {
           <h2 className="text-5xl font-bold my-8">Projects</h2>
         </div>
         
-        {isLoading && <LoadingSkeleton />}
+        {(isLoading || isRefetching) && <LoadingSkeleton />}
         
-        {error && <ErrorState />}
+        {error && !isLoading && <ErrorState onRetry={() => refetch()} isRetrying={isRefetching} />}
         
-        {Array.isArray(repos) && (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {(repos as GitHubRepo[]).map((repo: GitHubRepo) => (
-              <RepoCard key={repo.id} repo={repo} />
-            ))}
+        {!isLoading && !error && Array.isArray(repos) && repos.length > 0 && (
+          <>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {(repos as GitHubRepo[]).map((repo: GitHubRepo) => (
+                <RepoCard key={repo.id} repo={repo} />
+              ))}
+            </div>
+            
+            <div className="text-center mt-12">
+              <Button variant="outline" size="lg" asChild>
+                <Link href="https://github.com/p-feiteira" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  aria-label="View all repositories on GitHub"
+                >
+                  View All on GitHub
+                </Link>
+              </Button>
+            </div>
+          </>
+        )}
+
+        {!isLoading && !error && Array.isArray(repos) && repos.length === 0 && (
+          <div className="text-center py-8">
+            <p className="text-muted-foreground mb-4">No repositories found.</p>
+            <Button variant="outline" asChild>
+              <Link href={SITE_CONFIG.github} 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Github className="mr-2 h-4 w-4" />
+                Visit GitHub Profile
+              </Link>
+            </Button>
           </div>
         )}
-        
-        <div className="text-center mt-12">
-          <Button variant="outline" size="lg" asChild>
-            <Link href="https://github.com/p-feiteira" 
-              target="_blank" 
-              rel="noopener noreferrer">
-              View All on GitHub
-            </Link>
-          </Button>
-        </div>
       </div>
     </section>
   );

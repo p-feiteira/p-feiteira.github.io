@@ -11,12 +11,14 @@ export interface GitHubRepo {
   topics: string[];
 }
 
-const GITHUB_USERNAME = 'p-feiteira';
+import { GITHUB } from "@/lib/constants";
+
+const GITHUB_USERNAME = GITHUB.username;
 
 export async function fetchGitHubRepos(): Promise<GitHubRepo[]> {
   try {
     const response = await fetch(
-      `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=6&type=public`
+      `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=${GITHUB.reposPerPage}&type=public`
     );
     
     if (!response.ok) {

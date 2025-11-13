@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://p-feiteira.github.io/sitemap.xml
+
