@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export default function RepoCard({ repo }: { repo: GitHubRepo }) {
   return (
-    <Card className="hover-lift bg-muted-foreground/5 dark:bg-muted/10 transition-shadow duration-300">
+    <Card className="bg-muted-foreground/5 dark:bg-muted/10 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
       <CardContent className="p-6">
         <div className="flex items-start justify-between mb-4">
           <h3 className="font-semibold text-lg truncate flex-1 mr-2">

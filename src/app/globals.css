@@ -139,3 +139,13 @@ html {
   @apply my-16 sm:my-24 md:my-32;
 }
 
+.sr-only {
+  @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+  clip: rect(0, 0, 0, 0);
+}
+
+.focus\:not-sr-only:focus {
+  @apply static w-auto h-auto p-0 m-0 overflow-visible whitespace-normal border-none;
+  clip: auto;
+}
+

@@ -4,9 +4,10 @@ import React from "react";
 import InfoCard from "@/components/common/infoCard";
 import { AnimatedItem } from "@/components/common/AnimatedItem";
 import Image from "next/image";
+import Experience from "./experience";
 
 const metadata = {
-    text: "I'm a Software Developer with a passion for building efficient and scalable applications. I have experience in various programming languages and frameworks, and I'm always eager to learn new technologies. My goal is to create software that not only meets the needs of users but also exceeds their expectations.",
+    text: "I'm a Senior Full-Stack+AI Engineer passionate about building intelligent, scalable applications that solve real-world problems. With expertise in Python (FastAPI), React, Next.js, and modern AI technologies like LangChain and OpenAI, I specialize in architecting end-to-end solutions that combine full-stack development with generative AI capabilities. I'm experienced in building RAG pipelines, managing cloud infrastructure on AWS with Terraform, and implementing secure, observable systems. Whether working on AI-powered applications, optimizing data workflows, or automating infrastructure, I focus on creating software that drives measurable impact and exceptional user experiences.",
 };
 
 const hobbies = [
@@ -34,21 +35,9 @@ function AboutSection() {
             <span className="text-md text-muted-foreground">Remote Ready</span>
           </div>
         </div>
-        {/* About image as divider */}
-        <div className="flex justify-center mt-8 mb-6">
-          <Image
-            src="/about.png"
-            alt="About Picture"
-            width={448}
-            height={448}
-            className="rounded-xl opacity-80 w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[28rem] lg:h-[28rem] object-cover"
-            loading="eager"
-            priority
-          />
-        </div>
       </div>
       <div className="hidden md:block">
-        <div className="text-base sm:text-lg text-muted-foreground text-justify mb-4 max-w-md mx-auto">
+        <div className="text-base sm:text-lg text-muted-foreground text-justify mb-4 max-w-3xl mx-auto">
           {metadata.text}
         </div>
         <div className="flex flex-col gap-2 mt-8 items-center text-center">
@@ -69,27 +58,19 @@ function AboutSection() {
 export default function About() {
   return (
     <div id="about" className="section-spacing w-full flex flex-col gap-8 md:gap-12">
-      {/* Mobile: stack, Desktop: grid */}
-      <div className="block md:grid md:grid-cols-2 md:items-center md:gap-4 md:space-y-0 mb-8">
-        <div className="w-full md:h-full md:flex md:flex-col md:justify-center md:px-8">
-          <AnimatedItem>
-            <div className="w-full md:max-w-xl">
-              <AboutSection />
-            </div>
-          </AnimatedItem>
-        </div>
-        {/* About image only on desktop */}
-        <div className="hidden md:flex w-full justify-center items-center md:px-8">
-          <Image
-            src="/about.png"
-            alt="About Picture"
-            width={448}
-            height={448}
-            className="rounded-xl opacity-80 w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[28rem] lg:h-[28rem] object-cover"
-            loading="eager"
-            priority
-          />
-        </div>
+      {/* About Me Section */}
+      <div className="w-full flex justify-center mb-8">
+        <AnimatedItem>
+          <div className="w-full max-w-4xl mx-auto px-4 md:px-8">
+            <AboutSection />
+          </div>
+        </AnimatedItem>
+      </div>
+      {/* Experience Timeline */}
+      <div className="w-full max-w-6xl mx-auto mt-20">
+        <AnimatedItem>
+          <Experience />
+        </AnimatedItem>
       </div>
       {/* Hobbies title and cards */}
       <div className="w-full max-w-6xl mx-auto mt-20">
@@ -106,18 +87,6 @@ export default function About() {
               <InfoCard key={index} Icon={iconProp} title={hobby.title}>{hobby.description}</InfoCard>
             );
           })}
-        </div>
-        {/* Hobbies image as divider on mobile, always below cards */}
-        <div className="flex justify-center items-center mt-10 md:mt-10">
-          <Image
-            src="/hobbies.png"
-            alt="Hobbies Picture"
-            width={448}
-            height={448}
-            className="rounded-xl opacity-80 w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[28rem] lg:h-[28rem] object-cover"
-            loading="eager"
-            priority
-          />
         </div>
       </div>
     </div>

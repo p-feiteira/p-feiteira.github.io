@@ -8,7 +8,7 @@ export default function Hero() {
       <div className="section-spacing flex items-center justify-center flex-col gap-6 text-center my-20 sm:my-32 md:my-40 px-2">
         <Image
           src="/profile.jpeg"
-          alt="Profile Picture"
+          alt="Pedro Feiteira, Software Developer"
           width={200}
           height={200}
           className="rounded-full w-32 h-32 sm:w-56 sm:h-56 md:w-[350px] md:h-[350px] object-cover mx-auto"
@@ -49,7 +49,9 @@ function HeroName() {
 
     return (
         <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold font-mono break-words">
-            {displayed}
+            <span aria-live="polite" aria-atomic="true">
+                {displayed || fullName}
+            </span>
             <span
                 className={`ml-1 ${done ? "inline animate-blink" : "invisible"}`}
                 aria-hidden="true"
@@ -57,7 +59,7 @@ function HeroName() {
                 <span className="terminal-underscore">_</span>
             </span>
             <p>
-                <span style={{ visibility: done ? "visible" : "hidden" }} className="text-lg sm:text-2xl md:text-3xl font-normal text-gray-500">
+                <span style={{ visibility: done ? "visible" : "hidden" }} className="text-lg sm:text-2xl md:text-3xl font-normal text-gray-500" aria-hidden={!done}>
                     <span key={done ? "spawned": "hidden"} className="spawn-animation">Software Developer</span>
                 </span>
             </p>
@@ -68,8 +70,12 @@ function HeroName() {
 function ContactButton() {
     return (
       <Button
-        onClick={() => (window.location.href = "#contact")}
-        className="w-full sm:w-auto"
+        onClick={() => {
+          const contactSection = document.getElementById("contact");
+          contactSection?.scrollIntoView({ behavior: "smooth" });
+        }}
+        className="w-full sm:w-auto focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+        aria-label="Navigate to contact section"
       >
         Contact Me
       </Button>
@@ -78,7 +84,12 @@ function ContactButton() {
 
 function ResumeButton() {
     return (
-      <a href="/CV_2025.pdf" download className="w-full sm:w-auto">
+      <a 
+        href="/CV_2025.pdf" 
+        download 
+        className="w-full sm:w-auto focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-md"
+        aria-label="Download Pedro Feiteira's resume (PDF)"
+      >
         <Button variant="outline" className="w-full sm:w-auto text-green-500 hover:text-white">
           Download Resume
         </Button>
