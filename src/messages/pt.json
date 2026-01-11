@@ -1,0 +1,192 @@
+{
+  "navigation": {
+    "skipToContent": "Saltar para o conteudo principal",
+    "about": "Sobre",
+    "skills": "Competencias",
+    "experience": "Experiencia",
+    "projects": "Projetos",
+    "contact": "Contacto",
+    "toggleTheme": "Alternar tema",
+    "openMenu": "Abrir menu de navegacao",
+    "closeMenu": "Fechar menu de navegacao",
+    "navigateTo": "Navegar para a seccao {section}",
+    "mobileNav": "Navegacao movel",
+    "mainNav": "Navegacao principal"
+  },
+  "hero": {
+    "greeting": "Ola! Sou o Pedro Feiteira",
+    "role": "Programador",
+    "contactButton": "Contactar",
+    "resumeButton": "Descarregar CV",
+    "profileAlt": "Pedro Feiteira, Programador",
+    "resumeAriaLabel": "Descarregar o curriculo de Pedro Feiteira (PDF)",
+    "contactAriaLabel": "Navegar para a seccao de contacto"
+  },
+  "about": {
+    "title": "Sobre Mim",
+    "description": "Sou um Engenheiro Senior Full-Stack+IA apaixonado por construir aplicacoes inteligentes e escalaveis que resolvem problemas do mundo real. Com experiencia em Python (FastAPI), React, Next.js e tecnologias modernas de IA como LangChain e OpenAI, especializo-me em arquitetar solucoes de ponta a ponta que combinam desenvolvimento full-stack com capacidades de IA generativa. Tenho experiencia na construcao de pipelines RAG, gestao de infraestrutura cloud na AWS com Terraform e implementacao de sistemas seguros e observaveis. Seja trabalhando em aplicacoes alimentadas por IA, otimizando fluxos de dados ou automatizando infraestrutura, foco-me em criar software que gera impacto mensuravel e experiencias de utilizador excecionais.",
+    "location": "Baseado em Portugal",
+    "remote": "Pronto para Remoto",
+    "hobbiesTitle": "Hobbies"
+  },
+  "hobbies": {
+    "gaming": {
+      "title": "Gaming",
+      "description": "Uma das minhas paixoes sao os videojogos. Desde crianca, sempre fui fascinado por boas historias, boa narrativa e resolver puzzles. A grande razao pela qual escolhi esta area de trabalho."
+    },
+    "fitness": {
+      "title": "Fitness",
+      "description": "Ter um equilibrio entre mente e corpo e muito importante para lidar com os problemas do dia-a-dia. Por isso, tento sempre ser o mais ativo possivel e comer da forma mais saudavel possivel."
+    },
+    "music": {
+      "title": "Musica",
+      "description": "Sempre adorei todos os estilos de musica. Sinto realmente que cada estilo de musica tem o seu momento para ser ouvido. Acaba sempre por ter um impacto importante no momento de vida que estamos a viver."
+    },
+    "learning": {
+      "title": "Aprendizagem",
+      "description": "Aprender sobre tudo sempre me fascinou. Estou sempre a procura de algo novo, diferentes assuntos para dominar, nao apenas de forma profissional."
+    }
+  },
+  "experience": {
+    "title": "Experiencia",
+    "ongoing": "A Decorrer",
+    "entries": [
+      {
+        "role": "Engenheiro Senior Full-Stack+IA @ Aircall",
+        "company": "AdvanceWorks",
+        "period": "Set 2025 -- A Decorrer",
+        "location": "Lisboa, Portugal",
+        "description": [
+          "Arquitetar e construir um novo assistente de suporte de IA generativa do zero, utilizando Python (FastAPI), LangChain, OpenAI e Pinecone para criar um pipeline RAG avancado integrado com Zendesk.",
+          "Liderar o desenvolvimento de ponta a ponta de um novo portal de suporte self-service, projetado para reduzir significativamente o volume de tickets manuais e diminuir o tempo de resolucao do cliente.",
+          "Desenvolver e manter a aplicacao full-stack, incluindo o frontend React/Next.js e o backend de microsservicos Python/FastAPI utilizando PostgreSQL e Redis.",
+          "Proprietario e automatizador de toda a infraestrutura cloud na AWS usando Terraform (IaC), com Docker para containerizacao e GitLab para CI/CD.",
+          "Engenharia de sistemas seguros e observaveis implementando AWS Cognito (JWT/Cookies) para autenticacao e integrando DataDog para monitorizacao abrangente da aplicacao.",
+          "Nesta funcao, estou a aprender engenharia de prompts para tirar partido das ferramentas de IA mais recentes para melhorar a minha produtividade e eficiencia."
+        ],
+        "technologies": ["Python", "FastAPI", "LangChain", "OpenAI", "Pinecone", "React", "Next.js", "PostgreSQL", "Redis", "AWS", "Terraform", "Docker", "GitLab CI/CD", "AWS Cognito", "DataDog"]
+      },
+      {
+        "role": "Programador Python",
+        "company": "EngineAI",
+        "period": "Set 2021 -- Jun 2025",
+        "location": "Lisboa, Portugal",
+        "description": [
+          "Desenvolver e manter o SDK da empresa usando Python. Tambem foi usado Pandas para processamento de dados e Pytest para testes unitarios.",
+          "Ajudei a construir pipelines CI/CD com GithubActions para o repositorio Python.",
+          "Juntei-me a equipa de dashboards para ajudar a construir dashboards, usando SQL (snowflake), pandas e o SDK da empresa.",
+          "Otimizar fluxos de dados entre servicos Python e bases de dados cloud (Snowflake).",
+          "Ajudei a construir a suite de testes interativos da empresa com Playwright, tanto Python como JavaScript. Tambem criei testes de carga usando Grafana K6",
+          "Atualmente a trabalhar no projeto de agentes LLM empresariais, onde sou responsavel por ligar o resultado da IA com a stack Web",
+          "Aprendizagem continua de stacks tecnologicas modernas para apoiar projetos cross-funcionais"
+        ],
+        "technologies": ["Python", "Pandas", "Pytest", "GitHub Actions", "SQL", "Snowflake", "Playwright", "JavaScript", "Grafana K6"]
+      },
+      {
+        "role": "Estagio",
+        "company": "Celfocus",
+        "period": "Abr 2018 -- Jul 2018",
+        "location": "Lisboa, Portugal",
+        "description": [
+          "Desenvolvi uma Prova de Conceito (PoC) para um sistema que gera automaticamente casos de teste a partir de requisitos de software.",
+          "Construi uma aplicacao web funcional (full-stack) cobrindo os objetivos principais, demonstrando viabilidade de ponta a ponta.",
+          "Tecnologias Chave: Node.js (backend), IBM Watson (funcionalidades alimentadas por IA) e Cloud Computing para deployment.",
+          "Ganhei experiencia pratica em desenvolvimento full-stack, focando em escalabilidade e automacao."
+        ],
+        "technologies": ["Node.js", "IBM Watson", "Cloud Computing"]
+      }
+    ]
+  },
+  "skills": {
+    "title": "Competencias",
+    "hardSkills": "Competencias Tecnicas",
+    "softSkills": "Competencias Pessoais",
+    "languages": "Idiomas",
+    "hard": {
+      "python": "Python",
+      "sql": "SQL",
+      "docker": "Docker",
+      "cicd": "CI/CD",
+      "typescript": "Typescript",
+      "testing": "Testes"
+    },
+    "soft": {
+      "communication": "Comunicacao",
+      "problemSolving": "Resolucao de Problemas",
+      "teamwork": "Trabalho em Equipa",
+      "adaptability": "Adaptabilidade",
+      "criticalThinking": "Pensamento Critico",
+      "leadership": "Lideranca",
+      "creativity": "Criatividade",
+      "emotionalIntelligence": "Inteligencia Emocional"
+    },
+    "languageNames": {
+      "portuguese": "Portugues",
+      "english": "Ingles"
+    }
+  },
+  "projects": {
+    "title": "Projetos",
+    "errorMessage": "Nao foi possivel carregar os repositorios. Por favor tente novamente ou visite o meu perfil GitHub diretamente.",
+    "retrying": "A tentar novamente...",
+    "tryAgain": "Tentar Novamente",
+    "viewOnGithub": "Ver no GitHub",
+    "viewAllOnGithub": "Ver Todos no GitHub",
+    "noRepos": "Nenhum repositorio encontrado.",
+    "visitProfile": "Visitar Perfil GitHub",
+    "visitProfileAriaLabel": "Visitar o perfil GitHub de Pedro Feiteira"
+  },
+  "contact": {
+    "title": "Contacte-me",
+    "sendMessage": "Enviar Mensagem",
+    "getInTouch": "Entre em contacto",
+    "form": {
+      "namePlaceholder": "O seu nome",
+      "emailPlaceholder": "O seu email",
+      "messagePlaceholder": "A sua mensagem",
+      "sendButton": "Enviar Mensagem",
+      "sending": "A enviar...",
+      "characters": "{count} / {max} caracteres"
+    },
+    "validation": {
+      "nameRequired": "O nome e obrigatorio",
+      "nameMinLength": "O nome deve ter pelo menos {min} caracteres",
+      "nameMaxLength": "O nome deve ter menos de {max} caracteres",
+      "emailRequired": "O email e obrigatorio",
+      "emailInvalid": "Por favor insira um endereco de email valido",
+      "messageRequired": "A mensagem e obrigatoria",
+      "messageMinLength": "A mensagem deve ter pelo menos {min} caracteres",
+      "messageMaxLength": "A mensagem deve ter menos de {max} caracteres"
+    },
+    "toast": {
+      "success": "Mensagem enviada com sucesso! Responderei em breve.",
+      "rateLimited": "Por favor aguarde um momento antes de enviar outra mensagem",
+      "formErrors": "Por favor corrija os erros no formulario",
+      "genericError": "Algo correu mal. Por favor tente novamente mais tarde."
+    },
+    "status": {
+      "sending": "A enviar a sua mensagem...",
+      "sent": "Mensagem enviada com sucesso!",
+      "failed": "Falha ao enviar mensagem. Por favor tente novamente."
+    }
+  },
+  "footer": {
+    "backToTop": "Voltar ao Topo",
+    "scrollToTop": "Rolar para o topo",
+    "copyright": "Pedro Feiteira. Todos os direitos reservados."
+  },
+  "notFound": {
+    "title": "Pagina Nao Encontrada",
+    "description": "A pagina que procura nao existe ou foi movida.",
+    "goHome": "Ir para Inicio",
+    "goBack": "Voltar"
+  },
+  "common": {
+    "loading": "A carregar...",
+    "error": "Erro"
+  },
+  "languageSwitcher": {
+    "label": "Mudar idioma",
+    "currentLanguage": "Idioma atual: {language}"
+  }
+}

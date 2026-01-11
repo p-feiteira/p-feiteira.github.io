@@ -20,7 +20,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/app/sections/*"]
+      "@/*": ["./src/app/[locale]/sections/*"],
+      "@i18n/*": ["./src/i18n/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

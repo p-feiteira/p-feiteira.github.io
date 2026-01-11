@@ -1,8 +1,9 @@
-"use client"
-
 import Link from "next/link"
-import { Button } from "./sections/components/ui/button"
-import { Home, ArrowLeft } from "lucide-react"
+import { Button } from "./[locale]/sections/components/ui/button"
+import GoBackButton from "./[locale]/sections/components/GoBackButton"
+import { Home } from "lucide-react"
+
+export const dynamic = "force-static"
 
 export default function NotFound() {
   return (
@@ -15,7 +16,7 @@ export default function NotFound() {
             The page you&apos;re looking for doesn&apos;t exist or has been moved.
           </p>
         </div>
-        
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button asChild>
             <Link href="/">
@@ -23,13 +24,9 @@ export default function NotFound() {
               Go Home
             </Link>
           </Button>
-          <Button variant="outline" onClick={() => window.history.back()}>
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Go Back
-          </Button>
+          <GoBackButton />
         </div>
       </div>
     </div>
   )
 }
-

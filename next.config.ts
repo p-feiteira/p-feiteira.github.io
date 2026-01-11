@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 import path from "path";
+import createNextIntlPlugin from 'next-intl/plugin';
 
-/** @type {import('next').NextConfig} */
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 const nextConfig: NextConfig = {
   output: 'export',
@@ -13,10 +14,11 @@ const nextConfig: NextConfig = {
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@': path.resolve(__dirname, './src/app/sections'),
+      '@': path.resolve(__dirname, './src/app/[locale]/sections'),
+      '@i18n': path.resolve(__dirname, './src/i18n'),
     };
     return config;
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

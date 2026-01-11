@@ -1,0 +1,192 @@
+{
+  "navigation": {
+    "skipToContent": "Skip to main content",
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact",
+    "toggleTheme": "Toggle theme",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "navigateTo": "Navigate to {section} section",
+    "mobileNav": "Mobile navigation",
+    "mainNav": "Main navigation"
+  },
+  "hero": {
+    "greeting": "Hi! I'm Pedro Feiteira",
+    "role": "Software Developer",
+    "contactButton": "Contact Me",
+    "resumeButton": "Download Resume",
+    "profileAlt": "Pedro Feiteira, Software Developer",
+    "resumeAriaLabel": "Download Pedro Feiteira's resume (PDF)",
+    "contactAriaLabel": "Navigate to contact section"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "I'm a Senior Full-Stack+AI Engineer passionate about building intelligent, scalable applications that solve real-world problems. With expertise in Python (FastAPI), React, Next.js, and modern AI technologies like LangChain and OpenAI, I specialize in architecting end-to-end solutions that combine full-stack development with generative AI capabilities. I'm experienced in building RAG pipelines, managing cloud infrastructure on AWS with Terraform, and implementing secure, observable systems. Whether working on AI-powered applications, optimizing data workflows, or automating infrastructure, I focus on creating software that drives measurable impact and exceptional user experiences.",
+    "location": "Based in Portugal",
+    "remote": "Remote Ready",
+    "hobbiesTitle": "Hobbies"
+  },
+  "hobbies": {
+    "gaming": {
+      "title": "Gaming",
+      "description": "One of my passions is video games. Ever since I was a child, I've always been fascinated by good stories, good storytelling and solving puzzles. The big reason I chose this area of work."
+    },
+    "fitness": {
+      "title": "Fitness",
+      "description": "Having a balance between mind and body is very important for dealing with everyday problems. So I always try to be as active as possible and eat as healthily as possible."
+    },
+    "music": {
+      "title": "Music",
+      "description": "I've always loved all styles of music. I really feel that each style of music has its own moment to be heard. It always ends up having an important impact on the moment of life we're living."
+    },
+    "learning": {
+      "title": "Learning",
+      "description": "Learning about everything has always fascinated me. I'm always looking for something new, different subjects to master, not just in professional way."
+    }
+  },
+  "experience": {
+    "title": "Experience",
+    "ongoing": "On Going",
+    "entries": [
+      {
+        "role": "Senior Full-Stack+AI Engineer @ Aircall",
+        "company": "AdvanceWorks",
+        "period": "Sep 2025 -- On Going",
+        "location": "Lisbon, Portugal",
+        "description": [
+          "Architecting and building a new generative AI support assistant from scratch, leveraging Python (FastAPI), LangChain, OpenAI, and Pinecone to create an advanced RAG pipeline integrated with Zendesk.",
+          "Spearheading the end-to-end development of a new self-service support portal, projected to significantly reduce manual ticket volume and decrease customer resolution time.",
+          "Developing and maintaining the full-stack application, including the React/Next.js frontend and Python/FastAPI microservices backend utilizing PostgreSQL and Redis.",
+          "Owning and automating all cloud infrastructure on AWS using Terraform (IaC), with Docker for containerization and GitLab for CI/CD.",
+          "Engineered secure and observable systems by implementing AWS Cognito (JWT/Cookies) for authentication and integrating DataDog for comprehensive application monitoring.",
+          "In this role, I am learning prompt engineering in order to take advantage of the most recent AI tools to improve my productivity and efficiency."
+        ],
+        "technologies": ["Python", "FastAPI", "LangChain", "OpenAI", "Pinecone", "React", "Next.js", "PostgreSQL", "Redis", "AWS", "Terraform", "Docker", "GitLab CI/CD", "AWS Cognito", "DataDog"]
+      },
+      {
+        "role": "Python Developer",
+        "company": "EngineAI",
+        "period": "Sep 2021 -- Jun 2025",
+        "location": "Lisbon, Portugal",
+        "description": [
+          "Develop and maintain the company's SDK using Python. It was used also Pandas for data processing and Pytest for unit tests.",
+          "Helped build GithubActions CI/CD pipelines for Python's repo.",
+          "Joined dashboard team to help building dashboards, using SQL (snowflake), pandas and the company's SDK.",
+          "Optimize data workflows between Python services and cloud databases (Snowflake).",
+          "Helped build the company's interactive testing suite with Playwright, both Python and JavaScript. Also created loading tests using Grafana K6",
+          "Currently working on enterprise LLM agents project, where I'm responsible to link the AI result with the Web stack",
+          "Continuously learning modern tech stacks to support cross-functional projects"
+        ],
+        "technologies": ["Python", "Pandas", "Pytest", "GitHub Actions", "SQL", "Snowflake", "Playwright", "JavaScript", "Grafana K6"]
+      },
+      {
+        "role": "Internship",
+        "company": "Celfocus",
+        "period": "Apr 2018 -- Jul 2018",
+        "location": "Lisbon, Portugal",
+        "description": [
+          "Developed a Proof of Concept (PoC) for a system that automatically generates test cases from software requirements.",
+          "Built a functional web application (full-stack) covering core objectives, demonstrating end-to-end viability.",
+          "Key Technologies: Node.js (backend), IBM Watson (AI-powered features), and Cloud Computing for deployment.",
+          "Gained hands-on full-stack development experience, focusing on scalability and automation."
+        ],
+        "technologies": ["Node.js", "IBM Watson", "Cloud Computing"]
+      }
+    ]
+  },
+  "skills": {
+    "title": "Skills",
+    "hardSkills": "Hard Skills",
+    "softSkills": "Soft Skills",
+    "languages": "Languages",
+    "hard": {
+      "python": "Python",
+      "sql": "SQL",
+      "docker": "Docker",
+      "cicd": "CI/CD",
+      "typescript": "Typescript",
+      "testing": "Testing"
+    },
+    "soft": {
+      "communication": "Communication",
+      "problemSolving": "Problem Solving",
+      "teamwork": "Teamwork",
+      "adaptability": "Adaptability",
+      "criticalThinking": "Critical Thinking",
+      "leadership": "Leadership",
+      "creativity": "Creativity",
+      "emotionalIntelligence": "Emotional Intelligence"
+    },
+    "languageNames": {
+      "portuguese": "Portuguese",
+      "english": "English"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "errorMessage": "Unable to load repositories. Please try again or visit my GitHub profile directly.",
+    "retrying": "Retrying...",
+    "tryAgain": "Try Again",
+    "viewOnGithub": "View on GitHub",
+    "viewAllOnGithub": "View All on GitHub",
+    "noRepos": "No repositories found.",
+    "visitProfile": "Visit GitHub Profile",
+    "visitProfileAriaLabel": "Visit Pedro Feiteira's GitHub profile"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "sendMessage": "Send a Message",
+    "getInTouch": "Get in touch",
+    "form": {
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "Your email",
+      "messagePlaceholder": "Your message",
+      "sendButton": "Send Message",
+      "sending": "Sending...",
+      "characters": "{count} / {max} characters"
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "nameMinLength": "Name must be at least {min} characters",
+      "nameMaxLength": "Name must be less than {max} characters",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address",
+      "messageRequired": "Message is required",
+      "messageMinLength": "Message must be at least {min} characters",
+      "messageMaxLength": "Message must be less than {max} characters"
+    },
+    "toast": {
+      "success": "Message sent successfully! I'll get back to you soon.",
+      "rateLimited": "Please wait a moment before sending another message",
+      "formErrors": "Please fix the errors in the form",
+      "genericError": "Something went wrong. Please try again later."
+    },
+    "status": {
+      "sending": "Sending your message...",
+      "sent": "Message sent successfully!",
+      "failed": "Failed to send message. Please try again."
+    }
+  },
+  "footer": {
+    "backToTop": "Back to Top",
+    "scrollToTop": "Scroll to top",
+    "copyright": "Pedro Feiteira. All rights reserved."
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "goHome": "Go Home",
+    "goBack": "Go Back"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error"
+  },
+  "languageSwitcher": {
+    "label": "Change language",
+    "currentLanguage": "Current language: {language}"
+  }
+}
