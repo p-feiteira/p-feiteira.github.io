@@ -22,7 +22,7 @@
 **Requirements**: REQ-05
 
 ### Phase 3: Complex Motion & Transitions
-**Status**: ⬜ Not Started
+**Status**: ✅ Complete
 **Objective**: Integrate `framer-motion` to build a complex but smooth scrolling experience. We will explore things like parallax, text-reveal effects, or path-drawing animations for high visual impact.
 **Requirements**: REQ-03, REQ-06
 

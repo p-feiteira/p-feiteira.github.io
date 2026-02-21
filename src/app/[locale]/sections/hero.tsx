@@ -1,28 +1,40 @@
 "use client"
 import Image from "next/image"
-import { useEffect, useState } from "react"
 import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
+import { motion, Variants } from "framer-motion"
 
 export default function Hero() {
   const t = useTranslations("hero")
 
   return (
     <div className="flex flex-col items-center justify-center gap-6 text-center min-h-[85vh] px-4 max-w-5xl mx-auto -mt-10">
-      <Image
-        src="/profile.jpg"
-        alt={t("profileAlt")}
-        width={128}
-        height={128}
-        className="rounded-full w-20 h-20 md:w-28 md:h-28 object-cover mx-auto grayscale opacity-80 mb-4"
-        loading="eager"
-        priority
-      />
+      <motion.div
+        initial={{ filter: "blur(15px)", opacity: 0, scale: 0.9 }}
+        animate={{ filter: "blur(0px)", opacity: 0.8, scale: 1 }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        className="mb-4"
+      >
+        <Image
+          src="/profile.jpg"
+          alt={t("profileAlt")}
+          width={128}
+          height={128}
+          className="rounded-full w-20 h-20 md:w-28 md:h-28 object-cover mx-auto grayscale"
+          loading="eager"
+          priority
+        />
+      </motion.div>
       <HeroName />
-      <div className="flex flex-col sm:flex-row gap-4 w-full justify-center mt-12">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className="flex flex-col sm:flex-row gap-4 w-full justify-center mt-12"
+      >
         <ContactButton />
         <ResumeButton />
-      </div>
+      </motion.div>
     </div>
   )
 }
@@ -30,53 +42,50 @@ export default function Hero() {
 function HeroName() {
   const t = useTranslations("hero")
   const fullName = t("greeting")
-  const [displayed, setDisplayed] = useState("")
-  const [started, setStarted] = useState(false)
-  const [done, setDone] = useState(false)
 
-  useEffect(() => {
-    const delay = setTimeout(() => setStarted(true), 300)
-    return () => clearTimeout(delay)
-  }, [])
+  const container: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  }
 
-  useEffect(() => {
-    if (!started) return
-    if (displayed.length < fullName.length) {
-      const timeout = setTimeout(
-        () => {
-          setDisplayed(fullName.slice(0, displayed.length + 1))
-        },
-        displayed.length == 3 ? 900 : 100
-      ) // Typing speed (ms)
-      return () => clearTimeout(timeout)
-    } else {
-      setDone(true)
-    }
-  }, [started, displayed, fullName])
+  const child: Variants = {
+    hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
+    show: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const },
+    },
+  }
 
   return (
-    <h1 className="text-5xl sm:text-7xl md:text-[8rem] lg:text-[10rem] font-semibold tracking-tighter leading-[0.9] break-words">
-      <span aria-live="polite" aria-atomic="true">
-        {displayed || fullName}
-      </span>
-      <span
-        className={`ml-1 inline-block ${done ? "animate-blink" : "invisible"}`}
-        aria-hidden="true"
-      >
-        <div className="w-4 h-12 md:w-8 md:h-24 bg-foreground mt-2 translate-y-2 lg:translate-y-4 rounded-sm" />
-      </span>
-      <p>
-        <span
-          style={{ visibility: done ? "visible" : "hidden" }}
-          className="text-sm md:text-xl mt-6 md:mt-10 block font-medium text-muted-foreground tracking-widest uppercase"
-          aria-hidden={!done}
-        >
-          <span key={done ? "spawned" : "hidden"} className="spawn-animation">
-            {t("role")}
-          </span>
+    <motion.h1
+      variants={container}
+      initial="hidden"
+      animate="show"
+      className="text-5xl sm:text-7xl md:text-[8rem] lg:text-[10rem] font-semibold tracking-tighter leading-[0.9] break-words"
+    >
+      <div aria-live="polite" aria-atomic="true" className="flex flex-wrap justify-center overflow-hidden pb-4">
+        {fullName.split(" ").map((word, wordIndex) => (
+          <div key={wordIndex} className="inline-flex mr-4 last:mr-0">
+            <motion.span variants={child} className="inline-block">
+              {word}
+            </motion.span>
+          </div>
+        ))}
+      </div>
+      <motion.p variants={child}>
+        <span className="text-sm md:text-xl mt-4 md:mt-8 block font-medium text-muted-foreground tracking-widest uppercase">
+          {t("role")}
         </span>
-      </p>
-    </h1>
+      </motion.p>
+    </motion.h1>
   )
 }
 
