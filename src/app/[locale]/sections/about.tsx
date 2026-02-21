@@ -86,7 +86,7 @@ function HobbiesSection() {
 
 export default function About() {
   return (
-    <div id="about" className="section-spacing w-full flex flex-col gap-8 md:gap-12">
+    <div id="about" className="section-spacing scroll-mt-24 w-full flex flex-col gap-8 md:gap-12">
       {/* About Me Section */}
       <div className="w-full flex justify-center mb-8">
         <AnimatedItem>

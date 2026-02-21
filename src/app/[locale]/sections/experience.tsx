@@ -81,7 +81,7 @@ export default function Experience() {
   const entries = t.raw("entries") as ExperienceEntry[]
 
   return (
-    <div id="experience" className="w-full py-12 px-4 sm:px-6 lg:px-8">
+    <div id="experience" className="w-full py-12 px-4 sm:px-6 lg:px-8 scroll-mt-24">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-5xl font-bold my-8">{t("title")}</h2>

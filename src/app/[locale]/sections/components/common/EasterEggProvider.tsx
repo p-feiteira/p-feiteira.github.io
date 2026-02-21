@@ -25,6 +25,9 @@ export function EasterEggProvider({ children }: { children: React.ReactNode }) {
     };
 
     useEffect(() => {
+        // Output hint to the developer tools console for discovery
+        console.log("%c[SYSTEM] Awaiting input... Type 'A' then 'I'.", "color: #00ff00; font-family: monospace; font-size: 14px;");
+
         let keyIndex = 0;
 
         const handleKeyDown = (e: KeyboardEvent) => {

@@ -46,7 +46,8 @@
 }
 
 :root {
-  --radius: 0.375rem; /* Smoother, sharper edges slightly smaller */
+  --radius: 0.375rem;
+  /* Smoother, sharper edges slightly smaller */
   --background: hsl(0 0% 100%);
   --foreground: hsl(0 0% 9%);
   --card: hsl(0 0% 100%);
@@ -81,9 +82,11 @@
 }
 
 .dark {
-  --background: hsl(0 0% 0%); /* True black */
+  --background: hsl(0 0% 0%);
+  /* True black */
   --foreground: hsl(0 0% 98%);
-  --card: hsl(0 0% 4%); /* Extremely dark gray for slight contrast */
+  --card: hsl(0 0% 4%);
+  /* Extremely dark gray for slight contrast */
   --card-foreground: hsl(0 0% 98%);
   --popover: hsl(0 0% 4%);
   --popover-foreground: hsl(0 0% 98%);
@@ -118,6 +121,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -125,12 +129,15 @@
 
 html {
   @apply scroll-smooth;
+  scroll-padding-top: 5rem;
+  /* Accounts for the sticky header height */
 }
 
 /* Optional: extra utility if not using animation keyframes */
 .fade-in-up {
   @apply opacity-0 translate-y-10 transition-all duration-700 ease-out;
 }
+
 .fade-in-up.visible {
   @apply opacity-100 translate-y-0;
 }
@@ -148,4 +155,3 @@ html {
   @apply static w-auto h-auto p-0 m-0 overflow-visible whitespace-normal border-none;
   clip: auto;
 }
-

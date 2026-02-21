@@ -13,7 +13,7 @@ export default function Contact() {
   const t = useTranslations("contact")
 
   return (
-    <div id="contact" className="section-spacing">
+    <div id="contact" className="section-spacing scroll-mt-24">
       <h1 className="text-5xl font-bold text-center my-8">{t("title")}</h1>
       <div className="flex flex-col gap-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto py-8 md:grid md:grid-cols-2 md:gap-8">
         <div className="order-1 md:order-none">

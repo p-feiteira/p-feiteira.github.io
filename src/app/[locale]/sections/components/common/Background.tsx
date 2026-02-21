@@ -1,128 +1,67 @@
 "use client";
 
-import { useTheme } from "next-themes";
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Background() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const { scrollYProgress } = useScroll();
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+    setMounted(true);
+  }, []);
 
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+  const y1 = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const y2 = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
 
-    let animationFrameId: number;
-    let particles: Particle[] = [];
-    
-    // Configuration
-    const particleCount = 60;
-    const connectionDistance = 150;
-    const moveSpeed = 0.5;
-
-    // Helper to get current theme color
-    const getThemeColor = () => {
-        const currentTheme = theme === 'system' ? systemTheme : theme;
-        return currentTheme === 'dark' ? 'rgba(255, 255, 255, ' : 'rgba(0, 0, 0, ';
-    };
-
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    class Particle {
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      size: number;
-
-      constructor() {
-        this.x = Math.random() * canvas!.width;
-        this.y = Math.random() * canvas!.height;
-        this.vx = (Math.random() - 0.5) * moveSpeed;
-        this.vy = (Math.random() - 0.5) * moveSpeed;
-        this.size = Math.random() * 2 + 1;
-      }
-
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        // Bounce off edges
-        if (this.x < 0 || this.x > canvas!.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas!.height) this.vy *= -1;
-      }
-
-      draw(baseColor: string) {
-        if (!ctx) return;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `${baseColor}0.5)`; // 50% opacity for dots
-        ctx.fill();
-      }
-    }
-
-    const init = () => {
-      particles = [];
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-      }
-    };
-
-    const animate = () => {
-      if (!ctx || !canvas) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      const baseColor = getThemeColor();
-
-      // Update and draw particles
-      particles.forEach((particle) => {
-        particle.update();
-        particle.draw(baseColor);
-      });
-
-      // Draw connections
-      particles.forEach((a, index) => {
-        for (let j = index + 1; j < particles.length; j++) {
-          const b = particles[j];
-          const dx = a.x - b.x;
-          const dy = a.y - b.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < connectionDistance) {
-            const opacity = 1 - distance / connectionDistance;
-            ctx.beginPath();
-            ctx.strokeStyle = `${baseColor}${opacity * 0.15})`; // Low opacity lines
-            ctx.lineWidth = 1;
-            ctx.moveTo(a.x, a.y);
-            ctx.lineTo(b.x, b.y);
-            ctx.stroke();
-          }
-        }
-      });
-
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
-    window.addEventListener("resize", resize);
-    resize();
-    init();
-    animate();
-
-    return () => {
-      window.removeEventListener("resize", resize);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, [theme, systemTheme]);
+  if (!mounted) {
+    return <div className="fixed inset-0 -z-50 bg-background" />;
+  }
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none"
-    />
+    <div className="fixed inset-0 -z-50 overflow-hidden bg-background pointer-events-none">
+
+      {/* Moving gradient meshes */}
+      <div className="absolute inset-0 blur-[100px] saturate-150">
+        <motion.div
+          style={{ y: y1 }}
+          animate={{
+            x: ["0%", "15%", "-15%", "0%"],
+            scale: [1, 1.2, 0.9, 1],
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          className="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-cyan-500 opacity-20 dark:opacity-[0.15]"
+        />
+        <motion.div
+          style={{ y: y2 }}
+          animate={{
+            x: ["0%", "-20%", "20%", "0%"],
+            scale: [1, 0.9, 1.1, 1],
+          }}
+          transition={{ duration: 18, repeat: Infinity, ease: "linear", delay: 2 }}
+          className="absolute top-[30%] -right-[10%] w-[50vw] h-[50vw] rounded-full bg-orange-500 opacity-20 dark:opacity-[0.15]"
+        />
+        <motion.div
+          animate={{
+            x: ["-20%", "20%", "-20%"],
+            y: ["0%", "20%", "0%"],
+            scale: [0.9, 1.1, 0.9],
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute -bottom-[20%] left-[20%] w-[50vw] h-[50vw] rounded-full bg-amber-500 opacity-20 dark:opacity-[0.15]"
+        />
+      </div>
+
+      {/* Dotted Grid Pattern with Fade-Out at edges */}
+      <div
+        className="absolute inset-0 opacity-[0.04] dark:opacity-[0.05] mix-blend-normal"
+        style={{
+          backgroundImage: `radial-gradient(currentColor 1px, transparent 1px)`,
+          backgroundSize: '32px 32px',
+          maskImage: 'linear-gradient(to bottom, white 20%, transparent 90%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, white 20%, transparent 90%)',
+        }}
+      />
+    </div>
   );
 }

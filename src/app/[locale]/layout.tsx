@@ -156,7 +156,7 @@ export default async function LocaleLayout({
   const messages = messagesMap[locale as Locale] || messagesMap.en;
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning className="scroll-smooth scroll-pt-24">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

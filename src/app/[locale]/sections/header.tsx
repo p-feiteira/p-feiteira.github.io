@@ -36,7 +36,7 @@ export default function Header() {
       </a>
       <header
         id="home"
-        className="sticky top-0 z-50 w-full px-4 py-4 bg-background/40 backdrop-blur-xl border-b border-border/40 md:grid md:grid-cols-3 md:gap-0 md:px-6"
+        className="sticky top-0 z-50 w-full px-4 py-4 bg-transparent border-b border-transparent md:grid md:grid-cols-3 md:gap-0 md:px-6"
       >
         {/* Mobile Top Bar */}
         <div className="flex items-center justify-between md:hidden w-full">
@@ -117,7 +117,7 @@ function Navigation({ mobile = false }: { mobile?: boolean }) {
             {navItems.map((component) => (
               <NavigationMenuLink
                 asChild
-                className={`${navigationMenuTriggerStyle()} text-xs uppercase tracking-widest font-medium focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2`}
+                className={`${navigationMenuTriggerStyle()} bg-transparent hover:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent text-xs uppercase tracking-widest font-medium focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2`}
                 key={component.key}
               >
                 <Link

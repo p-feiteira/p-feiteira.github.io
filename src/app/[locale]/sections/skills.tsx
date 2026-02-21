@@ -35,7 +35,7 @@ export default function Skills() {
   const t = useTranslations('skills')
 
   return (
-    <div id="skills" className="section-spacing w-full flex flex-col items-center px-4">
+    <div id="skills" className="section-spacing scroll-mt-24 w-full flex flex-col items-center px-4">
       <h2 className="text-3xl sm:text-5xl font-bold text-center mt-8">{t('title')}</h2>
       <div className="flex flex-col gap-12 text-center mt-10 w-full max-w-5xl mx-auto">
         <HardSection />
