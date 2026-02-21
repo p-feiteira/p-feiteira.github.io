@@ -12,7 +12,7 @@
 ## Phases
 
 ### Phase 1: Foundation Setup & Theming
-**Status**: ⬜ Not Started
+**Status**: ✅ Complete
 **Objective**: Establish a dark mode / minimal monochromatic base. Refine global styles and layout components, configuring standard fonts such as Inter or Geist.
 **Requirements**: REQ-01, REQ-02
 
