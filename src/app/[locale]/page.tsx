@@ -17,7 +17,7 @@ export default function Page() {
           <Hero />
         </AnimatedItem>
 
-        <div className="space-y-10">
+        <div className="space-y-32 md:space-y-48 pb-24">
           <About />
           <AnimatedItem>
             <Skills />

@@ -24,37 +24,27 @@ export default function Footer() {
   }
 
   return (
-    <footer className="muted-foreground-5 dark:text-white py-10 relative">
+    <footer className="py-12 border-t border-border/20 mt-32 relative">
       {/* Scroll to top button - fixed position */}
       {showScrollTop && (
         <Button
           onClick={scrollToTop}
           size="icon"
-          className="fixed bottom-8 right-8 z-50 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+          variant="ghost"
+          className="fixed bottom-8 right-8 z-50 rounded-md transition-all duration-300 hover:bg-muted"
           aria-label={t("scrollToTop")}
         >
-          <ArrowUp className="h-5 w-5" />
+          <ArrowUp className="h-4 w-4 text-muted-foreground" />
         </Button>
       )}
 
-      <div className="flex justify-center mb-8">
-        <Button
-          onClick={scrollToTop}
-          variant="outline"
-          className="focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-          aria-label={t("backToTop")}
-        >
-          <ArrowUp className="mr-2 h-4 w-4" />
-          {t("backToTop")}
-        </Button>
-      </div>
-      <div className="container mx-auto text-center">
-        <p className="text-sm">
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4 px-6">
+        <p className="text-xs text-muted-foreground">
           &copy; {new Date().getFullYear()} {t("copyright")}
         </p>
-      </div>
-      <div className="flex justify-center mt-4">
-        <SocialMediaSection />
+        <div className="flex items-center gap-4">
+          <SocialMediaSection />
+        </div>
       </div>
     </footer>
   )
