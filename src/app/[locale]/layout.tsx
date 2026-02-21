@@ -9,6 +9,8 @@ import { Toaster } from "sonner";
 import { ErrorBoundary } from "./sections/components/ErrorBoundary";
 import Analytics from "./sections/components/Analytics";
 import Background from "./sections/components/common/Background";
+import AiOverlay from "@/components/common/AiOverlay";
+import { EasterEggProvider } from "@/components/common/EasterEggProvider";
 import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { locales, type Locale } from "@i18n/config";
@@ -169,9 +171,12 @@ export default async function LocaleLayout({
                 enableSystem
                 disableTransitionOnChange
               >
-                <Background />
-                {children}
-                <Toaster position="top-center" richColors closeButton />
+                <EasterEggProvider>
+                  <AiOverlay />
+                  <Background />
+                  {children}
+                  <Toaster position="top-center" richColors closeButton />
+                </EasterEggProvider>
               </ThemeProvider>
             </NextIntlClientProvider>
           </QueryClientProvider>
