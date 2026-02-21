@@ -8,18 +8,18 @@ export default function Hero() {
   const t = useTranslations("hero")
 
   return (
-    <div className="section-spacing flex items-center justify-center flex-col gap-6 text-center my-20 sm:my-32 md:my-40 px-2">
+    <div className="flex flex-col items-center justify-center gap-6 text-center min-h-[85vh] px-4 max-w-5xl mx-auto -mt-10">
       <Image
         src="/profile.jpg"
         alt={t("profileAlt")}
-        width={200}
-        height={200}
-        className="rounded-full w-32 h-32 sm:w-56 sm:h-56 md:w-[350px] md:h-[350px] object-cover mx-auto"
+        width={128}
+        height={128}
+        className="rounded-full w-20 h-20 md:w-28 md:h-28 object-cover mx-auto grayscale opacity-80 mb-4"
         loading="eager"
         priority
       />
       <HeroName />
-      <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xs sm:max-w-md mx-auto justify-center">
+      <div className="flex flex-col sm:flex-row gap-4 w-full justify-center mt-12">
         <ContactButton />
         <ResumeButton />
       </div>
@@ -55,20 +55,20 @@ function HeroName() {
   }, [started, displayed, fullName])
 
   return (
-    <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold font-mono break-words">
+    <h1 className="text-5xl sm:text-7xl md:text-[8rem] lg:text-[10rem] font-semibold tracking-tighter leading-[0.9] break-words">
       <span aria-live="polite" aria-atomic="true">
         {displayed || fullName}
       </span>
       <span
-        className={`ml-1 ${done ? "inline animate-blink" : "invisible"}`}
+        className={`ml-1 inline-block ${done ? "animate-blink" : "invisible"}`}
         aria-hidden="true"
       >
-        <span className="terminal-underscore">_</span>
+        <div className="w-4 h-12 md:w-8 md:h-24 bg-foreground mt-2 translate-y-2 lg:translate-y-4 rounded-sm" />
       </span>
       <p>
         <span
           style={{ visibility: done ? "visible" : "hidden" }}
-          className="text-lg sm:text-2xl md:text-3xl font-normal text-gray-500"
+          className="text-sm md:text-xl mt-6 md:mt-10 block font-medium text-muted-foreground tracking-widest uppercase"
           aria-hidden={!done}
         >
           <span key={done ? "spawned" : "hidden"} className="spawn-animation">
@@ -109,7 +109,7 @@ function ResumeButton() {
     >
       <Button
         variant="outline"
-        className="w-full sm:w-auto text-green-500 hover:text-white"
+        className="w-full sm:w-auto hover:bg-foreground hover:text-background"
       >
         {t("resumeButton")}
       </Button>

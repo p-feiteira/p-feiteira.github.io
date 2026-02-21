@@ -36,7 +36,7 @@ export default function Header() {
       </a>
       <header
         id="home"
-        className="sticky top-0 z-50 w-full px-4 py-4 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b md:grid md:grid-cols-3 md:gap-0 md:px-6"
+        className="sticky top-0 z-50 w-full px-4 py-4 bg-background/40 backdrop-blur-xl border-b border-border/40 md:grid md:grid-cols-3 md:gap-0 md:px-6"
       >
         {/* Mobile Top Bar */}
         <div className="flex items-center justify-between md:hidden w-full">
@@ -48,7 +48,7 @@ export default function Header() {
             onClick={() => setMobileNavOpen((v) => !v)}
             className="p-2 rounded focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
           >
-            <Menu className="h-7 w-7" />
+            <Menu className="h-5 w-5" strokeWidth={1.5} />
           </button>
         </div>
         {/* Desktop Layout */}
@@ -90,7 +90,7 @@ function Home({ className = "" }: { className?: string }) {
   return (
     <Link
       href="#home"
-      className={`text-2xl font-bold ${className} focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded`}
+      className={`text-lg font-medium tracking-tight ${className} focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded`}
     >
       &lt; Pedro Feiteira /&gt;
     </Link>
@@ -117,7 +117,7 @@ function Navigation({ mobile = false }: { mobile?: boolean }) {
             {navItems.map((component) => (
               <NavigationMenuLink
                 asChild
-                className={`${navigationMenuTriggerStyle()} text-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2`}
+                className={`${navigationMenuTriggerStyle()} text-xs uppercase tracking-widest font-medium focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2`}
                 key={component.key}
               >
                 <Link
@@ -145,8 +145,8 @@ function DarkModeToggle() {
       size="icon"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
-      <Sun className="h-[1.5rem] w-[1.3rem] dark:hidden" />
-      <Moon className="hidden h-5 w-5 dark:block" />
+      <Sun className="h-4 w-4 dark:hidden" strokeWidth={1.5} />
+      <Moon className="hidden h-4 w-4 dark:block" strokeWidth={1.5} />
       <span className="sr-only">{t("toggleTheme")}</span>
     </Button>
   )
