@@ -8,7 +8,7 @@ export default function Hero() {
   const t = useTranslations("hero")
 
   return (
-    <div className="flex flex-col items-center justify-center gap-6 text-center min-h-[85vh] px-4 max-w-5xl mx-auto -mt-10">
+    <div className="flex flex-col items-center justify-center gap-6 text-center min-h-[85vh] min-h-[85dvh] px-4 max-w-5xl mx-auto -mt-10">
       <motion.div
         initial={{ filter: "blur(15px)", opacity: 0, scale: 0.9 }}
         animate={{ filter: "blur(0px)", opacity: 0.8, scale: 1 }}

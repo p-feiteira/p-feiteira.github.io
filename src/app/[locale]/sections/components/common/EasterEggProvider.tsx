@@ -14,11 +14,11 @@ const EasterEggContext = createContext<EasterEggContextType>({
 
 export const useEasterEgg = () => useContext(EasterEggContext);
 
+// The trigger sequence is typing "a" then "i" sequentially.
+const secretSequence = ["a", "i"];
+
 export function EasterEggProvider({ children }: { children: React.ReactNode }) {
     const [isAiModeEnabled, setIsAiModeEnabled] = useState(false);
-
-    // The trigger sequence is typing "a" then "i" sequentially.
-    const secretSequence = ["a", "i"];
 
     const toggleAiMode = () => {
         setIsAiModeEnabled((prev) => !prev);
