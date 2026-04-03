@@ -4,7 +4,7 @@
     "about": "Sobre",
     "skills": "Competencias",
     "experience": "Experiencia",
-    "projects": "Projetos",
+    "showcase": "Trabalhos",
     "contact": "Contacto",
     "toggleTheme": "Alternar tema",
     "openMenu": "Abrir menu de navegacao",
@@ -125,16 +125,34 @@
       "english": "Ingles"
     }
   },
-  "projects": {
-    "title": "Projetos",
-    "errorMessage": "Nao foi possivel carregar os repositorios. Por favor tente novamente ou visite o meu perfil GitHub diretamente.",
-    "retrying": "A tentar novamente...",
-    "tryAgain": "Tentar Novamente",
-    "viewOnGithub": "Ver no GitHub",
-    "viewAllOnGithub": "Ver Todos no GitHub",
-    "noRepos": "Nenhum repositorio encontrado.",
-    "visitProfile": "Visitar Perfil GitHub",
-    "visitProfileAriaLabel": "Visitar o perfil GitHub de Pedro Feiteira"
+  "showcase": {
+    "title": "Trabalhos",
+    "description": "Estas marcas fictícias foram desenhadas e desenvolvidas para demonstrar capacidades de UI/UX assistidas por IA em diferentes nichos.",
+    "viewProject": "Ver Projeto",
+    "vertex-studio": {
+      "title": "Studio Vértex",
+      "description": "Aulas de fitness & treinadores"
+    },
+    "meridian-goods": {
+      "title": "Meridian Goods",
+      "description": "Loja de retalho de estilo de vida"
+    },
+    "linha-viva-listings": {
+      "title": "Linha Viva Propriedades",
+      "description": "Venda de imóveis"
+    },
+    "linha-viva-obras": {
+      "title": "Linha Viva Portefólio",
+      "description": "Projetos de construção"
+    },
+    "roam-bean": {
+      "title": "Roam Bean Roasters",
+      "description": "Café de especialidade"
+    },
+    "sereno-spa": {
+      "title": "Sereno Spa",
+      "description": "Massagens & marcação"
+    }
   },
   "contact": {
     "title": "Contacte-me",

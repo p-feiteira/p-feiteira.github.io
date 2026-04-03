@@ -4,7 +4,7 @@
     "about": "About",
     "skills": "Skills",
     "experience": "Experience",
-    "projects": "Projects",
+    "showcase": "Showcase",
     "contact": "Contact",
     "toggleTheme": "Toggle theme",
     "openMenu": "Open navigation menu",
@@ -125,16 +125,34 @@
       "english": "English"
     }
   },
-  "projects": {
-    "title": "Projects",
-    "errorMessage": "Unable to load repositories. Please try again or visit my GitHub profile directly.",
-    "retrying": "Retrying...",
-    "tryAgain": "Try Again",
-    "viewOnGithub": "View on GitHub",
-    "viewAllOnGithub": "View All on GitHub",
-    "noRepos": "No repositories found.",
-    "visitProfile": "Visit GitHub Profile",
-    "visitProfileAriaLabel": "Visit Pedro Feiteira's GitHub profile"
+  "showcase": {
+    "title": "Showcase",
+    "description": "These fictional brands were designed and developed to demonstrate AI-assisted UI/UX capabilities across different niches.",
+    "viewProject": "View Project",
+    "vertex-studio": {
+      "title": "Studio Vértex",
+      "description": "Fitness classes & trainers"
+    },
+    "meridian-goods": {
+      "title": "Meridian Goods",
+      "description": "Lifestyle retail store"
+    },
+    "linha-viva-listings": {
+      "title": "Linha Viva Listings",
+      "description": "Real estate property sales"
+    },
+    "linha-viva-obras": {
+      "title": "Linha Viva Portfolio",
+      "description": "Construction projects"
+    },
+    "roam-bean": {
+      "title": "Roam Bean Roasters",
+      "description": "Specialty consumer coffee"
+    },
+    "sereno-spa": {
+      "title": "Sereno Spa",
+      "description": "Massage therapy & booking"
+    }
   },
   "contact": {
     "title": "Contact Me",

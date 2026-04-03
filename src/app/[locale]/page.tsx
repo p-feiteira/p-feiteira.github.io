@@ -2,7 +2,7 @@
 import Hero from "./sections/hero";
 import About from "./sections/about";
 import Skills from "./sections/skills";
-import Projects from "./sections/projects";
+import Showcase from "./sections/showcase";
 import Contact from "./sections/contact";
 import Header from "./sections/header";
 import Footer from "./sections/footer";
@@ -23,7 +23,7 @@ export default function Page() {
             <Skills />
           </AnimatedItem>
           <AnimatedItem>
-            <Projects />
+            <Showcase />
           </AnimatedItem>
           <AnimatedItem>
             <Contact />
