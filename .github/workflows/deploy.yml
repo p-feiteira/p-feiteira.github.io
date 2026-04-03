@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: pages-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -28,10 +32,11 @@ jobs:
     - name: Build
       run: npm run build
 
+    - name: Verify static export
+      run: node scripts/verify-ci.mjs
+
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./out
-      env:
-        EMAIL_USERNAME: 'pedrofeiteira.dev@gmail.com'
