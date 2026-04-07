@@ -9,7 +9,7 @@ export default function ShowcaseLayout({ children }: { children: React.ReactNode
   const t = useTranslations("notFound");
 
   return (
-    <div className="relative min-h-screen bg-background text-foreground">
+    <div className="relative min-h-screen text-foreground">
       <div className="fixed top-6 left-6 z-50">
         <Link 
           href={`/${locale}/#showcase`} 

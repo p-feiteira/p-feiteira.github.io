@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -19,7 +19,7 @@ import { Button } from "@/components/ui/button"
 import SocialMediaSection from "@/components/common/socialMedia"
 import LanguageSwitcher from "@/components/LanguageSwitcher"
 
-const NAV_KEYS = ["about", "skills", "experience", "showcase", "contact"] as const
+const PAGE_NAV_KEYS = ["about", "services", "skills", "showcase", "contact"] as const
 
 export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = React.useState(false)
@@ -36,7 +36,7 @@ export default function Header() {
       </a>
       <header
         id="home"
-        className="sticky top-0 z-50 w-full px-4 py-4 bg-transparent border-b border-transparent md:grid md:grid-cols-3 md:gap-0 md:px-6"
+        className="sticky top-0 z-50 w-full px-4 py-4 bg-background/60 backdrop-blur-md border-b border-border/20 md:grid md:grid-cols-3 md:gap-0 md:px-6"
       >
         {/* Mobile Top Bar */}
         <div className="flex items-center justify-between md:hidden w-full">
@@ -87,24 +87,41 @@ export default function Header() {
 }
 
 function Home({ className = "" }: { className?: string }) {
+  const locale = useLocale()
   return (
     <Link
-      href="#home"
-      className={`text-lg font-medium tracking-tight ${className} focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded`}
+      href={`/${locale}`}
+      className={`group inline-flex items-baseline gap-0 ${className} focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded`}
+      aria-label="Pedro Feiteira — home"
     >
-      &lt; Pedro Feiteira /&gt;
+      {/* Opening bracket — small mono, recedes visually */}
+      <span className="font-mono text-[11px] text-muted-foreground/50 transition-all duration-300 ease-out group-hover:-translate-x-0.5 group-hover:text-foreground/70 select-none">
+        &lt;
+      </span>
+      {/* Name — larger, bold, tight tracking — the visual anchor */}
+      <span className="font-sans text-[15px] font-bold tracking-[-0.025em] text-foreground px-[3px] transition-colors duration-300">
+        Pedro Feiteira
+      </span>
+      {/* Closing tag — mirrors opening bracket */}
+      <span className="font-mono text-[11px] text-muted-foreground/50 transition-all duration-300 ease-out group-hover:translate-x-0.5 group-hover:text-foreground/70 select-none">
+        /&gt;
+      </span>
+      {/* Blinking cursor — visible only on hover */}
+      <span
+        className="font-mono text-[10px] text-foreground/60 ml-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150 select-none terminal-underscore"
+        aria-hidden="true"
+      >
+        _
+      </span>
     </Link>
   )
 }
 
 function Navigation({ mobile = false }: { mobile?: boolean }) {
   const t = useTranslations("navigation")
+  const locale = useLocale()
 
-  const navItems = NAV_KEYS.map((key) => ({
-    title: t(key),
-    href: `#${key}`,
-    key,
-  }))
+  const navItems = PAGE_NAV_KEYS.map((key) => ({ title: t(key), href: `/${locale}/${key}`, key }))
 
   return (
     <nav aria-label={mobile ? t("mobileNav") : t("mainNav")}>

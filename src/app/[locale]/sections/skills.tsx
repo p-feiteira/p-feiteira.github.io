@@ -1,10 +1,11 @@
 'use client'
+
 import React from 'react'
 import ReactCountryFlag from 'react-country-flag'
 import { useTranslations } from 'next-intl'
 import { Speech, Puzzle, UsersRound, HeartHandshake, Brush, Trophy, MessageCircleCode, Layers, Database, ShieldCheck } from 'lucide-react'
-import InfoCard from './components/common/infoCard'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 const hard_skills = [
   { key: 'python', Icon: 'python' },
@@ -35,92 +36,128 @@ export default function Skills() {
   const t = useTranslations('skills')
 
   return (
-    <div id="skills" className="section-spacing scroll-mt-24 w-full flex flex-col items-center px-4">
-      <h2 className="text-3xl sm:text-5xl font-bold text-center mt-8">{t('title')}</h2>
-      <div className="flex flex-col gap-12 text-center mt-10 w-full max-w-5xl mx-auto">
-        <HardSection />
-        <SoftSection />
-        <LanguagesSection />
-      </div>
-    </div>
-  )
-}
+    <section id="skills" className="section-spacing scroll-mt-24 w-full px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto">
 
-function LanguagesSection() {
-  const t = useTranslations('skills')
+        {/* Eyebrow */}
+        <motion.div
+          initial={{ opacity: 0, x: -12 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-10"
+        >
+          <span className="section-eyebrow">02 — {t('title')}</span>
+        </motion.div>
 
-  return (
-    <div className="flex flex-col items-center justify-center mx-auto w-full">
-      <span className="text-2xl sm:text-3xl font-semibold mb-2">{t('languages')}</span>
-      <div className="grid grid-cols-2 gap-3 w-full max-w-2xl mx-auto">
-        {languages.map((language) => (
-          <SkillComponent
-            key={language.key}
-            Icon={() => <ReactCountryFlag countryCode={language.icon} svg style={{ width: '4em', height: '4em' }} />}
-            compact
-            alignLeft
+        <div className="flex flex-col gap-12">
+
+          {/* Hard Skills */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col gap-4"
           >
-            {t(`languageNames.${language.key}`)}
-          </SkillComponent>
-        ))}
+            <div className="flex items-center gap-4">
+              <span className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground/60 whitespace-nowrap">
+                {t('hardSkills')}
+              </span>
+              <div className="flex-1 h-px bg-border/40" />
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {hard_skills.map((skill) => (
+                <HardSkillTag key={skill.key} skill={skill} label={t(`hard.${skill.key}`)} />
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Soft Skills */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col gap-4"
+          >
+            <div className="flex items-center gap-4">
+              <span className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground/60 whitespace-nowrap">
+                {t('softSkills')}
+              </span>
+              <div className="flex-1 h-px bg-border/40" />
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-6 gap-y-3">
+              {soft_skills.map((skill) => {
+                const Icon = skill.Icon
+                return (
+                  <div key={skill.key} className="flex items-center gap-2.5 group">
+                    <Icon className="h-3.5 w-3.5 text-muted-foreground/50 flex-shrink-0 group-hover:text-foreground transition-colors" strokeWidth={1.5} />
+                    <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                      {t(`soft.${skill.key}`)}
+                    </span>
+                  </div>
+                )
+              })}
+            </div>
+          </motion.div>
+
+          {/* Languages */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col gap-4"
+          >
+            <div className="flex items-center gap-4">
+              <span className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground/60 whitespace-nowrap">
+                {t('languages')}
+              </span>
+              <div className="flex-1 h-px bg-border/40" />
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {languages.map((lang) => (
+                <div key={lang.key} className="flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-border/40 hover:border-foreground/30 transition-colors">
+                  <ReactCountryFlag
+                    countryCode={lang.icon}
+                    svg
+                    style={{ width: '1.1em', height: '1.1em' }}
+                  />
+                  <span className="text-sm font-medium">{t(`languageNames.${lang.key}`)}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+        </div>
       </div>
-    </div>
+    </section>
   )
 }
 
-function HardSection() {
-  const t = useTranslations('skills')
+function HardSkillTag({ skill, label }: { skill: typeof hard_skills[number]; label: string }) {
+  const { Icon } = skill
 
-  return (
-    <div className="flex flex-col items-center justify-center mx-auto w-full">
-      <span className="text-2xl sm:text-3xl font-semibold mb-2 text-center">{t('hardSkills')}</span>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 3xl:grid-cols-6 gap-3 w-full max-w-3xl xl:max-w-5xl mx-auto">
-        {hard_skills.map((hard) => (
-          <SkillComponent key={hard.key} Icon={hard.Icon} compact>
-            {t(`hard.${hard.key}`)}
-          </SkillComponent>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-function SoftSection() {
-  const t = useTranslations('skills')
-
-  return (
-    <div className="flex flex-col items-center justify-center mx-auto w-full">
-      <span className="text-2xl sm:text-3xl font-semibold mb-2 text-center">{t('softSkills')}</span>
-      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 3xl:grid-cols-8 gap-3 w-full max-w-4xl xl:max-w-6xl mx-auto">
-        {soft_skills.map((soft) => (
-          <SkillComponent key={soft.key} Icon={soft.Icon} compact>
-            {t(`soft.${soft.key}`)}
-          </SkillComponent>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-type SkillComponentProps = {
-  Icon: React.ElementType | string
-  children: React.ReactNode
-  compact?: boolean
-  alignLeft?: boolean
-}
-
-function SkillComponent({ Icon, children, compact, alignLeft }: SkillComponentProps) {
-  let iconProp: React.ReactNode = undefined
+  let icon: React.ReactNode
   if (typeof Icon === 'string') {
-    iconProp = <Image src={`/icons/${Icon}.svg`} alt={Icon} width={24} height={24} className="dark:invert" />
-  } else if (Icon) {
-    iconProp = <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+    icon = (
+      <Image
+        src={`/icons/${Icon}.svg`}
+        alt={Icon}
+        width={14}
+        height={14}
+        className="dark:invert opacity-70"
+      />
+    )
+  } else {
+    icon = <Icon className="h-3.5 w-3.5 text-muted-foreground/70" strokeWidth={1.5} />
   }
+
   return (
-    <div className="my-2">
-      <InfoCard Icon={iconProp} title={children as string} compact={compact ?? false} alignLeft={alignLeft ?? false}>
-        {compact ? '' : String(children)}
-      </InfoCard>
-    </div>
+    <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border/50 hover:border-foreground/40 font-mono text-xs text-muted-foreground hover:text-foreground transition-all duration-200 cursor-default">
+      {icon}
+      {label}
+    </span>
   )
 }

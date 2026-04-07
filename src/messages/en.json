@@ -2,8 +2,8 @@
   "navigation": {
     "skipToContent": "Skip to main content",
     "about": "About",
+    "services": "Services",
     "skills": "Skills",
-    "experience": "Experience",
     "showcase": "Showcase",
     "contact": "Contact",
     "toggleTheme": "Toggle theme",
@@ -15,16 +15,18 @@
   },
   "hero": {
     "greeting": "Hi! I'm Pedro Feiteira",
-    "role": "Software Developer",
-    "contactButton": "Contact Me",
+    "role": "Inventor. Builder.",
+    "tagline": "The stack is irrelevant. The gap between your idea and a shipped product just got a lot smaller.",
+    "contactButton": "Start a Project",
     "resumeButton": "Download Resume",
-    "profileAlt": "Pedro Feiteira, Software Developer",
+    "profileAlt": "Pedro Feiteira, Inventor and Builder",
     "resumeAriaLabel": "Download Pedro Feiteira's resume (PDF)",
     "contactAriaLabel": "Navigate to contact section"
   },
   "about": {
     "title": "About Me",
-    "description": "I'm a Senior Full-Stack+AI Engineer passionate about building intelligent, scalable applications that solve real-world problems. With expertise in Python (FastAPI), React, Next.js, and modern AI technologies like LangChain and OpenAI, I specialize in architecting end-to-end solutions that combine full-stack development with generative AI capabilities. I'm experienced in building RAG pipelines, managing cloud infrastructure on AWS with Terraform, and implementing secure, observable systems. Whether working on AI-powered applications, optimizing data workflows, or automating infrastructure, I focus on creating software that drives measurable impact and exceptional user experiences.",
+    "statement": "I build what I imagine.",
+    "description": "Not a Python developer. Not a TypeScript developer. The stack is irrelevant. AI collapsed the distance between concept and execution — and I've been exploiting that ever since. I architect intelligent systems, ship full-stack applications, and automate workflows that used to require entire teams. The only question: what should we build?",
     "location": "Based in Portugal",
     "remote": "Remote Ready",
     "hobbiesTitle": "Hobbies"
@@ -32,19 +34,19 @@
   "hobbies": {
     "gaming": {
       "title": "Gaming",
-      "description": "One of my passions is video games. Ever since I was a child, I've always been fascinated by good stories, good storytelling and solving puzzles. The big reason I chose this area of work."
+      "description": "One of my passions is video games. From an early age, I've been drawn to good stories, great storytelling, and solving puzzles — one of the big reasons I chose this field."
     },
     "fitness": {
       "title": "Fitness",
-      "description": "Having a balance between mind and body is very important for dealing with everyday problems. So I always try to be as active as possible and eat as healthily as possible."
+      "description": "I believe balance between mind and body is key to dealing with everyday challenges. I try to stay as active as possible and maintain a healthy diet."
     },
     "music": {
       "title": "Music",
-      "description": "I've always loved all styles of music. I really feel that each style of music has its own moment to be heard. It always ends up having an important impact on the moment of life we're living."
+      "description": "I love all styles of music — every genre has its moment. Music has always had a meaningful impact on my life and work."
     },
     "learning": {
       "title": "Learning",
-      "description": "Learning about everything has always fascinated me. I'm always looking for something new, different subjects to master, not just in professional way."
+      "description": "Learning about everything has always fascinated me. I'm always chasing something new — different subjects to master, not just in a professional sense."
     }
   },
   "experience": {
@@ -124,6 +126,33 @@
       "portuguese": "Portuguese",
       "english": "English"
     }
+  },
+  "services": {
+    "title": "What I Build",
+    "subtitle": "The tech stack is not the limit. The only question is: what should we build for you?",
+    "cta": "Get in touch",
+    "items": [
+      {
+        "title": "AI-Powered Products",
+        "description": "Your idea becomes an intelligent product. LLM agents, RAG systems, AI-powered apps — I handle architecture, integration, and deployment end-to-end."
+      },
+      {
+        "title": "Full-Stack Web Apps",
+        "description": "A production-ready web application, from scratch. Modern stack, clean code, great UX — shipped on schedule."
+      },
+      {
+        "title": "Workflow Automation",
+        "description": "The manual work slowing your team down, eliminated. Custom AI pipelines built around your specific processes."
+      },
+      {
+        "title": "Rapid Prototyping",
+        "description": "A working version of your idea in days. Validate the concept before committing — test the market, not the budget."
+      }
+    ]
+  },
+  "aboutPage": {
+    "title": "About Me",
+    "backToHome": "Back to Home"
   },
   "showcase": {
     "title": "Showcase",

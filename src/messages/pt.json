@@ -2,8 +2,8 @@
   "navigation": {
     "skipToContent": "Saltar para o conteudo principal",
     "about": "Sobre",
+    "services": "Servicos",
     "skills": "Competencias",
-    "experience": "Experiencia",
     "showcase": "Trabalhos",
     "contact": "Contacto",
     "toggleTheme": "Alternar tema",
@@ -15,36 +15,38 @@
   },
   "hero": {
     "greeting": "Ola! Sou o Pedro Feiteira",
-    "role": "Programador",
-    "contactButton": "Contactar",
+    "role": "Inventor. Builder.",
+    "tagline": "A stack e irrelevante. A distancia entre a sua ideia e um produto entregue ficou muito menor.",
+    "contactButton": "Iniciar Projeto",
     "resumeButton": "Descarregar CV",
-    "profileAlt": "Pedro Feiteira, Programador",
+    "profileAlt": "Pedro Feiteira, Inventor e Builder",
     "resumeAriaLabel": "Descarregar o curriculo de Pedro Feiteira (PDF)",
     "contactAriaLabel": "Navegar para a seccao de contacto"
   },
   "about": {
     "title": "Sobre Mim",
-    "description": "Sou um Engenheiro Senior Full-Stack+IA apaixonado por construir aplicacoes inteligentes e escalaveis que resolvem problemas do mundo real. Com experiencia em Python (FastAPI), React, Next.js e tecnologias modernas de IA como LangChain e OpenAI, especializo-me em arquitetar solucoes de ponta a ponta que combinam desenvolvimento full-stack com capacidades de IA generativa. Tenho experiencia na construcao de pipelines RAG, gestao de infraestrutura cloud na AWS com Terraform e implementacao de sistemas seguros e observaveis. Seja trabalhando em aplicacoes alimentadas por IA, otimizando fluxos de dados ou automatizando infraestrutura, foco-me em criar software que gera impacto mensuravel e experiencias de utilizador excecionais.",
+    "statement": "Construo o que imagino.",
+    "description": "Nao sou um programador Python. Nao sou um programador TypeScript. A stack e irrelevante. A IA eliminou a distancia entre conceito e execucao — e tenho explorado isso desde entao. Arquiteto sistemas inteligentes, entrego aplicacoes full-stack e automatizo processos que antes requeriam equipas inteiras. A unica pergunta: o que devemos construir?",
     "location": "Baseado em Portugal",
-    "remote": "Pronto para Remoto",
+    "remote": "Disponivel Remotamente",
     "hobbiesTitle": "Hobbies"
   },
   "hobbies": {
     "gaming": {
       "title": "Gaming",
-      "description": "Uma das minhas paixoes sao os videojogos. Desde crianca, sempre fui fascinado por boas historias, boa narrativa e resolver puzzles. A grande razao pela qual escolhi esta area de trabalho."
+      "description": "Uma das minhas paixoes sao os videojogos. Desde crianca que sou fascinado por boas historias, boa narrativa e resolver puzzles — uma das grandes razoes pela qual escolhi esta area."
     },
     "fitness": {
       "title": "Fitness",
-      "description": "Ter um equilibrio entre mente e corpo e muito importante para lidar com os problemas do dia-a-dia. Por isso, tento sempre ser o mais ativo possivel e comer da forma mais saudavel possivel."
+      "description": "Acredito que o equilibrio entre mente e corpo e fundamental para lidar com os desafios do dia-a-dia. Tento manter-me ativo e seguir uma alimentacao saudavel."
     },
     "music": {
       "title": "Musica",
-      "description": "Sempre adorei todos os estilos de musica. Sinto realmente que cada estilo de musica tem o seu momento para ser ouvido. Acaba sempre por ter um impacto importante no momento de vida que estamos a viver."
+      "description": "Adoro todos os estilos de musica — cada genero tem o seu momento. A musica sempre teve um impacto significativo na minha vida e no meu trabalho."
     },
     "learning": {
       "title": "Aprendizagem",
-      "description": "Aprender sobre tudo sempre me fascinou. Estou sempre a procura de algo novo, diferentes assuntos para dominar, nao apenas de forma profissional."
+      "description": "Aprender sobre tudo sempre me fascinou. Estou sempre a descobrir algo novo — diferentes areas para dominar, nao apenas a nivel profissional."
     }
   },
   "experience": {
@@ -124,6 +126,33 @@
       "portuguese": "Portugues",
       "english": "Ingles"
     }
+  },
+  "services": {
+    "title": "O Que Construo",
+    "subtitle": "A stack tecnologica nao e o limite. A unica questao e: o que devemos construir para si?",
+    "cta": "Entrar em contacto",
+    "items": [
+      {
+        "title": "Produtos com IA",
+        "description": "A sua ideia torna-se um produto inteligente. Agentes LLM, sistemas RAG, apps com IA — trato da arquitetura, integracao e deployment de ponta a ponta."
+      },
+      {
+        "title": "Aplicacoes Web Full-Stack",
+        "description": "Uma aplicacao web pronta para producao, do zero. Stack moderna, codigo limpo, excelente UX — entregue dentro do prazo."
+      },
+      {
+        "title": "Automacao de Processos",
+        "description": "O trabalho manual que atrasa a sua equipa, eliminado. Pipelines de IA personalizados construidos em torno dos seus processos especificos."
+      },
+      {
+        "title": "Prototipagem Rapida",
+        "description": "Uma versao funcional da sua ideia em dias. Valide o conceito antes de se comprometer — teste o mercado, nao o orcamento."
+      }
+    ]
+  },
+  "aboutPage": {
+    "title": "Sobre Mim",
+    "backToHome": "Voltar ao Inicio"
   },
   "showcase": {
     "title": "Trabalhos",

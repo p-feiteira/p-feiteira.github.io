@@ -1,8 +1,6 @@
 "use client"
 import Hero from "./sections/hero";
-import About from "./sections/about";
-import Skills from "./sections/skills";
-import Showcase from "./sections/showcase";
+import Services from "./sections/services";
 import Contact from "./sections/contact";
 import Header from "./sections/header";
 import Footer from "./sections/footer";
@@ -13,17 +11,12 @@ export default function Page() {
     <div>
       <Header />
       <main id="main-content">
-        <AnimatedItem>
-          <Hero />
-        </AnimatedItem>
-
         <div className="pb-24" style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-fluid-section)" }}>
-          <About />
           <AnimatedItem>
-            <Skills />
+            <Hero />
           </AnimatedItem>
           <AnimatedItem>
-            <Showcase />
+            <Services />
           </AnimatedItem>
           <AnimatedItem>
             <Contact />

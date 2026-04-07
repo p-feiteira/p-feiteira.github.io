@@ -61,15 +61,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     { title: string; description: string; ogLocale: string }
   > = {
     en: {
-      title: "Pedro Feiteira - Software Developer",
+      title: "Pedro Feiteira - Inventor. Builder.",
       description:
-        "Software Developer with a passion for building efficient and scalable applications. Based in Portugal, remote ready. Specialized in Python, TypeScript, React, and Next.js.",
+        "Inventor and builder who turns ideas into products at the speed of imagination. AI collapsed the tech stack barriers — I build across any stack. Based in Portugal, remote ready.",
       ogLocale: "en_US",
     },
     pt: {
-      title: "Pedro Feiteira - Programador",
+      title: "Pedro Feiteira - Inventor. Builder.",
       description:
-        "Programador com paixao por construir aplicacoes eficientes e escalaveis. Baseado em Portugal, pronto para trabalho remoto. Especializado em Python, TypeScript, React, e Next.js.",
+        "Inventor e builder que transforma ideias em produtos a velocidade da imaginacao. A IA eliminou as barreiras de stack — construo em qualquer tecnologia. Baseado em Portugal, disponivel remotamente.",
       ogLocale: "pt_PT",
     },
   };
@@ -82,7 +82,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: t.description,
     keywords: [
       "Pedro Feiteira",
-      "Software Developer",
+      "AI Product Development",
       "Full Stack Developer",
       "Portugal",
       "Python",
@@ -91,6 +91,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "Next.js",
       "Web Developer",
       "Portfolio",
+      "LLM",
+      "AI Automation",
+      "Rapid Prototyping",
     ],
     authors: [{ name: "Pedro Feiteira" }],
     creator: "Pedro Feiteira",
