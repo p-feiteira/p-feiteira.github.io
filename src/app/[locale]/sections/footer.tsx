@@ -38,7 +38,7 @@ export default function Footer() {
         </Button>
       )}
 
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4 px-6">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4 px-6" style={{ maxWidth: "var(--container-content)", margin: "0 auto" }}>
         <p className="text-xs text-muted-foreground">
           &copy; {new Date().getFullYear()} {t("copyright")}
         </p>

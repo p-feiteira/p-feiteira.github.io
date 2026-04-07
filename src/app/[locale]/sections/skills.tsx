@@ -74,7 +74,7 @@ function HardSection() {
   return (
     <div className="flex flex-col items-center justify-center mx-auto w-full">
       <span className="text-2xl sm:text-3xl font-semibold mb-2 text-center">{t('hardSkills')}</span>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-3 w-full max-w-3xl mx-auto">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 3xl:grid-cols-6 gap-3 w-full max-w-3xl xl:max-w-5xl mx-auto">
         {hard_skills.map((hard) => (
           <SkillComponent key={hard.key} Icon={hard.Icon} compact>
             {t(`hard.${hard.key}`)}
@@ -91,7 +91,7 @@ function SoftSection() {
   return (
     <div className="flex flex-col items-center justify-center mx-auto w-full">
       <span className="text-2xl sm:text-3xl font-semibold mb-2 text-center">{t('softSkills')}</span>
-      <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 gap-3 w-full max-w-4xl mx-auto">
+      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 3xl:grid-cols-8 gap-3 w-full max-w-4xl xl:max-w-6xl mx-auto">
         {soft_skills.map((soft) => (
           <SkillComponent key={soft.key} Icon={soft.Icon} compact>
             {t(`soft.${soft.key}`)}

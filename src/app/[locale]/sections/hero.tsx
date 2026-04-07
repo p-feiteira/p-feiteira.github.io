@@ -8,7 +8,7 @@ export default function Hero() {
   const t = useTranslations("hero")
 
   return (
-    <div className="flex flex-col items-center justify-center gap-6 text-center min-h-[85vh] min-h-[85dvh] px-4 max-w-5xl mx-auto -mt-10">
+    <div className="flex flex-col items-center justify-center gap-6 text-center min-h-[85svh] md:min-h-[85dvh] px-4 max-w-5xl mx-auto -mt-10">
       <motion.div
         initial={{ filter: "blur(15px)", opacity: 0, scale: 0.9 }}
         animate={{ filter: "blur(0px)", opacity: 0.8, scale: 1 }}
@@ -20,7 +20,8 @@ export default function Hero() {
           alt={t("profileAlt")}
           width={128}
           height={128}
-          className="rounded-full w-20 h-20 md:w-28 md:h-28 object-cover mx-auto grayscale"
+          sizes="(max-width: 768px) 80px, (max-width: 1920px) 112px, 144px"
+          className="rounded-full w-20 h-20 md:w-28 md:h-28 3xl:w-36 3xl:h-36 object-cover mx-auto grayscale"
           loading="eager"
           priority
         />
@@ -69,7 +70,7 @@ function HeroName() {
       variants={container}
       initial="hidden"
       animate="show"
-      className="text-5xl sm:text-7xl md:text-[8rem] lg:text-[10rem] font-semibold tracking-tighter leading-[0.9] break-words"
+      className="text-fluid-display font-semibold tracking-tighter leading-[0.9] break-words"
     >
       <div aria-live="polite" aria-atomic="true" className="flex flex-wrap justify-center overflow-hidden pb-4">
         {fullName.split(" ").map((word, wordIndex) => (

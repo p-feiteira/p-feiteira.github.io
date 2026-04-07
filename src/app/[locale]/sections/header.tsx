@@ -66,7 +66,7 @@ export default function Header() {
           <nav
             id="mobile-navigation"
             aria-label={t("mobileNav")}
-            className="absolute top-20 left-0 w-full bg-background border-b z-50 flex flex-col items-center gap-2 py-4 shadow-lg md:hidden transition-all duration-300 ease-in-out"
+            className="absolute top-full inset-x-0 bg-background border-b z-50 flex flex-col items-center gap-2 py-4 shadow-lg md:hidden transition-all duration-300 ease-in-out"
             style={{
               animation: mobileNavOpen ? "fadeInUp 0.3s ease-out" : undefined,
             }}

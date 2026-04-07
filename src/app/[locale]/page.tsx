@@ -17,7 +17,7 @@ export default function Page() {
           <Hero />
         </AnimatedItem>
 
-        <div className="space-y-32 md:space-y-48 pb-24">
+        <div className="pb-24" style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-fluid-section)" }}>
           <About />
           <AnimatedItem>
             <Skills />

@@ -6,6 +6,25 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* Custom breakpoints beyond Tailwind v4 defaults (sm/md/lg/xl/2xl) */
+  --breakpoint-3xl: 1920px;
+  --breakpoint-4xl: 2560px;
+
+  /* Fluid typography – scales smoothly from mobile to ultrawide */
+  --text-fluid-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --text-fluid-base: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+  --text-fluid-lg: clamp(1.125rem, 1rem + 0.625vw, 1.5rem);
+  --text-fluid-xl: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
+  --text-fluid-2xl: clamp(2rem, 1.5rem + 2.5vw, 3.5rem);
+  --text-fluid-display: clamp(3rem, 1.5rem + 7.5vw, 12rem);
+
+  /* Fluid spacing for section gaps */
+  --spacing-fluid-section: clamp(4rem, 2rem + 6vw, 10rem);
+
+  /* Unified container width (replaces the assortment of max-w-5xl/6xl/7xl) */
+  --container-content: min(92vw, 90rem);
+  --container-wide: min(95vw, 110rem);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -154,4 +173,17 @@ html {
 .focus\:not-sr-only:focus {
   @apply static w-auto h-auto p-0 m-0 overflow-visible whitespace-normal border-none;
   clip: auto;
+}
+
+/* Fluid type utilities */
+.text-fluid-sm { font-size: var(--text-fluid-sm); }
+.text-fluid-base { font-size: var(--text-fluid-base); }
+.text-fluid-lg { font-size: var(--text-fluid-lg); }
+.text-fluid-xl { font-size: var(--text-fluid-xl); }
+.text-fluid-2xl { font-size: var(--text-fluid-2xl); }
+.text-fluid-display { font-size: var(--text-fluid-display); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }

@@ -72,7 +72,7 @@ function TerminalSequence() {
     ];
 
     return (
-        <div className="space-y-4 h-[50vh] overflow-y-auto text-sm md:text-base">
+        <div className="space-y-4 h-[50dvh] overflow-y-auto text-sm md:text-base">
             {lines.map((line, i) => (
                 <motion.div
                     key={i}

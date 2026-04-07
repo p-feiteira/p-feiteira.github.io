@@ -13,7 +13,7 @@ export default function Showcase() {
 
   return (
     <section id="showcase" className="section-spacing scroll-mt-24 py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+      <div style={{ maxWidth: "var(--container-content)", margin: "0 auto" }}>
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold my-8">{t("title")}</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
@@ -21,10 +21,10 @@ export default function Showcase() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 gap-6">
           {SHOWCASES.map((showcase: ShowcaseMeta) => (
             <Card key={showcase.slug} className="group overflow-hidden flex flex-col hover:shadow-lg transition-shadow duration-300">
-              <div className={`h-40 w-full bg-gradient-to-br ${showcase.gradient} opacity-80 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center`}>
+              <div className={`h-40 lg:h-48 3xl:h-64 w-full bg-gradient-to-br ${showcase.gradient} opacity-80 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center`}>
                 <span className="text-white/30 font-bold text-4xl tracking-wider">
                   {t(`${showcase.slug}.title`).split(' ')[0]}
                 </span>

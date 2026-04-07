@@ -20,6 +20,30 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
+    {
+      name: 'mobile-small',
+      use: { ...devices['iPhone SE'] },
+    },
+    {
+      name: 'mobile-large',
+      use: { ...devices['Pixel 7'] },
+    },
+    {
+      name: 'tablet',
+      use: { ...devices['iPad Pro 11'] },
+    },
+    {
+      name: 'desktop-1080',
+      use: { viewport: { width: 1920, height: 1080 } },
+    },
+    {
+      name: 'desktop-1440',
+      use: { viewport: { width: 2560, height: 1440 } },
+    },
+    {
+      name: 'ultrawide',
+      use: { viewport: { width: 3440, height: 1440 } },
+    },
   ],
   webServer: {
     command: 'npm run dev -p 3000',

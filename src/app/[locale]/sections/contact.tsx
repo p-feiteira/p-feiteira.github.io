@@ -14,7 +14,7 @@ export default function Contact() {
 
   return (
     <div id="contact" className="section-spacing scroll-mt-24">
-      <h1 className="text-5xl font-bold text-center my-8">{t("title")}</h1>
+      <h1 className="text-fluid-2xl font-bold text-center my-8">{t("title")}</h1>
       <div className="flex flex-col gap-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto py-8 md:grid md:grid-cols-2 md:gap-8">
         <div className="order-1 md:order-none">
           <ContactInfo />
@@ -161,7 +161,7 @@ function ContactForm() {
           <Input
             name="name"
             placeholder={t("form.namePlaceholder")}
-            className={`w-xs ${errors.name ? "border-destructive focus-visible:ring-destructive" : ""}`}
+            className={`w-full${errors.name ? "border-destructive focus-visible:ring-destructive" : ""}`}
             value={form.name}
             onChange={handleChange}
             aria-invalid={errors.name ? "true" : "false"}
@@ -181,7 +181,7 @@ function ContactForm() {
             name="email"
             type="email"
             placeholder={t("form.emailPlaceholder")}
-            className={`w-xs ${errors.email ? "border-destructive focus-visible:ring-destructive" : ""}`}
+            className={`w-full${errors.email ? "border-destructive focus-visible:ring-destructive" : ""}`}
             value={form.email}
             onChange={handleChange}
             aria-invalid={errors.email ? "true" : "false"}

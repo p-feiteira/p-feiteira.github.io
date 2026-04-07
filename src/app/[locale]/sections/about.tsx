@@ -25,34 +25,17 @@ function AboutSection() {
       <h1 className="text-3xl sm:text-5xl font-bold my-8 text-center">
         {t("title")}
       </h1>
-      <div className="block md:hidden">
-        <p className="text-base sm:text-lg text-muted-foreground text-justify mb-4 px-4 max-w-md mx-auto">
-          {t("description")}
-        </p>
-        <div className="flex flex-col items-center gap-2 mb-8">
-          <div className="flex items-center gap-2">
-            <MapPin className="text-muted-foreground" />
-            <span className="text-md text-muted-foreground">{t("location")}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Laptop className="text-muted-foreground" />
-            <span className="text-md text-muted-foreground">{t("remote")}</span>
-          </div>
+      <p className="text-base sm:text-lg text-muted-foreground text-justify mb-4 px-4 max-w-md md:max-w-3xl mx-auto">
+        {t("description")}
+      </p>
+      <div className="flex flex-col items-center gap-2 mt-8 mb-8 text-center">
+        <div className="flex items-center gap-2">
+          <MapPin className="text-muted-foreground" />
+          <span className="text-md text-muted-foreground">{t("location")}</span>
         </div>
-      </div>
-      <div className="hidden md:block">
-        <div className="text-base sm:text-lg text-muted-foreground text-justify mb-4 max-w-3xl mx-auto">
-          {t("description")}
-        </div>
-        <div className="flex flex-col gap-2 mt-8 items-center text-center">
-          <div className="flex items-center gap-2">
-            <MapPin className="text-muted-foreground" />
-            <span className="text-md text-muted-foreground">{t("location")}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Laptop className="text-muted-foreground" />
-            <span className="text-md text-muted-foreground">{t("remote")}</span>
-          </div>
+        <div className="flex items-center gap-2">
+          <Laptop className="text-muted-foreground" />
+          <span className="text-md text-muted-foreground">{t("remote")}</span>
         </div>
       </div>
     </div>
