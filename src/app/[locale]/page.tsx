@@ -5,23 +5,26 @@ import Contact from "./sections/contact";
 import Header from "./sections/header";
 import Footer from "./sections/footer";
 import { AnimatedItem } from "./sections/components/common/AnimatedItem";
+import { ScrollProgressBar } from "./sections/components/common/ScrollProgressBar";
 
 export default function Page() {
   return (
     <div>
+      <ScrollProgressBar />
       <Header />
       <main id="main-content">
         <div className="pb-24" style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-fluid-section)" }}>
-          <AnimatedItem>
-            <Hero />
-          </AnimatedItem>
+          {/* Hero manages its own staggered entry — no outer wrapper needed */}
+          <Hero />
           <AnimatedItem>
             <Services />
           </AnimatedItem>
-          <AnimatedItem>
+          <AnimatedItem delay={0.05}>
             <Contact />
           </AnimatedItem>
-          <Footer />
+          <AnimatedItem direction="none" delay={0.1}>
+            <Footer />
+          </AnimatedItem>
         </div>
       </main>
     </div>
