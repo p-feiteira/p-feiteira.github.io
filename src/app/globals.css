@@ -179,7 +179,7 @@ html {
 
 /* Section eyebrow label */
 .section-eyebrow {
-  @apply font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground;
+  @apply font-mono text-sm font-medium uppercase tracking-[0.2em] text-foreground/70;
 }
 
 .sr-only {

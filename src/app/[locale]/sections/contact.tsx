@@ -3,11 +3,12 @@
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
+import emailjs from "@emailjs/browser"
 import { useState, useRef } from "react"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
 import { toast } from "sonner"
-import { CONTACT_FORM } from "@/lib/constants"
+import { CONTACT_FORM } from "../../../lib/constants"
 
 export default function Contact() {
   const t = useTranslations("contact")
@@ -15,7 +16,7 @@ export default function Contact() {
   return (
     <div id="contact" className="section-spacing scroll-mt-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto mb-10">
-        <span className="section-eyebrow">04 — {t("title")}</span>
+        <span className="section-eyebrow">{t("title")}</span>
       </div>
       <div className="flex flex-col gap-8 max-w-5xl mx-auto py-4 md:grid md:grid-cols-2 md:gap-8">
         <div className="order-1 md:order-none">
@@ -35,8 +36,10 @@ function ContactForm() {
   const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({})
   const [loading, setLoading] = useState(false)
   const [lastSubmitTime, setLastSubmitTime] = useState(0)
-  const formRef = useRef<HTMLFormElement>(null)
   const statusRef = useRef<HTMLDivElement>(null)
+  const emailJsServiceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+  const emailJsTemplateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+  const emailJsPublicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
 
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -45,11 +48,11 @@ function ContactForm() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
-    setForm({ ...form, [name]: value })
+    setForm((currentForm) => ({ ...currentForm, [name]: value }))
 
     // Clear error when user starts typing
     if (errors[name as keyof typeof errors]) {
-      setErrors({ ...errors, [name]: undefined })
+      setErrors((currentErrors) => ({ ...currentErrors, [name]: undefined }))
     }
   }
 
@@ -85,6 +88,14 @@ function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
+    if (!emailJsServiceId || !emailJsTemplateId || !emailJsPublicKey) {
+      toast.error(t("toast.genericError"))
+      if (statusRef.current) {
+        statusRef.current.textContent = t("status.failed")
+      }
+      return
+    }
+
     // Client-side rate limiting (prevent spam)
     const now = Date.now()
     const timeSinceLastSubmit = now - lastSubmitTime
@@ -98,23 +109,26 @@ function ContactForm() {
       return
     }
 
+    if (form.website.trim()) {
+      return
+    }
+
     setLoading(true)
     if (statusRef.current) {
       statusRef.current.textContent = t("status.sending")
     }
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      })
-
-      const data = await res.json()
-
-      if (!res.ok) {
-        throw new Error(data.message || t("toast.genericError"))
-      }
+      await emailjs.send(
+        emailJsServiceId,
+        emailJsTemplateId,
+        {
+          from_name: form.name.trim(),
+          from_email: form.email.trim(),
+          message: form.message.trim(),
+        },
+        { publicKey: emailJsPublicKey }
+      )
 
       toast.success(t("toast.success"))
       setForm({ name: "", email: "", message: "", website: "" })
@@ -149,13 +163,15 @@ function ContactForm() {
         aria-live="polite"
         aria-atomic="true"
       />
-      <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-4 my-5" noValidate>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4 my-5" noValidate>
         {/* Honeypot field - hidden from users */}
         <input
           type="text"
           name="website"
           tabIndex={-1}
           autoComplete="off"
+          value={form.website}
+          onChange={handleChange}
           style={{ position: "absolute", left: "-9999px" }}
           aria-hidden="true"
         />
@@ -163,7 +179,7 @@ function ContactForm() {
           <Input
             name="name"
             placeholder={t("form.namePlaceholder")}
-            className={`w-full${errors.name ? "border-destructive focus-visible:ring-destructive" : ""}`}
+            className={`w-full ${errors.name ? "border-destructive focus-visible:ring-destructive" : ""}`}
             value={form.name}
             onChange={handleChange}
             aria-invalid={errors.name ? "true" : "false"}
@@ -183,7 +199,7 @@ function ContactForm() {
             name="email"
             type="email"
             placeholder={t("form.emailPlaceholder")}
-            className={`w-full${errors.email ? "border-destructive focus-visible:ring-destructive" : ""}`}
+            className={`w-full ${errors.email ? "border-destructive focus-visible:ring-destructive" : ""}`}
             value={form.email}
             onChange={handleChange}
             aria-invalid={errors.email ? "true" : "false"}

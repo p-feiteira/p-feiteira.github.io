@@ -47,7 +47,7 @@ export default function Skills() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="mb-10"
         >
-          <span className="section-eyebrow">02 — {t('title')}</span>
+          <span className="section-eyebrow">{t('title')}</span>
         </motion.div>
 
         <div className="flex flex-col gap-12">

@@ -1,12 +1,27 @@
 "use client"
 
+import { useCallback } from "react"
+import { useLocale } from "next-intl"
 import { useTranslations } from "next-intl"
+import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 
 export default function Services() {
   const t = useTranslations("services")
+  const locale = useLocale()
+  const router = useRouter()
   const items = t.raw("items") as { title: string; description: string }[]
+  const handleServiceClick = useCallback(() => {
+    const contactSection = document.getElementById("contact")
+
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" })
+      return
+    }
+
+    router.push(`/${locale}/contact`)
+  }, [locale, router])
 
   return (
     <section id="services" className="section-spacing scroll-mt-24 w-full px-4 sm:px-6 lg:px-8">
@@ -20,7 +35,7 @@ export default function Services() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="mb-10"
         >
-          <span className="section-eyebrow">01 — {t("title")}</span>
+          <span className="section-eyebrow">{t("title")}</span>
         </motion.div>
 
         {/* Section headline */}
@@ -53,7 +68,7 @@ export default function Services() {
             transition={{ duration: 0.55, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
           >
             <button
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={handleServiceClick}
               className="group w-full text-left flex items-start justify-between gap-6 py-8 border-b border-border/40 hover:border-foreground/25 transition-colors duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
               aria-label={`${item.title} — ${t("cta")}`}
             >

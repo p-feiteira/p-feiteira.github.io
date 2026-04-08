@@ -33,6 +33,10 @@ export default defineConfig({
       use: { ...devices['iPad Pro 11'] },
     },
     {
+      name: 'desktop-half',
+      use: { viewport: { width: 960, height: 1080 } },
+    },
+    {
       name: 'desktop-1080',
       use: { viewport: { width: 1920, height: 1080 } },
     },

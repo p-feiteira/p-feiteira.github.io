@@ -11,7 +11,7 @@ export interface GitHubRepo {
   topics: string[];
 }
 
-import { GITHUB } from "@/lib/constants";
+import { GITHUB } from "../../../../lib/constants";
 
 const GITHUB_USERNAME = GITHUB.username;
 

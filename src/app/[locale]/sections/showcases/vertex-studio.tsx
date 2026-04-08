@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Zap, Dumbbell, Wind, Bike, PersonStanding, Target, Quote, Mail } from "lucide-react"
+import Image from "next/image"
 
 const CLASSES = [
   { name: 'HIIT Burn', duration: '45 MIN', level: 'INTENSE', intensity: 95, icon: Zap },
@@ -29,24 +30,24 @@ const SCHEDULE = [
 
 export default function VertexStudio() {
   return (
-    <div className="bg-zinc-950 text-zinc-50 min-h-screen">
+    <div className="min-h-screen overflow-x-hidden bg-zinc-950 text-zinc-50">
 
       {/* Hero */}
       <section className="relative h-[80dvh] flex items-center justify-center overflow-hidden bg-black">
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3"
           alt="Gym"
-          width={1470}
-          height={980}
-          className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-screen"
+          fill
+          sizes="100vw"
+          className="object-cover opacity-40 mix-blend-screen"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-pink-600/30 to-purple-600/30 mix-blend-overlay" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-zinc-950/80 to-zinc-950" />
-        <div className="relative z-10 text-center max-w-4xl px-4">
-          <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-rose-500">
+        <div className="relative z-10 max-w-4xl px-4 text-center">
+          <h1 className="mb-6 bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-5xl font-black uppercase tracking-tighter text-transparent sm:text-6xl md:text-8xl">
             Studio Vértex
           </h1>
-          <p className="text-xl md:text-2xl text-zinc-400 mb-10 uppercase tracking-widest font-light">
+          <p className="mb-10 text-lg font-light uppercase tracking-[0.2em] text-zinc-400 sm:text-xl md:text-2xl">
             Push Your Limits. Define Your Peak.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -136,11 +137,13 @@ export default function VertexStudio() {
               <div key={i} className="group flex gap-0 bg-black hover:bg-zinc-950 transition-colors overflow-hidden">
                 <div className="w-1 bg-zinc-800 group-hover:bg-pink-500 transition-colors shrink-0" />
                 <div className="flex gap-4 p-6 w-full">
-                  <div className="w-16 h-16 md:w-20 md:h-20 shrink-0 overflow-hidden bg-zinc-900">
-                    <img
+                  <div className="relative w-16 h-16 md:w-20 md:h-20 shrink-0 overflow-hidden bg-zinc-900">
+                    <Image
                       src={`https://images.unsplash.com/${coach.photo}?q=80&w=200&auto=format&fit=crop&ixlib=rb-4.0.3`}
                       alt={coach.name}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                      fill
+                      sizes="80px"
+                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                     />
                   </div>
                   <div className="flex flex-col justify-center">

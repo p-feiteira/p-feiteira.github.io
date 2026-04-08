@@ -9,7 +9,7 @@ export const CONTACT_FORM = {
   minMessageLength: 10,
   minNameLength: 2,
   maxNameLength: 100,
-  rateLimitWindow: 5000, // 5 seconds
+  rateLimitWindow: 30000, // 30 seconds
 } as const
 
 // GitHub API constants

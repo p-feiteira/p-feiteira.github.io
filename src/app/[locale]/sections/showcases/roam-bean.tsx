@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Coffee, Map, Leaf, ChevronRight, Flame } from "lucide-react"
+import Image from "next/image"
 
 export default function RoamBean() {
   const products = [
@@ -38,7 +39,7 @@ export default function RoamBean() {
   ]
 
   return (
-    <div className="bg-[#FAF8F5] text-[#3E2723] min-h-screen font-serif">
+    <div className="min-h-screen overflow-x-hidden bg-[#FAF8F5] font-serif text-[#3E2723]">
 
       {/* Editorial Flag */}
       <div className="bg-[#F5EFE6] border-b border-[#E6DFD3] py-2 text-center">
@@ -46,10 +47,10 @@ export default function RoamBean() {
       </div>
 
       {/* Navbar */}
-      <nav className="sticky top-0 w-full z-50 bg-[#FAF8F5]/90 backdrop-blur-sm border-b border-[#E6DFD3]">
+      <nav className="sticky top-0 z-50 w-full border-b border-[#E6DFD3] bg-[#FAF8F5]/90 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="text-2xl font-black tracking-widest uppercase">Roam Bean</div>
-          <div className="hidden md:flex gap-8 text-sm uppercase tracking-widest font-bold">
+          <div className="hidden gap-8 text-sm font-bold uppercase tracking-widest lg:flex">
             <a href="#" className="hover:text-[#D84315] transition-colors">Shop Coffee</a>
             <a href="#" className="hover:text-[#D84315] transition-colors">Our Story</a>
             <a href="#" className="hover:text-[#D84315] transition-colors">Brew Guides</a>
@@ -57,6 +58,25 @@ export default function RoamBean() {
           <Button variant="outline" className="border-[#3E2723] text-[#3E2723] hover:bg-[#3E2723] hover:text-[#FAF8F5] rounded-none uppercase text-xs tracking-widest px-6 h-10">
             Subscribe
           </Button>
+        </div>
+      </nav>
+      <nav
+        aria-label="Mobile showcase navigation"
+        className="sticky top-20 z-40 border-b border-[#E6DFD3] bg-[#FAF8F5]/95 px-4 py-3 backdrop-blur-sm lg:hidden"
+      >
+        <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto pb-1 pl-20 sm:pl-24">
+          <a href="#releases" className="shrink-0 rounded-full border border-[#E6DFD3] px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-[#5D4037] transition-colors hover:border-[#D84315] hover:text-[#D84315]">
+            Current Releases
+          </a>
+          <a href="#atlas" className="shrink-0 rounded-full border border-[#E6DFD3] px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-[#5D4037] transition-colors hover:border-[#D84315] hover:text-[#D84315]">
+            Taste Atlas
+          </a>
+          <a href="#brew-guides" className="shrink-0 rounded-full border border-[#E6DFD3] px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-[#5D4037] transition-colors hover:border-[#D84315] hover:text-[#D84315]">
+            Brew Guides
+          </a>
+          <a href="#subscriptions" className="shrink-0 rounded-full border border-[#E6DFD3] px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-[#5D4037] transition-colors hover:border-[#D84315] hover:text-[#D84315]">
+            Subscriptions
+          </a>
         </div>
       </nav>
 
@@ -79,10 +99,12 @@ export default function RoamBean() {
         </div>
         <div className="lg:w-1/2 mt-16 lg:mt-0 relative">
           <div className="aspect-[3/4] bg-[#E6DFD3] rounded-t-full rounded-bl-full overflow-hidden shadow-2xl relative">
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3"
               alt="Coffee beans"
-              className="absolute inset-0 w-full h-full object-cover mix-blend-multiply"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover mix-blend-multiply"
             />
             <div className="absolute top-4 right-4 bg-[#D84315] text-white text-xs uppercase font-bold tracking-widest px-3 py-1.5">
               NEW CROP
@@ -106,7 +128,7 @@ export default function RoamBean() {
       </div>
 
       {/* Product Highlight */}
-      <section className="py-32 px-6 max-w-7xl mx-auto">
+      <section id="releases" className="py-32 px-6 max-w-7xl mx-auto scroll-mt-32">
         <div className="text-center max-w-2xl mx-auto mb-20">
           <h2 className="text-4xl md:text-5xl font-black mb-6">Current Releases</h2>
           <p className="font-sans text-[#5D4037] text-lg">Fresh crop arrivals, roasted lightly to preserve delicate floral and fruit notes.</p>
@@ -115,11 +137,13 @@ export default function RoamBean() {
         <div className="grid md:grid-cols-3 gap-8">
           {products.map((item, i) => (
             <div key={i} className="group relative border border-[#E6DFD3] p-8 hover:bg-white transition-colors duration-500 flex flex-col">
-              <div className="h-64 w-full bg-[#F5EFE6] mb-8 group-hover:scale-105 transition-transform duration-500 rounded overflow-hidden">
-                <img
+              <div className="relative h-64 w-full bg-[#F5EFE6] mb-8 group-hover:scale-105 transition-transform duration-500 rounded overflow-hidden">
+                <Image
                   src={`https://images.unsplash.com/photo-${item.img}?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3`}
                   alt={item.title}
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="object-cover"
                 />
               </div>
               <div className="uppercase tracking-widest text-xs font-bold text-[#D84315] mb-2 font-sans">{item.origin}</div>
@@ -146,7 +170,7 @@ export default function RoamBean() {
       </section>
 
       {/* Taste Atlas */}
-      <section className="py-32 px-6 bg-[#F5EFE6]">
+      <section id="atlas" className="py-32 px-6 bg-[#F5EFE6] scroll-mt-32">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-black uppercase mb-4">Taste Atlas</h2>
@@ -166,7 +190,7 @@ export default function RoamBean() {
       </section>
 
       {/* Brew Guides */}
-      <section className="py-32 px-6 bg-[#FAF8F5]">
+      <section id="brew-guides" className="py-32 px-6 bg-[#FAF8F5] scroll-mt-32">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <p className="font-mono text-xs tracking-widest text-[#8D6E63] uppercase mb-4">Extraction Science</p>
@@ -190,7 +214,7 @@ export default function RoamBean() {
       </section>
 
       {/* Subscription Tiers */}
-      <section className="py-32 px-6 bg-[#F5EFE6]">
+      <section id="subscriptions" className="py-32 px-6 bg-[#F5EFE6] scroll-mt-32">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-20">
             <p className="font-mono text-xs tracking-widest text-[#8D6E63] uppercase mb-4">Coffee on your terms</p>
@@ -261,10 +285,12 @@ export default function RoamBean() {
       <section className="bg-[#3E2723] text-[#FAF8F5] py-32 px-6 border-t border-[#5D4037]">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
           <div className="aspect-square bg-[#4E342E] rounded-full overflow-hidden relative">
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3"
               alt="Coffee farm"
-              className="absolute inset-0 w-full h-full object-cover opacity-80"
+              fill
+              sizes="(min-width: 768px) 50vw, 100vw"
+              className="object-cover opacity-80"
             />
           </div>
           <div>

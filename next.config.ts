@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
   basePath: '',
   images: {
     unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+    ],
   },
   webpack: (config) => {
     config.resolve.alias = {

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Search, MapPin, Bed, Bath, SquareMenu, ChevronRight, Mail } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 const PHOTO_IDS = [
   '1600596542815-ffad4c1539a9',
@@ -70,6 +71,25 @@ export default function LinhaVivaListings() {
           </Button>
         </div>
       </nav>
+      <nav
+        aria-label="Mobile showcase navigation"
+        className="sticky top-16 z-40 border-b border-stone-200 bg-white/95 px-4 py-3 backdrop-blur-sm md:hidden"
+      >
+        <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto pb-1 pl-20 sm:pl-24">
+          <a href="#featured-listings" className="shrink-0 rounded-full border border-stone-300 px-3 py-1.5 text-[11px] font-mono uppercase tracking-widest text-slate-700 transition-colors hover:border-amber-500 hover:text-amber-600">
+            Listings
+          </a>
+          <a href="#neighborhoods" className="shrink-0 rounded-full border border-stone-300 px-3 py-1.5 text-[11px] font-mono uppercase tracking-widest text-slate-700 transition-colors hover:border-amber-500 hover:text-amber-600">
+            Neighborhoods
+          </a>
+          <a href="#agents" className="shrink-0 rounded-full border border-stone-300 px-3 py-1.5 text-[11px] font-mono uppercase tracking-widest text-slate-700 transition-colors hover:border-amber-500 hover:text-amber-600">
+            Agents
+          </a>
+          <a href="#developments" className="shrink-0 rounded-full border border-stone-300 px-3 py-1.5 text-[11px] font-mono uppercase tracking-widest text-slate-700 transition-colors hover:border-amber-500 hover:text-amber-600">
+            Developments
+          </a>
+        </div>
+      </nav>
 
       {/* Hero — split layout */}
       <section className="flex flex-col lg:flex-row min-h-[620px]">
@@ -116,10 +136,12 @@ export default function LinhaVivaListings() {
 
         {/* Right panel — image */}
         <div className="lg:w-[40%] min-h-[340px] relative">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3"
             alt="Luxury Portugal home"
-            className="absolute inset-0 w-full h-full object-cover"
+            fill
+            sizes="(min-width: 1024px) 40vw, 100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-950/30 to-transparent" />
           {/* Amber border detail */}
@@ -129,7 +151,7 @@ export default function LinhaVivaListings() {
       </section>
 
       {/* Featured Listings */}
-      <section className="py-20 px-4 max-w-7xl mx-auto">
+      <section id="featured-listings" className="py-20 px-4 max-w-7xl mx-auto scroll-mt-28">
         <div className="flex justify-between items-end mb-12">
           <div>
             <p className="text-xs font-mono tracking-widest text-stone-400 uppercase mb-2">Curated selection</p>
@@ -146,10 +168,12 @@ export default function LinhaVivaListings() {
             <div key={i} className="bg-white overflow-hidden border border-stone-200 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group">
               {/* Image */}
               <div className="aspect-[4/3] bg-stone-200 relative overflow-hidden">
-                <img
+                <Image
                   src={`https://images.unsplash.com/photo-${PHOTO_IDS[i]}?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3`}
                   alt={prop.title}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 {/* FOR SALE pill */}
                 <div className="absolute top-4 left-4 bg-amber-400 text-blue-950 text-xs font-black px-3 py-1 uppercase tracking-widest">
@@ -184,7 +208,7 @@ export default function LinhaVivaListings() {
       </section>
 
       {/* Neighborhoods */}
-      <section className="py-20 px-4 bg-white border-t border-stone-100">
+      <section id="neighborhoods" className="py-20 px-4 bg-white border-t border-stone-100 scroll-mt-28">
         <div className="max-w-7xl mx-auto">
           <div className="mb-10">
             <p className="text-xs font-mono tracking-widest text-stone-400 uppercase mb-2">Browse by area</p>
@@ -197,10 +221,12 @@ export default function LinhaVivaListings() {
                 key={n.name}
                 className="relative flex-none w-52 h-72 overflow-hidden cursor-pointer group"
               >
-                <img
+                <Image
                   src={`https://images.unsplash.com/photo-${n.photo}?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3`}
                   alt={n.name}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  fill
+                  sizes="208px"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/30 to-transparent" />
                 <div className="absolute bottom-5 left-4 right-4">
@@ -238,7 +264,7 @@ export default function LinhaVivaListings() {
       </section>
 
       {/* Our Agents */}
-      <section className="py-20 px-4 bg-stone-50">
+      <section id="agents" className="py-20 px-4 bg-stone-50 scroll-mt-28">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
             <p className="text-xs font-mono tracking-widest text-stone-400 uppercase mb-2">Meet our specialists</p>
@@ -290,14 +316,16 @@ export default function LinhaVivaListings() {
       </section>
 
       {/* CTA to Obras */}
-      <section className="border-t border-stone-200">
+      <section id="developments" className="border-t border-stone-200 scroll-mt-28">
         <div className="grid lg:grid-cols-2 min-h-[400px]">
           {/* Left: architectural photo */}
           <div className="relative min-h-[280px]">
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3"
               alt="New construction"
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-blue-950/20" />
           </div>

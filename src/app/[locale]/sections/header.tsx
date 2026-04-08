@@ -36,10 +36,10 @@ export default function Header() {
       </a>
       <header
         id="home"
-        className="sticky top-0 z-50 w-full px-4 py-4 bg-background/60 backdrop-blur-md border-b border-border/20 md:grid md:grid-cols-3 md:gap-0 md:px-6"
+        className="sticky top-0 z-50 w-full px-4 py-4 bg-background/60 backdrop-blur-md border-b border-border/20 lg:grid lg:grid-cols-3 lg:gap-0 lg:px-6"
       >
         {/* Mobile Top Bar */}
-        <div className="flex items-center justify-between md:hidden w-full">
+        <div className="flex w-full items-center justify-between lg:hidden">
           <Home />
           <button
             aria-label={mobileNavOpen ? t("closeMenu") : t("openMenu")}
@@ -52,11 +52,11 @@ export default function Header() {
           </button>
         </div>
         {/* Desktop Layout */}
-        <Home className="hidden md:block" />
-        <div className="hidden md:flex items-center justify-center">
+        <Home className="hidden lg:inline-flex" />
+        <div className="hidden items-center justify-center lg:flex">
           <Navigation />
         </div>
-        <div className="hidden md:flex gap-4 justify-end items-center">
+        <div className="hidden items-center justify-end gap-4 lg:flex">
           <SocialMediaSection />
           <LanguageSwitcher />
           <DarkModeToggle />
@@ -66,7 +66,7 @@ export default function Header() {
           <nav
             id="mobile-navigation"
             aria-label={t("mobileNav")}
-            className="absolute top-full inset-x-0 bg-background border-b z-50 flex flex-col items-center gap-2 py-4 shadow-lg md:hidden transition-all duration-300 ease-in-out"
+            className="absolute inset-x-0 top-full z-50 flex flex-col items-center gap-2 border-b bg-background py-4 shadow-lg transition-all duration-300 ease-in-out lg:hidden"
             style={{
               animation: mobileNavOpen ? "fadeInUp 0.3s ease-out" : undefined,
             }}
@@ -86,12 +86,12 @@ export default function Header() {
   )
 }
 
-function Home({ className = "" }: { className?: string }) {
+function Home({ className = "inline-flex" }: { className?: string }) {
   const locale = useLocale()
   return (
     <Link
       href={`/${locale}`}
-      className={`group inline-flex items-baseline gap-0 ${className} focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded`}
+      className={`group items-baseline gap-0 ${className} focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded`}
       aria-label="Pedro Feiteira — home"
     >
       {/* Opening bracket — small mono, recedes visually */}

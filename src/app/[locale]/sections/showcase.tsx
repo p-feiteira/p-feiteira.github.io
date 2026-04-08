@@ -15,7 +15,7 @@ export default function Showcase() {
     <section id="showcase" className="section-spacing scroll-mt-24 px-4 sm:px-6 lg:px-8">
       <div style={{ maxWidth: "var(--container-content)", margin: "0 auto" }}>
         <div className="mb-12">
-          <span className="section-eyebrow">03 — {t("title")}</span>
+          <span className="section-eyebrow">{t("title")}</span>
           <p className="text-muted-foreground max-w-xl text-base mt-6">
             {t("description")}
           </p>

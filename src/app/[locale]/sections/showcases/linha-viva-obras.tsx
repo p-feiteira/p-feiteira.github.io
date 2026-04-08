@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight, Building2, Leaf, ShieldCheck, TrendingUp, MapPin, Home, Mail } from "lucide-react"
+import Image from "next/image"
 
 const projects = [
   {
@@ -82,6 +83,25 @@ export default function LinhaVivaObras() {
           </Button>
         </div>
       </nav>
+      <nav
+        aria-label="Mobile showcase navigation"
+        className="sticky top-16 z-40 border-b border-zinc-200 bg-white/95 px-4 py-3 backdrop-blur-sm md:hidden"
+      >
+        <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto pb-1 pl-20 sm:pl-24">
+          <Link href="./linha-viva-listings" className="shrink-0 rounded-full border border-zinc-300 px-3 py-1.5 text-[11px] font-mono uppercase tracking-widest text-zinc-700 transition-colors hover:border-teal-600 hover:text-teal-600">
+            Listings
+          </Link>
+          <a href="#process" className="shrink-0 rounded-full border border-zinc-300 px-3 py-1.5 text-[11px] font-mono uppercase tracking-widest text-zinc-700 transition-colors hover:border-teal-600 hover:text-teal-600">
+            Process
+          </a>
+          <a href="#portfolio" className="shrink-0 rounded-full border border-zinc-300 px-3 py-1.5 text-[11px] font-mono uppercase tracking-widest text-zinc-700 transition-colors hover:border-teal-600 hover:text-teal-600">
+            Portfolio
+          </a>
+          <a href="#awards" className="shrink-0 rounded-full border border-zinc-300 px-3 py-1.5 text-[11px] font-mono uppercase tracking-widest text-zinc-700 transition-colors hover:border-teal-600 hover:text-teal-600">
+            Awards
+          </a>
+        </div>
+      </nav>
 
       {/* Hero */}
       <section className="py-24 px-4 max-w-7xl mx-auto">
@@ -110,10 +130,12 @@ export default function LinhaVivaObras() {
           </div>
 
           <div className="aspect-square overflow-hidden relative border border-zinc-100 shadow-2xl">
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3"
               alt="Building Architecture"
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-teal-900/40 via-teal-900/10 to-transparent" />
             {/* Decorative corner detail */}
@@ -159,7 +181,7 @@ export default function LinhaVivaObras() {
       </section>
 
       {/* Process */}
-      <section className="py-24 px-4 bg-white border-b border-zinc-100">
+      <section id="process" className="py-24 px-4 bg-white border-b border-zinc-100 scroll-mt-28">
         <div className="max-w-7xl mx-auto">
           <p className="text-xs font-mono tracking-widest text-teal-600 uppercase mb-4">How we work</p>
           <h2 className="text-4xl font-serif font-bold text-zinc-900 mb-16">From vision to completion.</h2>
@@ -182,7 +204,7 @@ export default function LinhaVivaObras() {
       </section>
 
       {/* Project Portfolio */}
-      <section className="py-24 px-4 max-w-7xl mx-auto">
+      <section id="portfolio" className="py-24 px-4 max-w-7xl mx-auto scroll-mt-28">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div>
             <p className="text-xs font-mono tracking-widest text-zinc-400 uppercase mb-3">Our work</p>
@@ -196,10 +218,12 @@ export default function LinhaVivaObras() {
             <div key={proj.id} className="grid md:grid-cols-12 gap-8 items-center group">
               {/* Image */}
               <div className={`md:col-span-7 aspect-[16/9] overflow-hidden relative ${i % 2 !== 0 ? 'md:order-last' : ''}`}>
-                <img
+                <Image
                   src={`https://images.unsplash.com/photo-${proj.photo}?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3`}
                   alt={proj.name}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  fill
+                  sizes="(min-width: 768px) 58vw, 100vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/20 to-transparent" />
               </div>
@@ -237,7 +261,7 @@ export default function LinhaVivaObras() {
       </section>
 
       {/* Awards & Certifications */}
-      <section className="border-t border-zinc-100 py-20 px-4 bg-white">
+      <section id="awards" className="border-t border-zinc-100 py-20 px-4 bg-white scroll-mt-28">
         <div className="max-w-7xl mx-auto">
           <p className="text-xs font-mono tracking-widest text-zinc-400 uppercase mb-12 text-center">Recognition</p>
           <div className="flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-zinc-200">

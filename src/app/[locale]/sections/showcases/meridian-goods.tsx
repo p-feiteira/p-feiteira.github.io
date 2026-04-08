@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { ShoppingBag, Filter, ChevronDown, Plus } from "lucide-react"
+import Image from "next/image"
 
 const PRODUCTS = [
   { name: 'Organic Cotton Tee', price: '€45', category: 'Apparel', photo: '1523381210434-271e8be1f52b' },
@@ -71,6 +72,25 @@ export default function MeridianGoods() {
           </div>
         </div>
       </header>
+      <nav
+        aria-label="Mobile showcase navigation"
+        className="sticky top-16 z-30 border-b border-stone-200 bg-stone-50/95 px-4 py-3 backdrop-blur-md md:hidden"
+      >
+        <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto pb-1 pl-20 sm:pl-24">
+          <a href="#collection" className="shrink-0 rounded-full border border-stone-300 px-3 py-1.5 text-[11px] font-mono uppercase tracking-widest text-stone-700 transition-colors hover:border-stone-900 hover:text-stone-900">
+            Collection
+          </a>
+          <a href="#materials" className="shrink-0 rounded-full border border-stone-300 px-3 py-1.5 text-[11px] font-mono uppercase tracking-widest text-stone-700 transition-colors hover:border-stone-900 hover:text-stone-900">
+            Materials
+          </a>
+          <a href="#makers" className="shrink-0 rounded-full border border-stone-300 px-3 py-1.5 text-[11px] font-mono uppercase tracking-widest text-stone-700 transition-colors hover:border-stone-900 hover:text-stone-900">
+            Makers
+          </a>
+          <a href="#journal" className="shrink-0 rounded-full border border-stone-300 px-3 py-1.5 text-[11px] font-mono uppercase tracking-widest text-stone-700 transition-colors hover:border-stone-900 hover:text-stone-900">
+            Journal
+          </a>
+        </div>
+      </nav>
 
       {/* Hero — Asymmetric Editorial */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -103,11 +123,13 @@ export default function MeridianGoods() {
 
             {/* Right: portrait image */}
             <div className="w-full md:w-[420px] shrink-0 mt-0 md:-mt-8">
-              <div className="aspect-[3/4] overflow-hidden border border-stone-200">
-                <img
+              <div className="relative aspect-[3/4] overflow-hidden border border-stone-200">
+                <Image
                   src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3"
                   alt="Interior collection"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(min-width: 768px) 420px, 100vw"
+                  className="object-cover"
                 />
               </div>
             </div>
@@ -119,7 +141,7 @@ export default function MeridianGoods() {
       <div className="border-t border-stone-200 mx-4 sm:mx-6 lg:mx-8" />
 
       {/* Product Grid */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section id="collection" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-28">
         <div className="flex items-end justify-between mb-12">
           <div>
             <span className="block text-xs font-mono tracking-widest text-stone-400 uppercase mb-3">02 — New Arrivals</span>
@@ -139,10 +161,12 @@ export default function MeridianGoods() {
           {PRODUCTS.map((product, i) => (
             <div key={i} className="group cursor-pointer">
               <div className="aspect-[4/5] bg-stone-200 overflow-hidden mb-4 relative">
-                <img
+                <Image
                   src={`https://images.unsplash.com/photo-${product.photo}?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3`}
                   alt={product.name}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
+                  fill
+                  sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover group-hover:scale-103 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/10 transition-colors" />
                 {/* Quick-add */}
@@ -164,7 +188,7 @@ export default function MeridianGoods() {
       <div className="border-t border-stone-200 mx-4 sm:mx-6 lg:mx-8" />
 
       {/* Materials */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section id="materials" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-28">
         <div className="mb-14">
           <span className="block text-xs font-mono tracking-widest text-stone-400 uppercase mb-3">03 — Craft & Materials</span>
           <h2 className="font-serif text-3xl md:text-4xl text-stone-900">Made with care.</h2>
@@ -173,11 +197,13 @@ export default function MeridianGoods() {
         <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-stone-200">
           {MATERIALS.map((mat, i) => (
             <div key={i} className="py-8 md:py-0 md:px-10 first:md:pl-0 last:md:pr-0">
-              <div className="aspect-[3/4] bg-stone-100 overflow-hidden mb-6 border border-stone-200">
-                <img
+              <div className="relative aspect-[3/4] bg-stone-100 overflow-hidden mb-6 border border-stone-200">
+                <Image
                   src={`https://images.unsplash.com/photo-${mat.photo}?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3`}
                   alt={mat.name}
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="object-cover"
                 />
               </div>
               <h3 className="font-serif text-2xl text-stone-900 mb-3">{mat.name}</h3>
@@ -188,7 +214,7 @@ export default function MeridianGoods() {
       </section>
 
       {/* The Makers Strip */}
-      <section className="border-t border-b border-stone-200 bg-stone-50">
+      <section id="makers" className="border-t border-b border-stone-200 bg-stone-50 scroll-mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <span className="block text-xs font-mono tracking-widest text-stone-400 uppercase mb-8">04 — Our Makers</span>
           <div className="flex gap-12 overflow-x-auto pb-2 scrollbar-none">
@@ -209,15 +235,17 @@ export default function MeridianGoods() {
       </section>
 
       {/* Lookbook Editorial Band */}
-      <section className="py-0">
+      <section id="journal" className="py-0 scroll-mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-stone-200 border-y border-stone-200 my-0">
             {/* Left: tall image */}
-            <div className="w-full md:w-1/2 aspect-[4/3] md:aspect-auto overflow-hidden">
-              <img
+            <div className="relative w-full md:w-1/2 aspect-[4/3] md:aspect-auto overflow-hidden">
+              <Image
                 src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3"
                 alt="Lookbook"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
               />
             </div>
             {/* Right: prose panel */}
