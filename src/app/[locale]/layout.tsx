@@ -13,6 +13,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { locales, type Locale } from "@i18n/config";
 import { notFound } from "next/navigation";
+import { IDENTITY, SITE_URL } from "../../lib/constants";
 
 // Import messages directly for static export
 import enMessages from "../../messages/en.json";
@@ -32,9 +33,6 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://feiteiradotdev.github.io";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -59,15 +57,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     { title: string; description: string; ogLocale: string }
   > = {
     en: {
-      title: "Pedro Feiteira - Inventor. Builder.",
+      title: "Pedro Feiteira · Custom software for small businesses",
       description:
-        "Inventor and builder who turns ideas into products at the speed of imagination. AI collapsed the tech stack barriers — I build across any stack. Based in Portugal, remote ready.",
+        "Software engineer in Portugal. I build custom software for small and medium businesses: automated workflows, websites and applications, from the first conversation to a product that is live.",
       ogLocale: "en_US",
     },
     pt: {
-      title: "Pedro Feiteira - Inventor. Builder.",
+      title: "Pedro Feiteira · Software à medida para PMEs",
       description:
-        "Inventor e builder que transforma ideias em produtos a velocidade da imaginacao. A IA eliminou as barreiras de stack — construo em qualquer tecnologia. Baseado em Portugal, disponivel remotamente.",
+        "Engenheiro de software em Portugal. Construo software à medida para pequenas e médias empresas: workflows automatizados, sites e aplicações, do início ao produto no ar.",
       ogLocale: "pt_PT",
     },
   };
@@ -78,39 +76,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t.title,
     description: t.description,
-    keywords: [
-      "Pedro Feiteira",
-      "AI Product Development",
-      "Full Stack Developer",
-      "Portugal",
-      "Python",
-      "TypeScript",
-      "React",
-      "Next.js",
-      "Web Developer",
-      "Portfolio",
-      "LLM",
-      "AI Automation",
-      "Rapid Prototyping",
-    ],
-    authors: [{ name: "Pedro Feiteira" }],
-    creator: "Pedro Feiteira",
-    metadataBase: new URL(siteUrl),
+    authors: [{ name: IDENTITY.name }],
+    creator: IDENTITY.name,
+    metadataBase: new URL(SITE_URL),
     alternates: {
       canonical: canonicalPath,
       languages: {
         en: "/en/",
         pt: "/pt/",
+        // Portuguese is the primary version: this site sells to Portuguese
+        // businesses, unlike the LinkedIn profile, which is corporate and EN.
+        "x-default": "/pt/",
       },
     },
     openGraph: {
       title: t.title,
       description: t.description,
-      url: `${siteUrl}${canonicalPath}`,
+      url: `${SITE_URL}${canonicalPath}`,
       siteName: "Pedro Feiteira Portfolio",
       images: [
         {
-          url: "/profile.jpg",
+          url: "/profile.jpeg",
           width: 1200,
           height: 630,
           alt: "Pedro Feiteira",
@@ -123,8 +109,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title: t.title,
       description: t.description,
-      images: ["/profile.jpg"],
-      creator: "@feiteira_dev",
+      images: ["/profile.jpeg"],
+      // [CONFIRMAR: handle final do X] before restoring `creator`.
     },
     robots: {
       index: true,

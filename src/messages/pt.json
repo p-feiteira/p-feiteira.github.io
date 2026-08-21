@@ -16,18 +16,18 @@
   },
   "hero": {
     "greeting": "Olá! Sou o Pedro Feiteira",
-    "role": "Inventor. Builder.",
-    "tagline": "A stack é irrelevante. A distância entre a sua ideia e um produto entregue ficou muito menor.",
-    "contactButton": "Iniciar Projeto",
+    "role": "Software à medida para o seu negócio.",
+    "tagline": "Ouço o problema, construo a solução — um workflow automatizado, um site ou uma aplicação. Sozinho, ou com uma equipa que eu reúno para o projeto.",
+    "contactButton": "Marcar uma chamada de 20 minutos",
     "resumeButton": "Ver Currículo",
-    "profileAlt": "Pedro Feiteira, Inventor e Builder",
+    "profileAlt": "Pedro Feiteira, engenheiro de software",
     "resumeAriaLabel": "Ver o currículo interativo de Pedro Feiteira",
     "contactAriaLabel": "Navegar para a secção de contacto"
   },
   "about": {
     "title": "Sobre Mim",
-    "statement": "Construo o que imagino.",
-    "description": "Não sou um programador Python. Não sou um programador TypeScript. A stack é irrelevante. A IA eliminou a distância entre conceito e execução — e tenho explorado isso desde então. Arquiteto sistemas inteligentes, entrego aplicações full-stack e automatizo processos que antes requeriam equipas inteiras. A única pergunta: o que devemos construir?",
+    "statement": "Ouço o problema do negócio e construo a solução.",
+    "description": "Sou engenheiro de software, com 5 anos a construir sistemas em produção: backends em Python e FastAPI, frontends em React e Next.js, e a infraestrutura AWS por baixo. Trabalho com pequenas e médias empresas que precisam de automatizar um processo, pôr um site no ar ou construir uma aplicação à medida. Escrevo sempre uma proposta com âmbito e prazo antes de começar, para saber onde se está a meter.",
     "location": "Baseado em Portugal",
     "remote": "Disponível Remotamente",
     "hobbiesTitle": "Hobbies"
@@ -55,33 +55,28 @@
     "ongoing": "A Decorrer",
     "entries": [
       {
-        "role": "Engenheiro Sénior Full-Stack+IA @ Aircall",
-        "company": "AdvanceWorks",
+        "role": "Engenheiro de Software",
+        "company": "AdvanceWorks (cliente: Aircall)",
         "period": "Set 2025 -- A Decorrer",
         "location": "Lisboa, Portugal",
         "description": [
-          "Arquitetar e construir um novo assistente de suporte de IA generativa do zero, utilizando Python (FastAPI), LangChain, OpenAI e Pinecone para criar um pipeline RAG avançado integrado com Zendesk.",
-          "Liderar o desenvolvimento de ponta a ponta de um novo portal de suporte self-service, projetado para reduzir significativamente o volume de tickets manuais e diminuir o tempo de resolução do cliente.",
-          "Desenvolver e manter a aplicação full-stack, incluindo o frontend React/Next.js e o backend de microsserviços Python/FastAPI utilizando PostgreSQL e Redis.",
-          "Proprietário e automatizador de toda a infraestrutura cloud na AWS usando Terraform (IaC), com Docker para containerização e GitLab para CI/CD.",
-          "Engenharia de sistemas seguros e observáveis implementando AWS Cognito (JWT/Cookies) para autenticação e integrando DataDog para monitorização abrangente da aplicação.",
-          "Nesta função, estou a aprender engenharia de prompts para tirar partido das ferramentas de IA mais recentes para melhorar a minha produtividade e eficiência."
+          "Construí e mantenho um sistema de suporte com IA generativa que ajuda a responder a perguntas de clientes.",
+          "Desenvolvi o portal de self-service de ponta a ponta, com frontend em React/Next.js e microsserviços em Python/FastAPI.",
+          "Responsável pela infraestrutura cloud AWS destes sistemas: Terraform (IaC), Docker e GitLab CI/CD.",
+          "Implementei autenticação e monitorização aplicacional da plataforma."
         ],
-        "technologies": ["Python", "FastAPI", "LangChain", "OpenAI", "Pinecone", "React", "Next.js", "PostgreSQL", "Redis", "AWS", "Terraform", "Docker", "GitLab CI/CD", "AWS Cognito", "DataDog"]
+        "technologies": ["Python", "FastAPI", "React", "Next.js", "PostgreSQL", "Redis", "AWS", "Terraform", "Docker", "GitLab CI/CD", "DataDog"]
       },
       {
         "role": "Programador Python",
         "company": "EngineAI",
-        "period": "Set 2021 -- Jun 2025",
+        "period": "Set 2021 -- Ago 2025",
         "location": "Lisboa, Portugal",
         "description": [
-          "Desenvolver e manter o SDK da empresa usando Python. Também foi usado Pandas para processamento de dados e Pytest para testes unitários.",
-          "Ajudei a construir pipelines CI/CD com GithubActions para o repositório Python.",
-          "Juntei-me à equipa de dashboards para ajudar a construir dashboards, usando SQL (snowflake), pandas e o SDK da empresa.",
-          "Otimizar fluxos de dados entre serviços Python e bases de dados cloud (Snowflake).",
-          "Ajudei a construir a suite de testes interativos da empresa com Playwright, tanto Python como JavaScript. Também criei testes de carga usando Grafana K6",
-          "Trabalhei num projeto de agentes LLM empresariais, onde fui responsável por ligar o resultado da IA com a stack Web",
-          "Aprendizagem contínua de stacks tecnológicas modernas para apoiar projetos cross-funcionais"
+          "Desenvolvi e mantive o SDK Python da empresa, com pandas para processamento de dados e Pytest para testes unitários.",
+          "Construí a suite de testes interativos em Playwright (Python e JavaScript) e os testes de carga em Grafana K6.",
+          "Otimizei fluxos de dados entre serviços Python e Snowflake.",
+          "Construí pipelines CI/CD em GitHub Actions e contribuí para os dashboards da equipa de dados (SQL/Snowflake)."
         ],
         "technologies": ["Python", "Pandas", "Pytest", "GitHub Actions", "SQL", "Snowflake", "Playwright", "JavaScript", "Grafana K6"]
       },
@@ -91,10 +86,7 @@
         "period": "Abr 2018 -- Jul 2018",
         "location": "Lisboa, Portugal",
         "description": [
-          "Desenvolvi uma Prova de Conceito (PoC) para um sistema que gera automaticamente casos de teste a partir de requisitos de software.",
-          "Construí uma aplicação web funcional (full-stack) cobrindo os objetivos principais, demonstrando viabilidade de ponta a ponta.",
-          "Tecnologias Chave: Node.js (backend), IBM Watson (funcionalidades alimentadas por IA) e Cloud Computing para deployment.",
-          "Ganhei experiência prática em desenvolvimento full-stack, focando em escalabilidade e automação."
+          "Desenvolvi uma prova de conceito para geração automática de casos de teste a partir de requisitos de software, uma aplicação full-stack em Node.js com IBM Watson, publicada em cloud."
         ],
         "technologies": ["Node.js", "IBM Watson", "Cloud Computing"]
       }
@@ -129,18 +121,18 @@
     }
   },
   "resume": {
-    "metaTitle": "Currículo — Pedro Feiteira",
-    "metaDescription": "Currículo interativo de Pedro Feiteira — Engenheiro Sénior Full-Stack + IA. Veja online ou descarregue em PDF.",
+    "metaTitle": "Currículo · Pedro Feiteira",
+    "metaDescription": "Currículo de Pedro Feiteira, engenheiro de software em Portugal. Veja online ou descarregue em PDF.",
     "title": "Currículo",
-    "role": "Engenheiro Sénior Full-Stack + IA",
+    "role": "Engenheiro de Software · disponível para projetos independentes",
     "summaryTitle": "Perfil",
-    "summary": "Engenheiro sénior que transforma ideias em produtos entregues. Arquiteto sistemas de IA — pipelines RAG e agentes LLM — e construo aplicações full-stack de ponta a ponta, do frontend React/Next.js ao backend Python/FastAPI e à infraestrutura cloud por baixo. A stack é irrelevante; o que importa é o resultado.",
+    "summary": "Engenheiro de software com 5 anos de experiência a construir sistemas web e a automatizar processos para empresas. Disponível para projetos independentes: workflows automatizados, sites e aplicações à medida, do início ao produto no ar.",
     "download": "Descarregar PDF",
     "downloadHint": "Abre a caixa de impressão do navegador — escolha \"Guardar como PDF\".",
     "print": "Imprimir",
     "backToHome": "Voltar ao início",
     "updated": "Atualizado",
-    "updatedDate": "Junho 2026",
+    "updatedDate": "Agosto 2026",
     "sections": {
       "experience": "Experiência",
       "techStack": "Tecnologias",
@@ -154,13 +146,16 @@
       "linkedin": "LinkedIn",
       "github": "GitHub"
     },
-    "location": "Costa de Caparica, Portugal",
+    "location": "Costa da Caparica, Portugal",
     "skillGroups": [
-      { "label": "Linguagens Principais", "items": ["Python", "TypeScript", "JavaScript", "SQL"] },
-      { "label": "IA & Dados", "items": ["LangChain", "OpenAI", "Pinecone", "RAG", "Pandas", "Snowflake"] },
-      { "label": "Web & Frameworks", "items": ["React", "Next.js", "FastAPI", "Node.js"] },
-      { "label": "Cloud & DevOps", "items": ["AWS", "Terraform", "Docker", "GitLab CI/CD", "GitHub Actions"] },
-      { "label": "Testes & Monitorização", "items": ["Pytest", "Playwright", "Grafana K6", "DataDog"] }
+      { "label": "Linguagens", "items": ["Python", "JavaScript", "SQL"] },
+      { "label": "Backend", "items": ["FastAPI", "Node.js", "Microsserviços", "APIs REST"] },
+      { "label": "Frontend", "items": ["React", "Next.js"] },
+      { "label": "IA & Ferramentas de Apoio", "items": ["LangChain", "Pinecone", "Amazon Bedrock", "Claude Code", "Cursor"] },
+      { "label": "Dados", "items": ["PostgreSQL", "Redis", "Snowflake", "pandas"] },
+      { "label": "Cloud & DevOps", "items": ["AWS", "Terraform", "Infrastructure as Code", "Docker", "GitLab CI/CD", "GitHub Actions"] },
+      { "label": "Qualidade & Observabilidade", "items": ["Pytest", "Playwright", "Grafana K6", "DataDog"] },
+      { "label": "Arquitetura & Processo", "items": ["Software Architecture", "Process Automation", "Systems Integration", "Zendesk"] }
     ],
     "education": [
       {
@@ -173,29 +168,29 @@
     ],
     "languagesList": [
       { "name": "Português", "level": "Nativo", "value": 100 },
-      { "name": "Inglês", "level": "Profissional (C1)", "value": 85 }
+      { "name": "Inglês", "level": "Profissional", "value": 85 }
     ]
   },
   "services": {
     "title": "O Que Construo",
-    "subtitle": "A stack tecnológica não é o limite. A única questão é: o que devemos construir para si?",
-    "cta": "Entrar em contacto",
+    "subtitle": "Diga-me o problema do negócio. Eu digo-lhe o que se constrói, quanto custa e quando fica pronto.",
+    "cta": "Falar sobre o seu projeto",
     "items": [
       {
-        "title": "Produtos com IA",
-        "description": "A sua ideia torna-se um produto inteligente. Agentes LLM, sistemas RAG, apps com IA — trato da arquitetura, integração e deployment de ponta a ponta."
-      },
-      {
-        "title": "Aplicações Web Full-Stack",
-        "description": "Uma aplicação web pronta para produção, do zero. Stack moderna, código limpo, excelente UX — entregue dentro do prazo."
-      },
-      {
         "title": "Automação de Processos",
-        "description": "O trabalho manual que atrasa a sua equipa, eliminado. Pipelines de IA personalizados construídos em torno dos seus processos específicos."
+        "description": "O trabalho manual que ocupa a sua equipa todas as semanas, feito por um workflow. Ligo os sistemas que já usa e tiro as tarefas repetidas do caminho."
       },
       {
-        "title": "Prototipagem Rápida",
-        "description": "Uma versão funcional da sua ideia em dias. Valide o conceito antes de se comprometer — teste o mercado, não o orçamento."
+        "title": "Sites e Aplicações Web",
+        "description": "Um site ou uma aplicação web à medida do negócio, do desenho ao produto no ar. Rápido a carregar, encontrável no Google, simples de manter."
+      },
+      {
+        "title": "Integrações entre Sistemas",
+        "description": "A faturação, o CRM, a loja online e as folhas de cálculo a falar umas com as outras. Uma integração escrita à medida em vez de copiar e colar dados à mão."
+      },
+      {
+        "title": "Protótipo em Dias",
+        "description": "Uma versão funcional da ideia, para validar com clientes reais antes de investir no produto completo."
       }
     ]
   },
@@ -205,7 +200,8 @@
   },
   "showcase": {
     "title": "Trabalhos",
-    "description": "Estas marcas fictícias foram desenhadas e desenvolvidas para demonstrar capacidades de UI/UX assistidas por IA em diferentes nichos.",
+    "description": "Conceitos por setor. Cada um mostra como fica um site feito para aquele tipo de negócio.",
+    "disclosure": "Marcas fictícias, criadas para demonstração. Não são clientes reais.",
     "viewProject": "Ver Projeto",
     "vertex-studio": {
       "title": "Studio Vértex",
@@ -236,6 +232,12 @@
     "title": "Contacte-me",
     "sendMessage": "Enviar Mensagem",
     "getInTouch": "Entre em contacto",
+    "trustTitle": "Como trabalho",
+    "trust": [
+      "Respondo em 24 horas úteis.",
+      "Proposta escrita com âmbito e prazo antes de começar.",
+      "Atividade aberta nas Finanças. Emito fatura-recibo."
+    ],
     "form": {
       "namePlaceholder": "O seu nome",
       "emailPlaceholder": "O seu email",
@@ -264,6 +266,28 @@
       "sending": "A enviar a sua mensagem...",
       "sent": "Mensagem enviada com sucesso!",
       "failed": "Falha ao enviar mensagem. Por favor tente novamente."
+    }
+  },
+  "pageMeta": {
+    "about": {
+      "title": "Sobre mim · Pedro Feiteira",
+      "description": "Engenheiro de software em Portugal. Como trabalho, o que construo e para quem."
+    },
+    "skills": {
+      "title": "Competências · Pedro Feiteira",
+      "description": "As tecnologias com que trabalho: Python e FastAPI no servidor, React e Next.js no cliente, AWS e Terraform na infraestrutura."
+    },
+    "services": {
+      "title": "Serviços · Pedro Feiteira",
+      "description": "Automação de processos, sites e aplicações web, integrações entre sistemas e protótipos, para pequenas e médias empresas em Portugal."
+    },
+    "showcase": {
+      "title": "Trabalhos · Pedro Feiteira",
+      "description": "Conceitos por setor. Cada um mostra como fica um site feito para aquele tipo de negócio."
+    },
+    "contact": {
+      "title": "Contacto · Pedro Feiteira",
+      "description": "Fale comigo sobre o seu projeto. Respondo em 24 horas úteis."
     }
   },
   "footer": {

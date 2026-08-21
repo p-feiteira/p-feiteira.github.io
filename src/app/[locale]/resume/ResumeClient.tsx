@@ -19,6 +19,7 @@ import {
 import Header from "../sections/header"
 import Footer from "../sections/footer"
 import { Button } from "@/components/ui/button"
+import { IDENTITY, SITE_URL } from "../../../lib/constants"
 
 /* -------------------------------------------------------------------------- */
 /*  Types                                                                     */
@@ -48,13 +49,13 @@ type LanguageEntry = { name: string; level: string; value: number }
 /* -------------------------------------------------------------------------- */
 
 const CONTACT = {
-  email: "pedrofeiteira.dev@gmail.com",
-  website: "https://feiteiradotdev.github.io/",
-  websiteLabel: "feiteiradotdev.github.io",
-  linkedin: "https://www.linkedin.com/in/feiteiradotdev",
-  linkedinLabel: "in/feiteiradotdev",
-  github: "https://github.com/feiteiradotdev",
-  githubLabel: "feiteiradotdev",
+  email: IDENTITY.email,
+  website: `${SITE_URL}/`,
+  websiteLabel: SITE_URL.replace("https://", ""),
+  linkedin: IDENTITY.linkedin,
+  linkedinLabel: `in/${IDENTITY.linkedinUser}`,
+  github: IDENTITY.github,
+  githubLabel: IDENTITY.githubUser,
 }
 
 /* -------------------------------------------------------------------------- */

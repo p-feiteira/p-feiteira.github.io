@@ -1,14 +1,16 @@
-"use client"
+import Link from "next/link"
 
-import { useEffect } from "react"
-import { useRouter } from "next/navigation"
-
+/** Fallback content for anything that does not follow the meta refresh in the
+ *  layout: crawlers, text browsers, and anyone with a slow connection. */
 export default function RootPage() {
-  const router = useRouter()
-
-  useEffect(() => {
-    router.replace("/en/")
-  }, [router])
-
-  return null
+  return (
+    <main style={{ fontFamily: "system-ui, sans-serif", padding: "3rem 1.5rem" }}>
+      <h1>Pedro Feiteira</h1>
+      <p>Software à medida para pequenas e médias empresas.</p>
+      <p>
+        <Link href="/pt/">Continuar para o site</Link>{" · "}
+        <Link href="/en/">English version</Link>
+      </p>
+    </main>
+  )
 }

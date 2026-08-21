@@ -5,24 +5,22 @@ import { useTranslations, useLocale } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { motion, Variants } from "framer-motion"
 
-const TICKER_ITEMS = [
-  "AI Products",
-  "LLM Agents",
-  "Web Apps",
-  "RAG Systems",
-  "Automation",
-  "Rapid Prototyping",
-  "Full-Stack",
-  "Workflow AI",
-  "AI Products",
-  "LLM Agents",
-  "Web Apps",
-  "RAG Systems",
-  "Automation",
-  "Rapid Prototyping",
-  "Full-Stack",
-  "Workflow AI",
+// What the work actually is, in the client's words. "LLM Agents" and "RAG
+// Systems" used to be here: neither is work I did alone, so neither belongs
+// on a page that sells my own services. Duplicated so the ticker loops
+// seamlessly.
+const TICKER_WORDS = [
+  "Automação",
+  "Sites",
+  "Aplicações Web",
+  "Integrações",
+  "Protótipos",
+  "Python",
+  "React",
+  "AWS",
 ]
+
+const TICKER_ITEMS = [...TICKER_WORDS, ...TICKER_WORDS]
 
 const GRAIN_SVG = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`
 

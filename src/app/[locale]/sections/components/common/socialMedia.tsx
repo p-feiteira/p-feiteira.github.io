@@ -1,13 +1,9 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { SOCIAL_LINKS } from "../../../../../lib/constants"
 
-const socialMedia = [
-  {"icon": "linkedin", "href": "https://www.linkedin.com/in/feiteiradotdev/"},
-  {"icon": "github", "href": "https://github.com/feiteiradotdev"},
-  {"icon": "x", "href": "https://x.com/feiteira_dev"},
-
-]
+const socialMedia = SOCIAL_LINKS
 
 export default function SocialMediaSection() {
   return (

@@ -19,6 +19,9 @@ export default function Showcase() {
           <p className="text-muted-foreground max-w-xl text-base mt-6">
             {t("description")}
           </p>
+          <p className="text-muted-foreground/80 max-w-xl text-sm mt-2">
+            {t("disclosure")}
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 gap-6">

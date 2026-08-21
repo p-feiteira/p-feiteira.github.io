@@ -8,7 +8,7 @@ import { useState, useRef } from "react"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
 import { toast } from "sonner"
-import { CONTACT_FORM } from "../../../lib/constants"
+import { CONTACT_FORM, IDENTITY, SOCIAL_LINKS } from "../../../lib/constants"
 
 export default function Contact() {
   const t = useTranslations("contact")
@@ -249,10 +249,8 @@ function ContactForm() {
 }
 
 const contacts = [
-  { icon: "email", href: "pedrofeiteira.dev@gmail.com" },
-  { icon: "linkedin", href: "linkedin.com/in/feiteiradotdev" },
-  { icon: "github", href: "github.com/feiteiradotdev" },
-  { icon: "x", href: "x.com/feiteira_dev" },
+  { icon: "email", label: IDENTITY.email },
+  ...SOCIAL_LINKS.map(({ icon, label }) => ({ icon, label })),
 ]
 
 function ContactInfo() {
@@ -270,9 +268,18 @@ function ContactInfo() {
             height={35}
             className="dark:invert"
           />
-          <span className="text-md">{contact.href}</span>
+          <span className="text-md">{contact.label}</span>
         </div>
       ))}
+
+      <div className="pt-4">
+        <h3 className="text-lg font-semibold mb-2">{t("trustTitle")}</h3>
+        <ul className="text-sm text-muted-foreground space-y-1">
+          {t.raw("trust").map((line: string) => (
+            <li key={line}>{line}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }

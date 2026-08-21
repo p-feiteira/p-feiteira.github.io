@@ -16,18 +16,18 @@
   },
   "hero": {
     "greeting": "Hi! I'm Pedro Feiteira",
-    "role": "Inventor. Builder.",
-    "tagline": "The stack is irrelevant. The gap between your idea and a shipped product just got a lot smaller.",
-    "contactButton": "Start a Project",
+    "role": "Custom software for your business.",
+    "tagline": "I listen to the problem and build the solution: an automated workflow, a website or an application. On my own, or with a team I put together for the project.",
+    "contactButton": "Book a 20 minute call",
     "resumeButton": "View Résumé",
-    "profileAlt": "Pedro Feiteira, Inventor and Builder",
+    "profileAlt": "Pedro Feiteira, software engineer",
     "resumeAriaLabel": "View Pedro Feiteira's interactive résumé",
     "contactAriaLabel": "Navigate to contact section"
   },
   "about": {
     "title": "About Me",
-    "statement": "I build what I imagine.",
-    "description": "Not a Python developer. Not a TypeScript developer. The stack is irrelevant. AI collapsed the distance between concept and execution — and I've been exploiting that ever since. I architect intelligent systems, ship full-stack applications, and automate workflows that used to require entire teams. The only question: what should we build?",
+    "statement": "I listen to the business problem and build the solution.",
+    "description": "I am a software engineer with 5 years spent shipping production systems: Python and FastAPI on the server, React and Next.js on the client, and the AWS infrastructure underneath. I work with small and medium businesses that need a process automated, a site live, or an application built to fit. I always write a proposal with scope and deadline before starting, so you know what you are agreeing to.",
     "location": "Based in Portugal",
     "remote": "Remote Ready",
     "hobbiesTitle": "Hobbies"
@@ -55,33 +55,28 @@
     "ongoing": "On Going",
     "entries": [
       {
-        "role": "Senior Full-Stack+AI Engineer @ Aircall",
-        "company": "AdvanceWorks",
+        "role": "Software Engineer",
+        "company": "AdvanceWorks (client: Aircall)",
         "period": "Sep 2025 -- On Going",
         "location": "Lisbon, Portugal",
         "description": [
-          "Architecting and building a new generative AI support assistant from scratch, leveraging Python (FastAPI), LangChain, OpenAI, and Pinecone to create an advanced RAG pipeline integrated with Zendesk.",
-          "Spearheading the end-to-end development of a new self-service support portal, projected to significantly reduce manual ticket volume and decrease customer resolution time.",
-          "Developing and maintaining the full-stack application, including the React/Next.js frontend and Python/FastAPI microservices backend utilizing PostgreSQL and Redis.",
-          "Owning and automating all cloud infrastructure on AWS using Terraform (IaC), with Docker for containerization and GitLab for CI/CD.",
-          "Engineered secure and observable systems by implementing AWS Cognito (JWT/Cookies) for authentication and integrating DataDog for comprehensive application monitoring.",
-          "In this role, I am learning prompt engineering in order to take advantage of the most recent AI tools to improve my productivity and efficiency."
+          "Built and maintain a generative AI-powered support system that helps answer customer questions.",
+          "Built the self-service portal end to end, with a React/Next.js frontend and Python/FastAPI microservices.",
+          "Own the AWS cloud infrastructure behind these systems: Terraform (IaC), Docker and GitLab CI/CD.",
+          "Implemented authentication and application monitoring for the platform."
         ],
-        "technologies": ["Python", "FastAPI", "LangChain", "OpenAI", "Pinecone", "React", "Next.js", "PostgreSQL", "Redis", "AWS", "Terraform", "Docker", "GitLab CI/CD", "AWS Cognito", "DataDog"]
+        "technologies": ["Python", "FastAPI", "React", "Next.js", "PostgreSQL", "Redis", "AWS", "Terraform", "Docker", "GitLab CI/CD", "DataDog"]
       },
       {
         "role": "Python Developer",
         "company": "EngineAI",
-        "period": "Sep 2021 -- Jun 2025",
+        "period": "Sep 2021 -- Aug 2025",
         "location": "Lisbon, Portugal",
         "description": [
-          "Develop and maintain the company's SDK using Python. It was used also Pandas for data processing and Pytest for unit tests.",
-          "Helped build GithubActions CI/CD pipelines for Python's repo.",
-          "Joined dashboard team to help building dashboards, using SQL (snowflake), pandas and the company's SDK.",
-          "Optimize data workflows between Python services and cloud databases (Snowflake).",
-          "Helped build the company's interactive testing suite with Playwright, both Python and JavaScript. Also created loading tests using Grafana K6",
-          "Worked on an enterprise LLM agents project, where I was responsible for linking the AI result with the Web stack",
-          "Continuously learning modern tech stacks to support cross-functional projects"
+          "Developed and maintained the company's Python SDK, using pandas for data processing and Pytest for unit testing.",
+          "Built the interactive test suite in Playwright (Python and JavaScript) and load tests in Grafana K6.",
+          "Optimized data flows between Python services and Snowflake.",
+          "Built CI/CD pipelines in GitHub Actions and contributed to the data team's dashboards (SQL/Snowflake)."
         ],
         "technologies": ["Python", "Pandas", "Pytest", "GitHub Actions", "SQL", "Snowflake", "Playwright", "JavaScript", "Grafana K6"]
       },
@@ -91,10 +86,7 @@
         "period": "Apr 2018 -- Jul 2018",
         "location": "Lisbon, Portugal",
         "description": [
-          "Developed a Proof of Concept (PoC) for a system that automatically generates test cases from software requirements.",
-          "Built a functional web application (full-stack) covering core objectives, demonstrating end-to-end viability.",
-          "Key Technologies: Node.js (backend), IBM Watson (AI-powered features), and Cloud Computing for deployment.",
-          "Gained hands-on full-stack development experience, focusing on scalability and automation."
+          "Built a proof of concept for automatic test-case generation from software requirements, as a full-stack application in Node.js with IBM Watson, deployed to the cloud."
         ],
         "technologies": ["Node.js", "IBM Watson", "Cloud Computing"]
       }
@@ -129,18 +121,18 @@
     }
   },
   "resume": {
-    "metaTitle": "Résumé — Pedro Feiteira",
-    "metaDescription": "Interactive résumé of Pedro Feiteira — Senior Full-Stack + AI Engineer. View online or download as a PDF.",
+    "metaTitle": "Résumé · Pedro Feiteira",
+    "metaDescription": "Résumé of Pedro Feiteira, software engineer in Portugal. View online or download as a PDF.",
     "title": "Résumé",
-    "role": "Senior Full-Stack + AI Engineer",
+    "role": "Software Engineer",
     "summaryTitle": "Profile",
-    "summary": "Senior engineer who turns ideas into shipped products. I architect AI systems — RAG pipelines and LLM agents — and build full-stack applications end-to-end, from the React/Next.js frontend to the Python/FastAPI backend and the cloud infrastructure beneath. The stack is irrelevant; the outcome is what matters.",
+    "summary": "Backend-leaning full-stack engineer with 5 years of experience shipping production systems: Python/FastAPI on the server, React/Next.js on the client, AWS infrastructure with Terraform. Currently building and maintaining a generative AI-powered support system at AdvanceWorks.",
     "download": "Download PDF",
     "downloadHint": "Opens your browser's print dialog — choose \"Save as PDF\".",
     "print": "Print",
     "backToHome": "Back to home",
     "updated": "Updated",
-    "updatedDate": "June 2026",
+    "updatedDate": "August 2026",
     "sections": {
       "experience": "Experience",
       "techStack": "Tech Stack",
@@ -154,13 +146,16 @@
       "linkedin": "LinkedIn",
       "github": "GitHub"
     },
-    "location": "Costa de Caparica, Portugal",
+    "location": "Costa da Caparica, Portugal",
     "skillGroups": [
-      { "label": "Core Languages", "items": ["Python", "TypeScript", "JavaScript", "SQL"] },
-      { "label": "AI & Data", "items": ["LangChain", "OpenAI", "Pinecone", "RAG", "Pandas", "Snowflake"] },
-      { "label": "Web & Frameworks", "items": ["React", "Next.js", "FastAPI", "Node.js"] },
-      { "label": "Cloud & DevOps", "items": ["AWS", "Terraform", "Docker", "GitLab CI/CD", "GitHub Actions"] },
-      { "label": "Testing & Monitoring", "items": ["Pytest", "Playwright", "Grafana K6", "DataDog"] }
+      { "label": "Languages", "items": ["Python", "JavaScript", "SQL"] },
+      { "label": "Backend", "items": ["FastAPI", "Node.js", "Microservices", "REST APIs"] },
+      { "label": "Frontend", "items": ["React", "Next.js"] },
+      { "label": "AI & Supporting Tools", "items": ["LangChain", "Pinecone", "Amazon Bedrock", "Claude Code", "Cursor"] },
+      { "label": "Data", "items": ["PostgreSQL", "Redis", "Snowflake", "pandas"] },
+      { "label": "Cloud & DevOps", "items": ["AWS", "Terraform", "Infrastructure as Code", "Docker", "GitLab CI/CD", "GitHub Actions"] },
+      { "label": "Quality & Observability", "items": ["Pytest", "Playwright", "Grafana K6", "DataDog"] },
+      { "label": "Architecture & Process", "items": ["Software Architecture", "Process Automation", "Systems Integration", "Zendesk"] }
     ],
     "education": [
       {
@@ -173,29 +168,29 @@
     ],
     "languagesList": [
       { "name": "Portuguese", "level": "Native", "value": 100 },
-      { "name": "English", "level": "Professional (C1)", "value": 85 }
+      { "name": "English", "level": "Professional", "value": 85 }
     ]
   },
   "services": {
     "title": "What I Build",
-    "subtitle": "The tech stack is not the limit. The only question is: what should we build for you?",
-    "cta": "Get in touch",
+    "subtitle": "Tell me the business problem. I will tell you what gets built, what it costs, and when it is done.",
+    "cta": "Talk about your project",
     "items": [
       {
-        "title": "AI-Powered Products",
-        "description": "Your idea becomes an intelligent product. LLM agents, RAG systems, AI-powered apps — I handle architecture, integration, and deployment end-to-end."
+        "title": "Process Automation",
+        "description": "The manual work that eats your team's week, handled by a workflow. I connect the systems you already use and take the repeated tasks out of the way."
       },
       {
-        "title": "Full-Stack Web Apps",
-        "description": "A production-ready web application, from scratch. Modern stack, clean code, great UX — shipped on schedule."
+        "title": "Websites and Web Apps",
+        "description": "A website or web application built to fit the business, from design to live product. Fast to load, findable on Google, simple to maintain."
       },
       {
-        "title": "Workflow Automation",
-        "description": "The manual work slowing your team down, eliminated. Custom AI pipelines built around your specific processes."
+        "title": "Systems Integration",
+        "description": "Your invoicing, CRM, online store and spreadsheets talking to each other. An integration written to fit, instead of copying data across by hand."
       },
       {
-        "title": "Rapid Prototyping",
-        "description": "A working version of your idea in days. Validate the concept before committing — test the market, not the budget."
+        "title": "Prototype in Days",
+        "description": "A working version of the idea, to validate with real customers before investing in the full product."
       }
     ]
   },
@@ -205,7 +200,8 @@
   },
   "showcase": {
     "title": "Showcase",
-    "description": "These fictional brands were designed and developed to demonstrate AI-assisted UI/UX capabilities across different niches.",
+    "description": "Concepts by sector. Each one shows how a site looks when it is built for that kind of business.",
+    "disclosure": "Fictional brands, made for demonstration. They are not real clients.",
     "viewProject": "View Project",
     "vertex-studio": {
       "title": "Studio Vértex",
@@ -236,6 +232,12 @@
     "title": "Contact Me",
     "sendMessage": "Send a Message",
     "getInTouch": "Get in touch",
+    "trustTitle": "How I work",
+    "trust": [
+      "I reply within 24 working hours.",
+      "A written proposal with scope and deadline before anything starts.",
+      "Registered self-employed in Portugal. I issue proper invoices."
+    ],
     "form": {
       "namePlaceholder": "Your name",
       "emailPlaceholder": "Your email",
@@ -264,6 +266,28 @@
       "sending": "Sending your message...",
       "sent": "Message sent successfully!",
       "failed": "Failed to send message. Please try again."
+    }
+  },
+  "pageMeta": {
+    "about": {
+      "title": "About me · Pedro Feiteira",
+      "description": "Software engineer in Portugal. How I work, what I build, and who I build it for."
+    },
+    "skills": {
+      "title": "Skills · Pedro Feiteira",
+      "description": "The technologies I work with: Python and FastAPI on the server, React and Next.js on the client, AWS and Terraform for infrastructure."
+    },
+    "services": {
+      "title": "Services · Pedro Feiteira",
+      "description": "Process automation, websites and web applications, systems integration and prototypes, for small and medium businesses in Portugal."
+    },
+    "showcase": {
+      "title": "Showcase · Pedro Feiteira",
+      "description": "Concepts by sector. Each one shows how a site looks when it is built for that kind of business."
+    },
+    "contact": {
+      "title": "Contact · Pedro Feiteira",
+      "description": "Tell me about your project. I reply within 24 working hours."
     }
   },
   "footer": {
