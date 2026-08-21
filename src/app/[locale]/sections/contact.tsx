@@ -275,9 +275,11 @@ function ContactInfo() {
       <div className="pt-4">
         <h3 className="text-lg font-semibold mb-2">{t("trustTitle")}</h3>
         <ul className="text-sm text-muted-foreground space-y-1">
-          {t.raw("trust").map((line: string) => (
-            <li key={line}>{line}</li>
-          ))}
+          {(Array.isArray(t.raw("trust")) ? (t.raw("trust") as string[]) : []).map(
+            (line) => (
+              <li key={line}>{line}</li>
+            ),
+          )}
         </ul>
       </div>
     </div>

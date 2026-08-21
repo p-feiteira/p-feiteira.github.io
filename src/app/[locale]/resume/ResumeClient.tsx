@@ -19,7 +19,7 @@ import {
 import Header from "../sections/header"
 import Footer from "../sections/footer"
 import { Button } from "@/components/ui/button"
-import { IDENTITY, SITE_URL } from "../../../lib/constants"
+import { IDENTITY, SITE_HOST, SITE_URL } from "../../../lib/constants"
 
 /* -------------------------------------------------------------------------- */
 /*  Types                                                                     */
@@ -51,7 +51,7 @@ type LanguageEntry = { name: string; level: string; value: number }
 const CONTACT = {
   email: IDENTITY.email,
   website: `${SITE_URL}/`,
-  websiteLabel: SITE_URL.replace("https://", ""),
+  websiteLabel: SITE_HOST,
   linkedin: IDENTITY.linkedin,
   linkedinLabel: `in/${IDENTITY.linkedinUser}`,
   github: IDENTITY.github,

@@ -18,6 +18,7 @@
     "greeting": "Olá! Sou o Pedro Feiteira",
     "role": "Software à medida para o seu negócio.",
     "tagline": "Ouço o problema, construo a solução — um workflow automatizado, um site ou uma aplicação. Sozinho, ou com uma equipa que eu reúno para o projeto.",
+    "ticker": ["Automação", "Sites", "Aplicações Web", "Integrações", "Protótipos", "Python", "React", "AWS"],
     "contactButton": "Marcar uma chamada de 20 minutos",
     "resumeButton": "Ver Currículo",
     "profileAlt": "Pedro Feiteira, engenheiro de software",

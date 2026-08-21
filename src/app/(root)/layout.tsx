@@ -11,10 +11,11 @@ export const metadata: Metadata = {
   description:
     "Engenheiro de software em Portugal. Workflows automatizados, sites e aplicações à medida para pequenas e médias empresas.",
   metadataBase: new URL(SITE_URL),
+  // The canonical hands "/" to /pt/ so the two do not compete. Deliberately no
+  // `robots: noindex` next to it: a noindex page that canonicalises elsewhere
+  // is a contradiction, and the noindex can carry across to the target, which
+  // would drop /pt/ itself.
   alternates: { canonical: "/pt/" },
-  // The redirect makes this page a doorway, not a destination: the canonical
-  // above hands the ranking to /pt/, and this keeps it out of the index.
-  robots: { index: false, follow: true },
 };
 
 export const viewport: Viewport = {

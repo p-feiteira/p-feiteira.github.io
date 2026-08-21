@@ -94,14 +94,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: t.description,
       url: `${SITE_URL}${canonicalPath}`,
       siteName: "Pedro Feiteira Portfolio",
-      images: [
-        {
-          url: "/profile.jpeg",
-          width: 1200,
-          height: 630,
-          alt: "Pedro Feiteira",
-        },
-      ],
+      // No width/height: profile.jpeg is square (2998x2998), and declaring a
+      // 1.91:1 box around it makes scrapers hard-crop the face.
+      images: [{ url: "/profile.jpeg", alt: "Pedro Feiteira" }],
       locale: t.ogLocale,
       type: "website",
     },
@@ -123,6 +118,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         "max-snippet": -1,
       },
     },
+    manifest: "/manifest.json",
     icons: {
       icon: "/favicon.ico",
       apple: "/favicon.ico",

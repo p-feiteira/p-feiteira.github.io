@@ -21,8 +21,9 @@ for (const locale of LOCALES) {
     for (const slug of SLUGS) {
       test(`Showcase page /${locale}/showcase/${slug} loads`, async ({ page }) => {
         await page.goto(`/${locale}/showcase/${slug}`);
-        const backButton = page.locator('a[href*="#showcase"]');
+        const backButton = page.getByRole('link', { name: locale === 'pt' ? 'Voltar' : 'Go Back' });
         await expect(backButton).toBeVisible();
+        await expect(backButton).toHaveAttribute('href', `/${locale}/showcase/`);
       });
     }
   });

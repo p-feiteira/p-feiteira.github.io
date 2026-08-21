@@ -5,27 +5,19 @@ import { useTranslations, useLocale } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { motion, Variants } from "framer-motion"
 
-// What the work actually is, in the client's words. "LLM Agents" and "RAG
-// Systems" used to be here: neither is work I did alone, so neither belongs
-// on a page that sells my own services. Duplicated so the ticker loops
-// seamlessly.
-const TICKER_WORDS = [
-  "Automação",
-  "Sites",
-  "Aplicações Web",
-  "Integrações",
-  "Protótipos",
-  "Python",
-  "React",
-  "AWS",
-]
-
-const TICKER_ITEMS = [...TICKER_WORDS, ...TICKER_WORDS]
+// The ticker words are content, so they live in the message files. "LLM
+// Agents" and "RAG Systems" used to sit here: neither is work done alone, so
+// neither belongs on a page selling my own services.
 
 const GRAIN_SVG = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`
 
 export default function Hero() {
   const t = useTranslations("hero")
+  const words = t.raw("ticker")
+  // Duplicated so the marquee loops without a visible seam.
+  const tickerItems = Array.isArray(words)
+    ? [...(words as string[]), ...(words as string[])]
+    : []
 
   return (
     <div className="flex flex-col min-h-[100dvh]">
@@ -79,7 +71,7 @@ export default function Hero() {
         className="w-full border-t border-border/30 overflow-hidden py-3"
       >
         <div className="animate-ticker flex gap-10 whitespace-nowrap w-max">
-          {TICKER_ITEMS.map((item, i) => (
+          {tickerItems.map((item, i) => (
             <span
               key={i}
               className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.18em] text-muted-foreground/60 select-none"

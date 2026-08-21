@@ -1,7 +1,8 @@
-import { SHOWCASES, ShowcaseSlug } from "../../../../lib/data/showcases";
+import { SHOWCASES } from "../../../../lib/data/showcases";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { routeMetadata } from "../../pageMeta";
 
 import VertexStudio from "../../sections/showcases/vertex-studio";
 import MeridianGoods from "../../sections/showcases/meridian-goods";
@@ -10,9 +11,11 @@ import LinhaVivaObras from "../../sections/showcases/linha-viva-obras";
 import RoamBean from "../../sections/showcases/roam-bean";
 import SerenoSpa from "../../sections/showcases/sereno-spa";
 
+// Derived, not hand-listed: src/app/sitemap.ts publishes a URL for every
+// entry in SHOWCASES, so a hardcoded list here would advertise 404s the
+// moment the two drift.
 export function generateStaticParams() {
-  const slugs: ShowcaseSlug[] = ['vertex-studio', 'meridian-goods', 'linha-viva-listings', 'linha-viva-obras', 'roam-bean', 'sereno-spa'];
-  return slugs.map((slug) => ({ slug }));
+  return SHOWCASES.map((showcase) => ({ slug: showcase.slug }));
 }
 
 export async function generateMetadata({
@@ -22,20 +25,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug, locale } = await params;
   const t = await getTranslations({ locale, namespace: "showcase" });
-  const path = `/showcase/${slug}/`;
-
-  return {
+  return routeMetadata({
+    locale,
+    path: `/showcase/${slug}/`,
     title: `${t(`${slug}.title`)} · ${t("title")}`,
     description: `${t(`${slug}.description`)}. ${t("disclosure")}`,
-    alternates: {
-      canonical: `/${locale}${path}`,
-      languages: {
-        en: `/en${path}`,
-        pt: `/pt${path}`,
-        "x-default": `/pt${path}`,
-      },
-    },
-  };
+  });
 }
 
 export default async function ShowcasePage({ params }: { params: Promise<{ slug: string, locale: string }> }) {

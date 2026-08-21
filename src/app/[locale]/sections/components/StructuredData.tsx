@@ -39,6 +39,7 @@ export default function StructuredData({ locale }: StructuredDataProps) {
       addressCountry: "PT",
       addressLocality: "Costa da Caparica",
     },
+    inLanguage: locale,
     knowsAbout: [
       "Python",
       "FastAPI",
@@ -67,12 +68,14 @@ export default function StructuredData({ locale }: StructuredDataProps) {
     areaServed: { "@type": "Country", name: "Portugal" },
     address: person.address,
     availableLanguage: ["pt", "en"],
+    inLanguage: locale,
   };
 
+  // inLanguage belongs on each node. As a sibling of @graph it lands on an
+  // untyped default-graph node and no consumer sees it.
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [person, service],
-    inLanguage: locale,
   };
 
   return (

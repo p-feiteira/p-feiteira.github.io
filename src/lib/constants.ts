@@ -8,8 +8,15 @@
 // old x.com/feiteira_dev is dead and must not ship on a live page. Add it back
 // here, and it reappears everywhere at once.
 
-export const SITE_URL =
+// Normalised: every consumer treats this as a bare prefix (`${SITE_URL}/pt/`),
+// so an env override ending in "/" would emit doubled slashes across the whole
+// sitemap and every canonical.
+export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL || "https://feiteiradev.github.io"
+).replace(/\/+$/, "")
+
+/** Host only, for display. Survives an http:// override, unlike slicing "https://". */
+export const SITE_HOST = SITE_URL.replace(/^https?:\/\//, "")
 
 export const IDENTITY = {
   name: "Pedro Feiteira",

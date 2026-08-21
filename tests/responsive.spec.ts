@@ -56,7 +56,8 @@ test.describe('Header responsiveness', () => {
     await page.waitForLoadState('networkidle');
 
     await expect(page.locator('a[aria-label="Pedro Feiteira — home"]:visible')).toHaveCount(1);
-    await expect(page.locator('a[href="/en/#showcase"]:visible')).toHaveCount(0);
+    // The floating back button belongs to detail pages only, never the listing.
+    await expect(page.getByRole('link', { name: 'Go Back' })).toHaveCount(0);
   });
 });
 
@@ -65,10 +66,11 @@ test.describe('Showcase detail navigation', () => {
     await page.goto('/en/showcase/roam-bean');
     await page.waitForLoadState('networkidle');
 
-    const backButton = page.locator('a[href="/en/#showcase"]');
+    const backButton = page.getByRole('link', { name: 'Go Back' });
 
     await expect(backButton).toBeVisible();
     await expect(backButton).toHaveCount(1);
+    await expect(backButton).toHaveAttribute('href', '/en/showcase/');
 
     const backButtonBox = await backButton.boundingBox();
     expect(backButtonBox).not.toBeNull();
