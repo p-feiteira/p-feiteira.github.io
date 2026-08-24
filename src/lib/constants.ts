@@ -4,9 +4,6 @@
 // contact, ResumeClient) and each rename left some of them behind, pointing
 // at handles that now 404. One object, one place to change.
 //
-// The X handle is deliberately absent: [CONFIRMAR: handle final do X]. The
-// old x.com/feiteira_dev is dead and must not ship on a live page. Add it back
-// here, and it reappears everywhere at once.
 
 // Normalised: every consumer treats this as a bare prefix (`${SITE_URL}/pt/`),
 // so an env override ending in "/" would emit doubled slashes across the whole
@@ -29,14 +26,18 @@ export const IDENTITY = {
   githubLabel: "github.com/feiteiradev",
   linkedin: "https://www.linkedin.com/in/feiteiradev/",
   linkedinLabel: "linkedin.com/in/feiteiradev",
-  // [CONFIRMAR: número de telefone público?] Not rendered until it exists.
-  phone: "",
+  x: "https://x.com/feiteiradev",
+  xLabel: "x.com/feiteiradev",
+  xUser: "feiteiradev",
+  // Deliberately no phone: Pedro's call, 24 Aug 2026. Email, LinkedIn and the
+  // contact form are the routes in.
 } as const
 
 /** Icon links, in display order. `icon` names a file in /public/icons. */
 export const SOCIAL_LINKS = [
   { icon: "linkedin", href: IDENTITY.linkedin, label: IDENTITY.linkedinLabel },
   { icon: "github", href: IDENTITY.github, label: IDENTITY.githubLabel },
+  { icon: "x", href: IDENTITY.x, label: IDENTITY.xLabel },
 ] as const
 
 // Contact form constants

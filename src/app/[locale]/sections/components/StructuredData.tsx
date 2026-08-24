@@ -32,7 +32,7 @@ export default function StructuredData({ locale }: StructuredDataProps) {
     name: IDENTITY.name,
     jobTitle: t.jobTitle,
     url: localeUrl,
-    sameAs: [IDENTITY.github, IDENTITY.linkedin],
+    sameAs: [IDENTITY.github, IDENTITY.linkedin, IDENTITY.x],
     email: IDENTITY.email,
     address: {
       "@type": "PostalAddress",

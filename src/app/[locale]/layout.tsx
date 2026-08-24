@@ -105,7 +105,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t.title,
       description: t.description,
       images: ["/profile.jpeg"],
-      // [CONFIRMAR: handle final do X] before restoring `creator`.
+      creator: `@${IDENTITY.xUser}`,
     },
     robots: {
       index: true,
