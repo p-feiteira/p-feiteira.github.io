@@ -5,6 +5,7 @@
     "services": "Serviços",
     "skills": "Competências",
     "showcase": "Trabalhos",
+    "cases": "Casos",
     "resume": "Currículo",
     "contact": "Contacto",
     "toggleTheme": "Alternar tema",
@@ -122,8 +123,6 @@
     }
   },
   "resume": {
-    "metaTitle": "Currículo · Pedro Feiteira",
-    "metaDescription": "Currículo de Pedro Feiteira, engenheiro de software em Portugal. Veja online ou descarregue em PDF.",
     "title": "Currículo",
     "role": "Engenheiro de Software · disponível para projetos independentes",
     "summaryTitle": "Perfil",
@@ -149,7 +148,7 @@
     },
     "location": "Costa da Caparica, Portugal",
     "skillGroups": [
-      { "label": "Linguagens", "items": ["Python", "JavaScript", "SQL"] },
+      { "label": "Linguagens", "items": ["Python", "TypeScript", "JavaScript", "SQL"] },
       { "label": "Backend", "items": ["FastAPI", "Node.js", "Microsserviços", "APIs REST"] },
       { "label": "Frontend", "items": ["React", "Next.js"] },
       { "label": "IA & Ferramentas de Apoio", "items": ["LangChain", "Pinecone", "Amazon Bedrock", "Claude Code", "Cursor"] },
@@ -168,8 +167,8 @@
       }
     ],
     "languagesList": [
-      { "name": "Português", "level": "Nativo", "value": 100 },
-      { "name": "Inglês", "level": "Profissional", "value": 85 }
+      { "name": "Português", "level": "Nativo" },
+      { "name": "Inglês", "level": "Profissional" }
     ]
   },
   "services": {
@@ -229,6 +228,28 @@
       "description": "Massagens & marcação"
     }
   },
+  "cases": {
+    "title": "Casos",
+    "description": "Trabalho real, com o cliente nomeado. Ao contrário dos conceitos em Trabalhos, estes são projetos que estão ou estiveram em produção.",
+    "labels": { "situation": "Situação", "work": "O que fiz" },
+    "items": [
+      {
+        "client": "Aircall, via AdvanceWorks",
+        "period": "Set 2025 – atual",
+        "situation": "A Aircall precisava de responder a perguntas frequentes de clientes sem sobrecarregar a equipa de suporte.",
+        "work": "Construí e mantenho um sistema de suporte com IA generativa que ajuda a responder a perguntas de clientes, com um portal de self-service em React/Next.js e microsserviços em Python/FastAPI, mais a infraestrutura AWS que o sustenta.",
+        "stack": ["Python", "FastAPI", "React", "Next.js", "PostgreSQL", "AWS", "Terraform", "Docker", "GitLab CI/CD"]
+      },
+      {
+        "client": "EngineAI",
+        "period": "Set 2021 – Ago 2025",
+        "situation": "A equipa de dados e os clientes precisavam de aceder à plataforma pela mesma base de código, sem cada lado construir a sua.",
+        "work": "Desenvolvi e mantive o SDK Python da empresa, construí a suite de testes interativos em Playwright e os testes de carga em Grafana K6, e otimizei os fluxos de dados entre os serviços Python e o Snowflake.",
+        "stack": ["Python", "pandas", "Pytest", "Playwright", "Grafana K6", "Snowflake", "GitHub Actions"]
+      }
+    ],
+    "resultsNote": "Números concretos e referências: falo sobre isso numa chamada, com o detalhe que cada cliente autoriza."
+  },
   "contact": {
     "title": "Contacte-me",
     "sendMessage": "Enviar Mensagem",
@@ -270,6 +291,14 @@
     }
   },
   "pageMeta": {
+    "cases": {
+      "title": "Casos · Pedro Feiteira",
+      "description": "Trabalho real para a Aircall e a EngineAI: o que era preciso, o que construí e com que stack."
+    },
+    "resume": {
+      "title": "Currículo · Pedro Feiteira",
+      "description": "Currículo de Pedro Feiteira, engenheiro de software em Portugal. Veja online ou descarregue em PDF."
+    },
     "about": {
       "title": "Sobre mim · Pedro Feiteira",
       "description": "Engenheiro de software em Portugal. Como trabalho, o que construo e para quem."

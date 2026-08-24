@@ -2,37 +2,56 @@ import type { MetadataRoute } from "next"
 import { locales } from "@i18n/config"
 import { SHOWCASES } from "../lib/data/showcases"
 import { SITE_URL } from "../lib/constants"
+import { ROUTE_KEYS, routePath, routeSlug } from "../lib/routes"
 
 // output: "export" needs this stated explicitly for metadata routes.
 export const dynamic = "force-static"
 
 // The sitemap used to be a hand-written public/sitemap.xml listing three of
 // the twenty-six routes, on a domain that no longer resolves. Generated from
-// the same route list the app builds from, it cannot go stale again.
+// the same slug map the pages are built from, it cannot go stale again: add a
+// route to ROUTE_SLUGS and it appears here and in the build together.
 //
-// No lastmod: build time is not modification time, and stamping all 26 URLs
-// with "now" on every deploy teaches crawlers to ignore the field entirely.
-// PAGES is still hand-kept, so a new route needs a line here as well.
-const PAGES = ["", "about", "skills", "services", "showcase", "contact", "resume"]
+// No lastmod: build time is not modification time, and stamping every URL with
+// "now" on each deploy teaches crawlers to ignore the field entirely.
 
-/** Every route in both locales, each pointing at its own translations. */
+/** Each locale's URL for one page, keyed by locale, for the hreflang block. */
+function alternates(pathFor: (locale: string) => string) {
+  return {
+    languages: Object.fromEntries(
+      locales.map((locale) => [locale, `${SITE_URL}${pathFor(locale)}`]),
+    ),
+  }
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = [
-    ...PAGES.map((p) => (p ? `${p}/` : "")),
-    ...SHOWCASES.map((s) => `showcase/${s.slug}/`),
-  ]
+  const home: MetadataRoute.Sitemap = locales.map((locale) => ({
+    url: `${SITE_URL}/${locale}/`,
+    changeFrequency: "monthly" as const,
+    priority: 1,
+    alternates: alternates((l) => `/${l}/`),
+  }))
 
-  return paths.flatMap((path) =>
+  const pages: MetadataRoute.Sitemap = ROUTE_KEYS.flatMap((key) =>
     locales.map((locale) => ({
-      url: `${SITE_URL}/${locale}/${path}`,
+      url: `${SITE_URL}${routePath(key, locale)}`,
       changeFrequency: "monthly" as const,
-      // The homepage outranks its own subpages; showcase details sit lowest.
-      priority: path === "" ? 1 : path.startsWith("showcase/") ? 0.5 : 0.8,
-      alternates: {
-        languages: Object.fromEntries(
-          locales.map((l) => [l, `${SITE_URL}/${l}/${path}`]),
-        ),
-      },
+      priority: 0.8,
+      alternates: alternates((l) => routePath(key, l)),
     })),
   )
+
+  const demos: MetadataRoute.Sitemap = SHOWCASES.flatMap((showcase) =>
+    locales.map((locale) => ({
+      url: `${SITE_URL}${routePath("showcase", locale)}${showcase.slug}/`,
+      changeFrequency: "monthly" as const,
+      // Concept demos sit below the pages that sell the actual service.
+      priority: 0.5,
+      alternates: alternates(
+        (l) => `/${l}/${routeSlug("showcase", l)}/${showcase.slug}/`,
+      ),
+    })),
+  )
+
+  return [...home, ...pages, ...demos]
 }

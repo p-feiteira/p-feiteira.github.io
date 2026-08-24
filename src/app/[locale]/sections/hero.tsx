@@ -4,6 +4,7 @@ import Link from "next/link"
 import { useTranslations, useLocale } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { motion, Variants } from "framer-motion"
+import { routePath } from "../../../lib/routes"
 
 // The ticker words are content, so they live in the message files. "LLM
 // Agents" and "RAG Systems" used to sit here: neither is work done alone, so
@@ -233,7 +234,7 @@ function ResumeButton() {
 
   return (
     <Link
-      href={`/${locale}/resume`}
+      href={routePath("resume", locale)}
       className="w-full sm:w-auto focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-md"
       aria-label={t("resumeAriaLabel")}
     >

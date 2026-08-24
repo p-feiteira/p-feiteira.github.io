@@ -122,3 +122,30 @@ test.describe('Home page core sections', () => {
     await expect(page.locator('footer')).toBeVisible();
   });
 });
+
+test.describe('Localised routes', () => {
+  // Slugs differ per locale (/pt/servicos/ vs /en/services/), so switching
+  // language has to translate the slug, not just swap the /pt/ prefix. Getting
+  // that wrong lands the visitor on /en/servicos/, which is not built.
+  test('language switcher translates the slug, not just the prefix', async ({ page }, testInfo) => {
+    await page.goto('/pt/servicos/');
+    await page.waitForLoadState('networkidle');
+
+    // Below the lg breakpoint the switcher only exists inside the burger menu.
+    if (MOBILE_NAV_PROJECTS.has(testInfo.project.name)) {
+      await page.locator('button[aria-controls="mobile-navigation"]').click();
+      await expect(page.locator('#mobile-navigation')).toBeVisible();
+    }
+
+    await page.getByRole('button', { name: 'Mudar idioma' }).first().click();
+    await page.getByRole('menuitem', { name: /English/i }).click();
+
+    await expect(page).toHaveURL(/\/en\/services\/?$/);
+    await expect(page.locator('#services')).toBeVisible();
+  });
+
+  test('a slug from the wrong locale is not served', async ({ page }) => {
+    const response = await page.goto('/en/servicos/');
+    expect(response?.status(), '/en/servicos/ must not exist').toBe(404);
+  });
+});

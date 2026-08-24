@@ -5,6 +5,7 @@
     "services": "Services",
     "skills": "Skills",
     "showcase": "Showcase",
+    "cases": "Case Studies",
     "resume": "Résumé",
     "contact": "Contact",
     "toggleTheme": "Toggle theme",
@@ -122,8 +123,6 @@
     }
   },
   "resume": {
-    "metaTitle": "Résumé · Pedro Feiteira",
-    "metaDescription": "Résumé of Pedro Feiteira, software engineer in Portugal. View online or download as a PDF.",
     "title": "Résumé",
     "role": "Software Engineer · available for independent projects",
     "summaryTitle": "Profile",
@@ -149,7 +148,7 @@
     },
     "location": "Costa da Caparica, Portugal",
     "skillGroups": [
-      { "label": "Languages", "items": ["Python", "JavaScript", "SQL"] },
+      { "label": "Languages", "items": ["Python", "TypeScript", "JavaScript", "SQL"] },
       { "label": "Backend", "items": ["FastAPI", "Node.js", "Microservices", "REST APIs"] },
       { "label": "Frontend", "items": ["React", "Next.js"] },
       { "label": "AI & Supporting Tools", "items": ["LangChain", "Pinecone", "Amazon Bedrock", "Claude Code", "Cursor"] },
@@ -168,8 +167,8 @@
       }
     ],
     "languagesList": [
-      { "name": "Portuguese", "level": "Native", "value": 100 },
-      { "name": "English", "level": "Professional", "value": 85 }
+      { "name": "Portuguese", "level": "Native" },
+      { "name": "English", "level": "Professional" }
     ]
   },
   "services": {
@@ -229,6 +228,28 @@
       "description": "Massage therapy & booking"
     }
   },
+  "cases": {
+    "title": "Case Studies",
+    "description": "Real client work, named. Unlike the concepts under Showcase, these are projects that are or have been in production.",
+    "labels": { "situation": "Situation", "work": "What I did" },
+    "items": [
+      {
+        "client": "Aircall, via AdvanceWorks",
+        "period": "Sep 2025 – present",
+        "situation": "Aircall needed to answer common customer questions without overloading the support team.",
+        "work": "I built and maintain a generative AI-powered support system that helps answer customer questions, with a self-service portal in React/Next.js and Python/FastAPI microservices, plus the AWS infrastructure behind it.",
+        "stack": ["Python", "FastAPI", "React", "Next.js", "PostgreSQL", "AWS", "Terraform", "Docker", "GitLab CI/CD"]
+      },
+      {
+        "client": "EngineAI",
+        "period": "Sep 2021 – Aug 2025",
+        "situation": "The data team and the customers both needed to reach the platform through one codebase, rather than each building their own.",
+        "work": "I developed and maintained the company's Python SDK, built the interactive test suite in Playwright and the load tests in Grafana K6, and optimised the data flows between the Python services and Snowflake.",
+        "stack": ["Python", "pandas", "Pytest", "Playwright", "Grafana K6", "Snowflake", "GitHub Actions"]
+      }
+    ],
+    "resultsNote": "Concrete numbers and references: I go through those on a call, in whatever detail each client allows."
+  },
   "contact": {
     "title": "Contact Me",
     "sendMessage": "Send a Message",
@@ -270,6 +291,14 @@
     }
   },
   "pageMeta": {
+    "cases": {
+      "title": "Case Studies · Pedro Feiteira",
+      "description": "Real work for Aircall and EngineAI: what was needed, what I built, and the stack behind it."
+    },
+    "resume": {
+      "title": "Résumé · Pedro Feiteira",
+      "description": "Résumé of Pedro Feiteira, software engineer in Portugal. View online or download as a PDF."
+    },
     "about": {
       "title": "About me · Pedro Feiteira",
       "description": "Software engineer in Portugal. How I work, what I build, and who I build it for."

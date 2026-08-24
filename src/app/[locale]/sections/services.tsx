@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl"
 import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
+import { routePath } from "../../../lib/routes"
 
 export default function Services() {
   const t = useTranslations("services")
@@ -20,7 +21,7 @@ export default function Services() {
       return
     }
 
-    router.push(`/${locale}/contact`)
+    router.push(routePath("contact", locale))
   }, [locale, router])
 
   return (

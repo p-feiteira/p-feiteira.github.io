@@ -4,6 +4,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import ReactCountryFlag from 'react-country-flag';
 import { locales, localeNames, localeFlags, type Locale } from '@i18n/config';
+import { routeKeyFromSlug, routeSlug } from '../../../../lib/routes';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,19 +23,24 @@ export default function LanguageSwitcher() {
   const switchLocale = (newLocale: Locale) => {
     if (newLocale === locale) return;
 
-    // Remove current locale prefix from pathname
-    let newPath = pathname;
-
-    // If current path starts with a locale prefix, remove it
+    // Strip the current locale prefix.
+    let rest = pathname;
     for (const loc of locales) {
-      if (pathname.startsWith(`/${loc}/`) || pathname === `/${loc}`) {
-        newPath = pathname.replace(`/${loc}`, '') || '/';
+      if (pathname === `/${loc}` || pathname.startsWith(`/${loc}/`)) {
+        rest = pathname.slice(`/${loc}`.length);
         break;
       }
     }
 
-    // Always add locale prefix (localePrefix: 'always' in middleware)
-    router.push(`/${newLocale}${newPath}`);
+    // Translate the page slug too, not just the prefix. Slugs are localised,
+    // so swapping only the prefix on /pt/servicos/ would send the visitor to
+    // /en/servicos/, which does not exist.
+    const [, first = '', ...tail] = rest.split('/');
+    const key = first ? routeKeyFromSlug(first, locale) : null;
+    const translated = key ? routeSlug(key, newLocale) : first;
+    const suffix = [translated, ...tail].filter(Boolean).join('/');
+
+    router.push(`/${newLocale}${suffix ? `/${suffix}` : ''}/`);
   };
 
   return (

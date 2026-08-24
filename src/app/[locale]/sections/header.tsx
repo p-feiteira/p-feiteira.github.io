@@ -18,8 +18,9 @@ import { Button } from "@/components/ui/button"
 
 import SocialMediaSection from "@/components/common/socialMedia"
 import LanguageSwitcher from "@/components/LanguageSwitcher"
+import { routePath, type RouteKey } from "../../../lib/routes"
 
-const PAGE_NAV_KEYS = ["about", "services", "skills", "showcase", "resume", "contact"] as const
+const PAGE_NAV_KEYS: RouteKey[] = ["about", "services", "skills", "showcase", "cases", "resume", "contact"]
 
 export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = React.useState(false)
@@ -121,7 +122,7 @@ function Navigation({ mobile = false }: { mobile?: boolean }) {
   const t = useTranslations("navigation")
   const locale = useLocale()
 
-  const navItems = PAGE_NAV_KEYS.map((key) => ({ title: t(key), href: `/${locale}/${key}`, key }))
+  const navItems = PAGE_NAV_KEYS.map((key) => ({ title: t(key), href: routePath(key, locale), key }))
 
   return (
     <nav aria-label={mobile ? t("mobileNav") : t("mainNav")}>

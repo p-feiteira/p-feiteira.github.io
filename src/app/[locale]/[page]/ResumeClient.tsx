@@ -42,7 +42,7 @@ type EducationEntry = {
   location: string
   detail: string
 }
-type LanguageEntry = { name: string; level: string; value: number }
+type LanguageEntry = { name: string; level: string }
 
 /* -------------------------------------------------------------------------- */
 /*  Contact details                                                           */
@@ -460,16 +460,6 @@ function LanguagesSection({ languages }: { languages: LanguageEntry[] }) {
                 <span className="font-mono text-[11px] uppercase tracking-wide text-muted-foreground">
                   {lang.level}
                 </span>
-              </div>
-              <div className="mt-1.5 h-1 w-full overflow-hidden rounded-full bg-muted">
-                <motion.div
-                  className="h-full rounded-full bg-foreground/70"
-                  style={{ width: `${lang.value}%`, transformOrigin: "left" }}
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                />
               </div>
             </div>
           ))}
