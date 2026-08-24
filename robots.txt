@@ -1,5 +1,4 @@
-User-agent: *
+User-Agent: *
 Allow: /
 
-Sitemap: https://feiteiradotdev.github.io/sitemap.xml
-
+Sitemap: https://feiteiradev.github.io/sitemap.xml

@@ -1,9 +1,6 @@
 1:"$Sreact.fragment"
-2:I[47257,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"ClientPageRoot"]
-3:I[63620,["/_next/static/chunks/0ntbp_mpy95qj.js"],"default"]
-6:I[97367,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
-7:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/_next/static/chunks/0ntbp_mpy95qj.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"BB_oKFhbHn3llCZYlrDe7"}
-4:{}
-5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
-8:null
+2:I[22016,["/_next/static/chunks/13h-0fd.p-1ga.js"],""]
+3:I[97367,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"style":{"fontFamily":"system-ui, sans-serif","padding":"3rem 1.5rem"},"children":[["$","h1",null,{"children":"Pedro Feiteira"}],["$","p",null,{"children":"Software à medida para pequenas e médias empresas."}],["$","p",null,{"children":[["$","$L2",null,{"href":"/pt/","children":"Continuar para o site"}]," · ",["$","$L2",null,{"href":"/en/","children":"English version"}]]}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/13h-0fd.p-1ga.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"0wj520KDoDBoYfnLmuwsW"}
+5:null

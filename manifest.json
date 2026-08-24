@@ -1,8 +1,8 @@
 {
-  "name": "Pedro Feiteira - Software Developer Portfolio",
+  "name": "Pedro Feiteira - Software à medida para PMEs",
   "short_name": "Pedro Feiteira",
-  "description": "Software Developer with a passion for building efficient and scalable applications",
-  "start_url": "/",
+  "description": "Engenheiro de software em Portugal. Automação de processos, sites e aplicações web à medida para pequenas e médias empresas.",
+  "start_url": "/pt/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
